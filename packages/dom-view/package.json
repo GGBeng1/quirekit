@@ -1,0 +1,34 @@
+{
+  "name": "@quirekit/dom-view",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/dom-view"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/dom-view#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Native ProseMirror DOM view adapter for lightweight QuireKit editors.",
+  "type": "module",
+  "sideEffects": false,
+  "files": ["LICENSE.md", "THIRD_PARTY_NOTICES.md", "dist", "src"],
+  "exports": {".": {"types": "./dist/index.d.mts", "import": "./dist/index.mjs"}},
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src",
+    "test:browser": "playwright test --config test-support/playwright.config.ts"
+  },
+  "dependencies": {
+    "@quirekit/core": "workspace:*",
+    "@quirekit/pm": "workspace:*",
+    "@quirekit/pm-view": "workspace:*"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.61.1",
+    "@quirekit/starter-kit": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vite": "^8.1.0",
+    "vitest": "catalog:"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@codemirror/lang-html",
+  "version": "6.4.12",
+  "commit": "de1fbd825c6f5b2a3d4c7a6bceba328b8e4ad036",
+  "repository": "https://code.haverbeke.berlin/codemirror/lang-html.git",
+  "integrity": "sha512-pw2ReWKUqSkbvh76RAT4NYxiogRu+PWkR2ukAwO9uOgrm8uipkzjtKKtNpyeAQwHOqxEeSvAXZ6vr3AfyB9y/w==",
+  "tarball": "https://registry.npmjs.org/@codemirror/lang-html/-/lang-html-6.4.12.tgz",
+  "license": "MIT",
+  "sourceDirectory": "src",
+  "sourceSha256": "a654d5d26e84579ae52962f81024664ac49465db37f16c56c94406280128cf73",
+  "licenseSha256": "05c6130cda97e7600ca91427a41e8a065efcf82365fc0293e7de80faec494c07",
+  "localChanges": [
+    "Package names, imports and build/test configuration use QuireKit workspace identities."
+  ],
+  "sourceEntry": "src/html.ts"
+}

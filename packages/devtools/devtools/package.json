@@ -1,0 +1,42 @@
+{
+  "name": "@quirekit/devtools",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/devtools/devtools"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/devtools/devtools#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Development diagnostics and performance panel for QuireKit editors.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/view": "workspace:*",
+    "@quirekit/view-html": "workspace:*",
+    "@quirekit/core": "workspace:*",
+    "lucide-static": "^1.21.0"
+  },
+  "devDependencies": {
+    "@quirekit/starter-kit": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

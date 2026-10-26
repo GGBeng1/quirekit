@@ -1,0 +1,1 @@
+export { bamboo } from './scene';

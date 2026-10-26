@@ -1,0 +1,78 @@
+{
+  "name": "@quirekit/layout",
+  "version": "0.1.0-alpha.0",
+  "license": "AGPL-3.0-only",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/layout"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/layout#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Internal API, no compatibility guarantee: consumer-neutral layout, pagination, table, text, and shaping foundation.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./block-flow": {
+      "types": "./dist/block-flow/index.d.mts",
+      "import": "./dist/block-flow/index.mjs"
+    },
+    "./identity": {
+      "types": "./dist/identity/index.d.mts",
+      "import": "./dist/identity/index.mjs"
+    },
+    "./child-flow": {
+      "types": "./dist/child-flow/index.d.mts",
+      "import": "./dist/child-flow/index.mjs"
+    },
+    "./products": {
+      "types": "./dist/products/index.d.mts",
+      "import": "./dist/products/index.mjs"
+    },
+    "./inline": {
+      "types": "./dist/inline/index.d.mts",
+      "import": "./dist/inline/index.mjs"
+    },
+    "./pagination": {
+      "types": "./dist/pagination/index.d.mts",
+      "import": "./dist/pagination/index.mjs"
+    },
+    "./text": {
+      "types": "./dist/text/index.d.mts",
+      "import": "./dist/text/index.mjs"
+    },
+    "./shaping": {
+      "types": "./dist/shaping/index.d.mts",
+      "import": "./dist/shaping/index.mjs"
+    },
+    "./table": {
+      "types": "./dist/table/index.d.mts",
+      "import": "./dist/table/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts src/block-flow/index.ts src/child-flow/index.ts src/identity/index.ts src/products/index.ts src/inline/index.ts src/pagination/index.ts src/text/index.ts src/shaping/index.ts src/table/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/renderer": "workspace:*",
+    "fontkit": "2.0.4",
+    "harfbuzzjs": "1.4.0"
+  },
+  "devDependencies": {
+    "@embedpdf/fonts-sc": "1.0.0",
+    "@types/fontkit": "2.0.9",
+    "dejavu-fonts-ttf": "2.37.3",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

@@ -1,0 +1,42 @@
+import { expect, test } from "@playwright/test";
+import { fileURLToPath } from "node:url";
+import { readFile } from "node:fs/promises";
+
+test("native Xmind saved files import, remain editable and reopen with complete content", async ({ page }, info) => {
+  const errors: string[] = []; page.on("pageerror", error => errors.push(error.message));
+  // Freeze this owned test context against unrelated development HMR updates.
+  await page.routeWebSocket(/.*/, socket => socket.close());
+  await page.goto("/"); await expect(page.locator(".smm-node")).toHaveCount(14);
+  await page.getByRole("button", { name: "模板与导入", exact: true }).click();
+  const fixture = fileURLToPath(new URL("../../mind-map/test-support/fixtures/native-xmind/xmind-26-resaved.xmind", import.meta.url));
+  await page.getByLabel("导入脑图文件", { exact: true }).setInputFiles(fixture);
+  const warning = page.getByRole("alertdialog", { name: "导入完成，部分内容未保留", exact: true });
+  await expect(warning).toBeVisible(); await warning.getByText("查看转换详情", { exact: true }).click();
+  for (const field of ["revisionId", "arrangeableLayerOrder", "zones", "titleUnedited"]) await expect(warning.getByText(new RegExp(field))).toBeVisible();
+  await warning.getByRole("button", { name: "返回编辑", exact: true }).click();
+  await expect(page.locator(".smm-node")).toHaveCount(13);
+  await expect(page.locator("[data-qk-mind-annotation]")).toHaveCount(3);
+  await expect(page.locator(".smm-node image")).toHaveCount(1);
+  const added = page.locator(".smm-node").filter({ hasText: /^XMind 原生保存验收$/ });
+  await added.dblclick(); const input = page.locator('[contenteditable="true"]');
+  await expect(input).toBeFocused(); await input.fill("原生回导后继续编辑"); await input.press("Enter");
+  await expect(input).toBeHidden();
+  await page.getByRole("button", { name: /保存到本机/ }).click();
+  await expect(page.getByRole("button", { name: "已保存到本机", exact: true })).toBeVisible();
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("quirekit-mind-editor-preview-v1")!));
+  expect(saved.root.children[3].children[0].text).toBe("原生回导后继续编辑");
+  expect(saved.annotations).toHaveLength(3); expect(saved.floatingTopics[0].root.details.image.dataUrl).toMatch(/^data:image\/png;base64,/);
+  await page.reload(); await expect(page.locator(".smm-node")).toHaveCount(13);
+  await expect(page.locator(".smm-node").filter({ hasText: /^原生回导后继续编辑$/ })).toBeVisible();
+  await expect(page.locator("[data-qk-mind-annotation]")).toHaveCount(3);
+  await page.screenshot({ path: info.outputPath("native-xmind-reopened.png") });
+  await page.getByRole("button", { name: "导出", exact: true }).click();
+  const pending = page.waitForEvent("download");
+  await page.getByRole("menuitem", { name: /XMind/ }).click();
+  const download = await pending, bytes = await readFile((await download.path())!);
+  const { importXmindFile } = await import("../../mind-map/dist/xmind/index.mjs");
+  const reopened = await importXmindFile(new Uint8Array(bytes));
+  expect(reopened.diagnostics).toEqual([]);
+  expect(reopened.sheets[0]!.document).toEqual({ ...saved, revision: 0 });
+  expect(errors).toEqual([]);
+});

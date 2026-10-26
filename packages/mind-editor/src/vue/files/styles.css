@@ -1,0 +1,47 @@
+.qk-mind-editor__files {
+  position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; min-width: 0; min-height: 0;
+  background: var(--qk-color-surface-page); outline: none; container-type: inline-size;
+}
+.qk-mind-editor__files-header { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--qk-color-border-subtle); }
+.qk-mind-editor__files-header > strong { flex: 1; font-size: 15px; }
+.qk-mind-editor__files-body { display: grid; grid-template-columns: minmax(0, 1fr) 320px; flex: 1; min-height: 0; }
+.qk-mind-editor__gallery { display: flex; flex-direction: column; gap: 14px; min-width: 0; min-height: 0; padding: 20px 20px 0; }
+.qk-mind-editor__gallery-heading { display: flex; align-items: baseline; gap: 12px; }
+.qk-mind-editor__gallery-heading h2 { margin: 0; font-size: 16px; font-weight: 600; }
+.qk-mind-editor__gallery-heading span { color: var(--qk-color-text-tertiary); font-size: 12px; }
+.qk-mind-editor__gallery-filters { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; }
+.qk-mind-editor__gallery-scroll { overflow: auto; overscroll-behavior: contain; min-height: 0; padding: 2px 4px 20px 2px; }
+.qk-mind-editor__templates { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 12px; }
+.qk-mind-editor__templates button { display: grid; grid-template-columns: minmax(0, 1fr); height: auto; min-width: 0; padding: 0; white-space: normal; text-align: start; overflow: hidden; }
+.qk-mind-editor__templates button[aria-pressed="true"] { border-color: var(--qk-color-action-primary); background: var(--qk-color-action-soft); }
+.qk-mind-editor__template-card { display: flex; flex-direction: column; width: 100%; }
+.qk-mind-editor__template-caption { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 10px 12px 12px; }
+.qk-mind-editor__template-caption strong { font-size: 13px; font-weight: 600; }
+.qk-mind-editor__template-caption small { color: var(--qk-color-text-secondary); font-size: 11px; font-weight: normal; line-height: 1.5; }
+.qk-mind-editor__template-preview { width: 100%; height: 130px; flex: none; display: grid; place-items: center; padding: 12px; background: var(--qk-color-surface-workspace); }
+.qk-mind-editor__template-preview img { display: block; width: 100%; height: 100%; min-height: 0; min-width: 0; object-fit: contain; object-position: center; }
+.qk-mind-editor__preview-placeholder { font-size: 11px; font-weight: normal; color: var(--qk-color-text-tertiary); }
+.qk-mind-editor__file-detail { display: flex; flex-direction: column; gap: 12px; padding: 20px; min-height: 0; min-width: 0; overflow: auto; border-left: 1px solid var(--qk-color-border-subtle); }
+.qk-mind-editor__file-detail-heading { display: flex; align-items: center; gap: 8px; }
+.qk-mind-editor__file-detail-heading > strong { flex: 1; }
+.qk-mind-editor__file-detail .qk-mind-editor__template-preview { height: 260px; border-radius: var(--qk-radius-control); }
+.qk-mind-editor__file-apply { display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 12px; }
+.qk-mind-editor__file-name, .qk-mind-editor__files p { overflow-wrap: anywhere; }
+.qk-mind-editor__gallery-empty { padding: 24px 0; color: var(--qk-color-text-secondary); }
+.qk-mind-editor__file-differences { color: var(--qk-color-text-secondary); font-size: 12px; overflow-wrap: anywhere; }
+.qk-mind-editor__file-differences summary { cursor: pointer; }
+.qk-mind-editor__file-differences ul { padding-left: 20px; }
+.qk-mind-editor__file-differences li { margin-block: 8px; }
+.qk-mind-editor__files:not(.qk-mind-editor__files--preview) .qk-mind-editor__files-body { grid-template-columns: minmax(0, 1fr); }
+.qk-mind-editor__files:not(.qk-mind-editor__files--preview) .qk-mind-editor__file-detail { display: none; }
+@container (max-width: 800px) {
+  .qk-mind-editor__files-body { grid-template-columns: minmax(0, 1fr); }
+  .qk-mind-editor__file-detail { display: none; border-left: none; }
+  .qk-mind-editor__files--preview .qk-mind-editor__gallery { display: none; }
+  .qk-mind-editor__files--preview .qk-mind-editor__file-detail { display: flex; }
+  .qk-mind-editor__files-header { padding: 10px 12px; gap: 8px; }
+  .qk-mind-editor__gallery { padding: 16px 12px 0; }
+  .qk-mind-editor__templates { grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); }
+}
+.qk-mind-editor__gallery, .qk-mind-editor__file-detail { outline: none; }
+.qk-mind-editor__file-sheets .qk-mind-editor__templates { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }

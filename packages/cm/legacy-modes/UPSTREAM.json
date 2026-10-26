@@ -1,0 +1,16 @@
+{
+  "name": "@codemirror/legacy-modes",
+  "version": "6.5.4",
+  "commit": "1f2107b74b03223c97fa6812dd4fbf70b3d046df",
+  "repository": "https://code.haverbeke.berlin/codemirror/legacy-modes.git",
+  "integrity": "sha512-/cZr6qZyl08iYNLGsJ862CXXNI51LryRFRE40ejgoIjXZz0C1rGkD3/Ek5jM/8w1ceRjqtt4qx/KLMh4zBTgew==",
+  "tarball": "https://registry.npmjs.org/@codemirror/legacy-modes/-/legacy-modes-6.5.4.tgz",
+  "license": "MIT",
+  "sourceDirectory": "mode",
+  "sourceSha256": "db5442e3f2b2432e9742c94d0c1cced52d6cf7062073cf769cc67beb106d309d",
+  "licenseSha256": "05c6130cda97e7600ca91427a41e8a065efcf82365fc0293e7de80faec494c07",
+  "localChanges": [
+    "Package names, imports and build/test configuration use QuireKit workspace identities."
+  ],
+  "sourceEntry": "mode/*.js"
+}

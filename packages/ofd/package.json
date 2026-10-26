@@ -1,0 +1,50 @@
+{
+  "name": "@quirekit/ofd",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/ofd"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/ofd#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Standalone write-first OFD authoring library for browsers and Node.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "README.md",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist && node scripts/copy-assets.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@noble/hashes": "2.2.0",
+    "fast-xml-parser": "5.10.1",
+    "fflate": "0.8.3",
+    "fonteditor-core": "2.6.3",
+    "fontkit": "2.0.4",
+    "hb-subset-wasm": "0.4.0",
+    "woff2-encoder": "2.0.0"
+  },
+  "devDependencies": {
+    "@embedpdf/fonts-sc": "1.0.0",
+    "@types/fontkit": "2.0.9",
+    "@types/wawoff2": "1.0.2",
+    "dejavu-fonts-ttf": "2.37.3",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "wawoff2": "2.0.1"
+  }
+}

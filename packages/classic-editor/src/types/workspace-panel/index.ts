@@ -1,0 +1,21 @@
+export type {
+  ClassicEditorWorkspacePanelCloseReason,
+  ClassicEditorWorkspacePanelContribution,
+  ClassicEditorWorkspacePanelController,
+  ClassicEditorWorkspacePanelEntry,
+  ClassicEditorWorkspacePanelFreshness,
+  ClassicEditorWorkspacePanelFreshnessStatus,
+  ClassicEditorWorkspacePanelFocusTarget,
+  ClassicEditorWorkspacePanelHostProjection,
+  ClassicEditorWorkspacePanelKind,
+  ClassicEditorWorkspacePanelListener,
+  ClassicEditorWorkspacePanelMountContext,
+  ClassicEditorWorkspacePanelMountedRenderable,
+  ClassicEditorWorkspacePanelNavigation,
+  ClassicEditorWorkspacePanelProvider,
+  ClassicEditorWorkspacePanelProductContext,
+  ClassicEditorWorkspacePanelRequest,
+  ClassicEditorWorkspacePanelSnapshot,
+  ClassicEditorWorkspacePanelTarget,
+  ClassicEditorWorkspacePanelTargetKind
+} from "./types";

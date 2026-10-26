@@ -1,0 +1,16 @@
+{
+  "name": "@codemirror/language",
+  "version": "6.12.4",
+  "commit": "89974ce5d39539ce6c5cfea5278443fa9381cbf2",
+  "repository": "https://code.haverbeke.berlin/codemirror/language.git",
+  "integrity": "sha512-1q4PaT+o6PbgpkJt4Q8Fv5XJxTy4FUZ4MWETtyiDw3J0Pyr9E2vqcKL+k9wcvjNTIsauxvE7OfmWj3FRPHQ76A==",
+  "tarball": "https://registry.npmjs.org/@codemirror/language/-/language-6.12.4.tgz",
+  "license": "MIT",
+  "sourceDirectory": "src",
+  "sourceSha256": "20a5008c0a4621af3e5eabe74d6fbf62e202726c69d08d04be6047fccfe2d10f",
+  "licenseSha256": "05c6130cda97e7600ca91427a41e8a065efcf82365fc0293e7de80faec494c07",
+  "localChanges": [
+    "Package names, imports and build/test configuration use QuireKit workspace identities."
+  ],
+  "sourceEntry": "src/index.ts"
+}

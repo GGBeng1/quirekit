@@ -1,0 +1,51 @@
+{
+  "name": "@quirekit/text-diagram",
+  "version": "0.1.0-alpha.0",
+  "description": "Text diagram documents for Mermaid, PlantUML and Graphviz: versioned sources, Markdown fences and isolated rendering.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quirekit/quirekit.git",
+    "directory": "packages/text-diagram"
+  },
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/text-diagram#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "ENGINE_LICENSES.txt",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./browser": {
+      "types": "./dist/browser.d.mts",
+      "import": "./dist/browser.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown --config tsdown.config.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "mermaid": "12.1.0",
+    "dompurify": "3.4.16",
+    "@plantuml/core": "1.2026.8",
+    "@viz-js/viz": "3.31.0",
+    "uuid": "14.0.3"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "happy-dom": "20.10.6"
+  }
+}

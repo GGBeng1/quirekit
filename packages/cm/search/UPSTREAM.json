@@ -1,0 +1,16 @@
+{
+  "name": "@codemirror/search",
+  "version": "6.7.2",
+  "commit": "4437667eaa9badaba21f151bfc0db8494de0fb81",
+  "repository": "https://code.haverbeke.berlin/codemirror/search.git",
+  "integrity": "sha512-gUYkYhT2+n/+VGZ+8EzE5WFkYZUZYm1VOKDudIsNqh42uRVQJ0a6Yss9sdKT3MeOYfuL1N6AZA57oza0Oyr0LA==",
+  "tarball": "https://registry.npmjs.org/@codemirror/search/-/search-6.7.2.tgz",
+  "license": "MIT",
+  "sourceDirectory": "src",
+  "sourceSha256": "e8c76e1f9fc43a9070841421b03fc39b8e7d796135937bb0c2c676d8677ee8a6",
+  "licenseSha256": "05c6130cda97e7600ca91427a41e8a065efcf82365fc0293e7de80faec494c07",
+  "localChanges": [
+    "Package names, imports and build/test configuration use QuireKit workspace identities."
+  ],
+  "sourceEntry": "src/search.ts"
+}

@@ -1,0 +1,10 @@
+import Vue from "unplugin-vue/rolldown";
+import { defineConfig } from "tsdown";
+
+export default defineConfig({
+  entry: { index: "src/index.ts", vue: "src/vue/index.ts" },
+  format: "esm", fixedExtension: true, dts: { vue: true }, clean: true, outDir: "dist",
+  css: { fileName: "vue.css" },
+  plugins: [Vue({ isProduction: true })],
+  deps: { neverBundle: [/^vue$/, /^@vue\//], dts: { neverBundle: [/^vue$/, /^@vue\//] } }
+});

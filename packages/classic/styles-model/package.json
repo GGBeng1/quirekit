@@ -1,0 +1,48 @@
+{
+  "name": "@quirekit/classic-styles-model",
+  "version": "0.1.0-alpha.0",
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quirekit/quirekit.git",
+    "directory": "packages/classic/styles-model"
+  },
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/classic/styles-model#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Word-compatible named styles, themes and character styles without DOCX conversion.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/classic-paragraph-model": "workspace:*",
+    "@quirekit/core": "workspace:*",
+    "@quirekit/lit-docx-contract": "workspace:*",
+    "@quirekit/pm": "workspace:*"
+  },
+  "devDependencies": {
+    "@quirekit/ai-contract": "workspace:*",
+    "@quirekit/dom-view": "workspace:*",
+    "@quirekit/starter-kit": "workspace:*",
+    "@types/node": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

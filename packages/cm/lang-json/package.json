@@ -1,0 +1,41 @@
+{
+  "name": "@quirekit/cm-lang-json",
+  "version": "0.1.0-alpha.0",
+  "description": "JSON language support for the CodeMirror code editor",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/cm/lang-json"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/cm/lang-json#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "UPSTREAM.json"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "node ../../../scripts/source-vendor/build.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@quirekit/cm-language": "workspace:*",
+    "@lezer/json": "^1.0.0",
+    "@quirekit/cm-lint": "workspace:*",
+    "@quirekit/cm-view": "workspace:*",
+    "@quirekit/cm-state": "workspace:*"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
+  }
+}

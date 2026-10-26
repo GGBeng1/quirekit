@@ -1,0 +1,104 @@
+/* Compact chrome follows the instance's measured width, not the global window. */
+.qk-classic-editor[data-layout="compact"] {
+  height: var(--qk-classic-visual-height, 100%);
+  translate: 0 var(--qk-classic-visual-top, 0);
+  grid-template-rows: 48px minmax(0, 1fr) auto;
+  --qk-classic-mobile-bar-height: calc(52px + env(safe-area-inset-bottom, 0px));
+}
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__header { position: static; }
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__task-navigation {
+  grid-template-columns: minmax(0, 1fr);
+  height: 48px;
+  padding-inline: var(--qk-space-inline);
+}
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__task-left { justify-content: space-between; }
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__task-center,
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__task-right,
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__status-bar,
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__workspace-header,
+.qk-classic-editor[data-layout="compact"] [data-block-rail],
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__product-name,
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__identity-separator { display: none; }
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__menu-trigger,
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__quick-action { min-width: 44px; min-height: 44px; }
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__center { grid-template-rows: minmax(0, 1fr); }
+/* Clip real paper margins out of the scrollable extent while the stage keeps
+   the body centered. Native vertical momentum and the owned pinch stay intact. */
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__workspace-viewport[data-scroll-axis="y"] {
+  overflow-x: hidden;
+  touch-action: pan-y;
+}
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__workspace-viewport[data-scroll-axis="y"] .qk-classic-editor__document-scroll-content {
+  width: 100%;
+  overflow: clip;
+  justify-content: start;
+}
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__workspace-viewport[data-scroll-axis="y"] .qk-classic-editor__canvas-mount {
+  left: var(--qk-classic-body-offset, 0px);
+}
+.qk-classic-editor[data-layout="compact"][data-left-sidebar][data-right-sidebar][data-right-sidebar-scroll-owner] .qk-classic-editor__document-region { grid-template-columns: 0 minmax(0, 1fr) 0; }
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__document-scroll-content { grid-template-columns: var(--qk-classic-stage-width, 100%) 0; }
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__sidebar {
+  position: absolute;
+  inset-block: 0;
+  z-index: 20;
+  width: min(360px, calc(100% - 36px));
+  box-shadow: var(--qk-elevation-overlay);
+}
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__sidebar--left { inset-inline-start: 0; }
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__sidebar--right { inset-inline-end: 0; }
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__sidebar-panel-header button { min-width: 44px; min-height: 44px; }
+.qk-classic-editor__mobile-panel-dismiss {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+.qk-classic-editor__mobile-navigation {
+  position: relative;
+  z-index: 12;
+  min-width: 0;
+  min-height: var(--qk-classic-mobile-bar-height);
+  padding: 4px var(--qk-space-inline);
+  padding-bottom: max(4px, env(safe-area-inset-bottom, 0px));
+  background: var(--qk-color-surface-raised);
+  border-top: 1px solid var(--qk-color-border-subtle);
+}
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__ribbon {
+  position: absolute;
+  inset-inline: 0;
+  bottom: var(--qk-classic-mobile-bar-height);
+  z-index: 11;
+  max-height: min(40%, 240px);
+  overflow: auto;
+  border-top: 1px solid var(--qk-color-border-subtle);
+}
+.qk-classic-editor[data-layout="compact"][data-mobile-tools="closed"] .qk-classic-editor__ribbon { display: none; }
+.qk-classic-editor__touch-selection {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  overflow: clip;
+  pointer-events: none;
+}
+.qk-classic-editor[data-layout="compact"] .qk-classic-editor__center { position: relative; }
+/* Keep the View's input geometry and blink owner. Only its compact appearance
+   overrides inline paint; inverse reading zoom keeps the bar at 2 client px. */
+.qk-classic-editor[data-layout="compact"] .qk-canvas-editor__caret,
+.qk-classic-editor[data-layout="compact"] .qk-svg-editor__caret {
+  width: calc(2px / var(--qk-classic-reading-scale, 1)) !important;
+  background-color: var(--qk-selection-handles-color, var(--qk-color-action-primary)) !important;
+}
+/* Touch presentation owns the caret until a collapsed input selection is focused.
+   Override the View's inline blink phase only while that ownership is active. */
+.qk-classic-editor[data-layout="compact"][data-mobile-caret="touch"] .qk-canvas-editor__caret,
+.qk-classic-editor[data-layout="compact"][data-mobile-caret="touch"] .qk-svg-editor__caret { visibility: hidden !important; }
+
+/* The invisible native host stays at a readable client font size even while
+   paper is zoomed out; its font does not style or relayout document content. */
+.qk-classic-editor[data-layout="compact"] [data-qk-input-proxy] {
+  font-size: calc(16px / var(--qk-classic-reading-scale, 1)) !important;
+}

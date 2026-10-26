@@ -1,0 +1,1 @@
+export { resolveEditorUIAnchoredOverlayTransform as resolveClassicEditorAnchoredOverlayTransform, resolveEditorUIAnchoredOverlayStyle as resolveClassicEditorAnchoredOverlayStyle } from "@quirekit/editor-ui/vue";

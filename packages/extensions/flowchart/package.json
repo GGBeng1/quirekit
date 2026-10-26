@@ -1,0 +1,55 @@
+{
+  "name": "@quirekit/extension-flowchart",
+  "version": "0.1.0-alpha.0",
+  "license": "AGPL-3.0-only",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/extensions/flowchart"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/extensions/flowchart#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "QuireKit extension that embeds editable flowcharts in documents.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/flowchart": "workspace:*",
+    "@quirekit/flowchart-docx": "workspace:*",
+    "@quirekit/core": "workspace:*",
+    "@quirekit/pm": "workspace:*",
+    "@quirekit/renderer": "workspace:*",
+    "@quirekit/view-engine": "workspace:*",
+    "@quirekit/media": "workspace:*",
+    "uuid": "14.0.3"
+  },
+  "devDependencies": {
+    "@quirekit/ai-contract": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "happy-dom": "20.10.6",
+    "@quirekit/starter-kit": "workspace:*"
+  },
+  "peerDependencies": {
+    "@quirekit/ai-contract": "workspace:*"
+  },
+  "peerDependenciesMeta": {
+    "@quirekit/ai-contract": {
+      "optional": true
+    }
+  }
+}

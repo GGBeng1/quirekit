@@ -1,0 +1,11 @@
+JetBrains Mono
+Upstream: https://github.com/JetBrains/JetBrainsMono
+Revision: 19371302b95d218af43299bce79ddbddd0bc364d
+License: SIL Open Font License 1.1 (../../licenses/jetbrains-mono-OFL.txt)
+
+Unmodified upstream files:
+fonts/webfonts/JetBrainsMono[wght].woff2 -> jetbrains-mono-variable.woff2
+fonts/webfonts/JetBrainsMono-Italic.woff2 -> jetbrains-mono-italic.woff2
+
+The normal font supports weight 100–800; the italic face is weight 400.
+Font resources are loaded only when a consumer imports ../../jetbrains-mono.css.

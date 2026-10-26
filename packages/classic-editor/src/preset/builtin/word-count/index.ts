@@ -1,0 +1,1 @@
+export { renderBuiltinWordCount } from "./render";

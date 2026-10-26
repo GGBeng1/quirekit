@@ -1,0 +1,39 @@
+{
+  "name": "@quirekit/extensions",
+  "version": "0.1.0-alpha.0",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/extensions/extensions"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/extensions/extensions#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "QuireKit common behavior extensions.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "test": "vitest run src",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@quirekit/core": "workspace:*",
+    "@quirekit/pm": "workspace:*",
+    "uuid": "14.0.3"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

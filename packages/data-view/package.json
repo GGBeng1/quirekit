@@ -1,0 +1,38 @@
+{
+  "name": "@quirekit/data-view",
+  "version": "0.1.0-alpha.0",
+  "description": "Portable typed datasets, table and board queries, and source-backed editing contracts.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quirekit/quirekit.git",
+    "directory": "packages/data-view"
+  },
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/data-view#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

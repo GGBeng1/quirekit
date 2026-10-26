@@ -1,0 +1,40 @@
+{
+  "name": "@quirekit/pm-history",
+  "version": "0.1.0-alpha.0",
+  "description": "QuireKit vendored ProseMirror history boundary.",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/pm/history"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/pm/history#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "LICENSE",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/history.d.mts",
+      "import": "./dist/history.mjs"
+    }
+  },
+  "types": "./dist/history.d.mts",
+  "scripts": {
+    "build": "tsdown src/history.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/pm-state": "workspace:*",
+    "@quirekit/pm-transform": "workspace:*",
+    "rope-sequence": "^1.3.0"
+  },
+  "devDependencies": {
+    "@quirekit/pm-model": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

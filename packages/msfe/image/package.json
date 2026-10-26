@@ -1,0 +1,40 @@
+{
+  "name": "@quirekit/msfe-image",
+  "version": "0.1.0-alpha.0",
+  "description": "Markdown images with insertion, previews and host-provided uploads for the MSFE source editor.",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/msfe/image"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/msfe/image#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src --passWithNoTests"
+  },
+  "dependencies": {
+    "@quirekit/msfe-core": "workspace:*",
+    "@quirekit/cm-view": "workspace:*",
+    "@lezer/common": "1.5.3"
+  },
+  "devDependencies": {
+    "@quirekit/ai-contract": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

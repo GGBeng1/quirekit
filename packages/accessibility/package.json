@@ -1,0 +1,50 @@
+{
+  "name": "@quirekit/accessibility",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/accessibility"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/accessibility#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Optional bounded reading and native text context for QuireKit Canvas/SVG views.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./contract": {
+      "types": "./dist/contract/index.d.mts",
+      "import": "./dist/contract/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts src/contract/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src --config test-support/vite.config.ts",
+    "test:browser": "playwright test --config test-support/playwright.config.ts"
+  },
+  "dependencies": {
+    "@quirekit/accessibility-contract": "workspace:*",
+    "@quirekit/core": "workspace:*",
+    "@quirekit/pm": "workspace:*",
+    "@quirekit/view": "workspace:*"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.61.1",
+    "@quirekit/extension-link": "workspace:*",
+    "@quirekit/starter-kit": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vite": "^8.1.0",
+    "vitest": "catalog:"
+  }
+}

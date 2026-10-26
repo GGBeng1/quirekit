@@ -1,0 +1,69 @@
+{
+  "name": "@quirekit/view",
+  "version": "0.1.0-alpha.0",
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quirekit/quirekit.git",
+    "directory": "packages/view"
+  },
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/view#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "QuireKit multi-backend editor view runtime (canvas/svg/html).",
+  "type": "module",
+  "sideEffects": [
+    "./src/styles.css",
+    "./dist/styles.css"
+  ],
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./layout-worker": "./dist/view/shared/layout-jobs/worker/entry.mjs",
+    "./mounted-services": {
+      "types": "./dist/mounted-services/index.d.mts",
+      "import": "./dist/mounted-services/index.mjs"
+    },
+    "./mounted-backend": {
+      "types": "./dist/mounted-backend/index.d.mts",
+      "import": "./dist/mounted-backend/index.mjs"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts src/mounted-services/index.ts src/mounted-backend/index.ts src/view/shared/layout-jobs/worker/entry.ts --format esm --dts --clean --out-dir dist && node scripts/check-layout-worker-build.mjs && cp src/styles.css dist/styles.css",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src test-support",
+    "test:browser": "playwright test --config src/view/shared/block-interaction/test-support/playwright.config.ts"
+  },
+  "dependencies": {
+    "@quirekit/clipboard": "workspace:*",
+    "@quirekit/core": "workspace:*",
+    "@quirekit/drawing-geometry": "workspace:*",
+    "@quirekit/editor-ui": "workspace:*",
+    "@quirekit/ime": "workspace:*",
+    "@quirekit/layout": "workspace:*",
+    "@quirekit/media": "workspace:*",
+    "@quirekit/pm": "workspace:*",
+    "@quirekit/renderer": "workspace:*",
+    "@quirekit/ui": "workspace:*",
+    "@quirekit/view-engine": "workspace:*",
+    "uuid": "14.0.3"
+  },
+  "devDependencies": {
+    "@quirekit/extension-text-style": "workspace:*",
+    "@quirekit/starter-kit": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vite": "^8.1.0",
+    "vitest": "catalog:"
+  }
+}

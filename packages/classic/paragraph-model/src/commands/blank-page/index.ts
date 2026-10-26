@@ -1,0 +1,1 @@
+export { createInsertWordBlankPageCommand } from "./command";

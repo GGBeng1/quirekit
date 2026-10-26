@@ -1,0 +1,16 @@
+{
+  "name": "@codemirror/lang-javascript",
+  "version": "6.2.5",
+  "commit": "a202a000e8d3d107d1c340db933d9f09a828308a",
+  "repository": "https://github.com/codemirror/lang-javascript.git",
+  "integrity": "sha512-zD4e5mS+50htS7F+TYjBPsiIFGanfVqg4HyUz6WNFikgOPf2BgKlx+TQedI1w6n/IqRBVBbBWmGFdLB/7uxO4A==",
+  "tarball": "https://registry.npmjs.org/@codemirror/lang-javascript/-/lang-javascript-6.2.5.tgz",
+  "license": "MIT",
+  "sourceDirectory": "src",
+  "sourceSha256": "4120f242295950d7a928b4560f8a9ea07c09e8de7c68ca60f1979e6d01205b31",
+  "licenseSha256": "05c6130cda97e7600ca91427a41e8a065efcf82365fc0293e7de80faec494c07",
+  "localChanges": [
+    "Package names, imports and build/test configuration use QuireKit workspace identities."
+  ],
+  "sourceEntry": "src/index.ts"
+}

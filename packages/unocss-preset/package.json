@@ -1,0 +1,42 @@
+{
+  "name": "@quirekit/unocss-preset",
+  "version": "0.1.0-alpha.0",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/unocss-preset"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/unocss-preset#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Framework-neutral UnoCSS theme adapter and standalone theme stylesheet for QuireKit UI.",
+  "type": "module",
+  "sideEffects": [
+    "./dist/quirekit.css"
+  ],
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./quirekit.css": "./dist/quirekit.css"
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist && node scripts/build-css.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/ui": "workspace:*",
+    "@unocss/core": "catalog:",
+    "@unocss/preset-wind3": "catalog:"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

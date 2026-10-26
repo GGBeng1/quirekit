@@ -1,0 +1,1130 @@
+diff --git a/dist/components/color-picker/color-picker-root.vue.d.cts b/dist/components/color-picker/color-picker-root.vue.d.cts
+index 1aa08c05d0908a9028d1c21f4fa8eb9b7c7846a3..da16ef3e140264194591bffacfaf9521533a68fd 100644
+--- a/dist/components/color-picker/color-picker-root.vue.d.cts
++++ b/dist/components/color-picker/color-picker-root.vue.d.cts
+@@ -18,6 +18,7 @@ export interface ColorPickerRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<ColorPickerRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     valueChange: (details: ValueChangeDetails) => any;
+     "update:modelValue": (value: Color) => any;
+@@ -30,6 +31,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<ColorPickerRootProp
+     pointerDownOutside: (event: PointerDownOutsideEvent) => any;
+     "update:format": (format: ColorFormat) => any;
+ }, string, PublicProps, Readonly<ColorPickerRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onValueChange?: ((details: ValueChangeDetails) => any) | undefined;
+     "onUpdate:modelValue"?: ((value: Color) => any) | undefined;
+diff --git a/dist/components/color-picker/color-picker-root.vue.d.ts b/dist/components/color-picker/color-picker-root.vue.d.ts
+index 1aa08c05d0908a9028d1c21f4fa8eb9b7c7846a3..da16ef3e140264194591bffacfaf9521533a68fd 100644
+--- a/dist/components/color-picker/color-picker-root.vue.d.ts
++++ b/dist/components/color-picker/color-picker-root.vue.d.ts
+@@ -18,6 +18,7 @@ export interface ColorPickerRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<ColorPickerRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     valueChange: (details: ValueChangeDetails) => any;
+     "update:modelValue": (value: Color) => any;
+@@ -30,6 +31,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<ColorPickerRootProp
+     pointerDownOutside: (event: PointerDownOutsideEvent) => any;
+     "update:format": (format: ColorFormat) => any;
+ }, string, PublicProps, Readonly<ColorPickerRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onValueChange?: ((details: ValueChangeDetails) => any) | undefined;
+     "onUpdate:modelValue"?: ((value: Color) => any) | undefined;
+diff --git a/dist/components/color-picker/color-picker-root.vue_vue_type_script_setup_true_lang.cjs b/dist/components/color-picker/color-picker-root.vue_vue_type_script_setup_true_lang.cjs
+index 3cf4e50670dc2011f3c1ae446273b22e8c9b6109..c69f18b4b52bc027d0d26f59bf98f945ab3e79bf 100644
+--- a/dist/components/color-picker/color-picker-root.vue_vue_type_script_setup_true_lang.cjs
++++ b/dist/components/color-picker/color-picker-root.vue_vue_type_script_setup_true_lang.cjs
+@@ -43,6 +43,7 @@ var color_picker_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*
+ 		inline: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"formatChange",
+diff --git a/dist/components/color-picker/color-picker-root.vue_vue_type_script_setup_true_lang.js b/dist/components/color-picker/color-picker-root.vue_vue_type_script_setup_true_lang.js
+index f6061eb9ec8ce3f8e0e33b9f4722f5acf2083565..ff5dc3ea4737533536b0476fc41152765fd55590 100644
+--- a/dist/components/color-picker/color-picker-root.vue_vue_type_script_setup_true_lang.js
++++ b/dist/components/color-picker/color-picker-root.vue_vue_type_script_setup_true_lang.js
+@@ -43,6 +43,7 @@ var color_picker_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*
+ 		inline: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"formatChange",
+diff --git a/dist/components/color-picker/color-picker.types.d.cts b/dist/components/color-picker/color-picker.types.d.cts
+index 2a56875be33eee764a602799512c474d91c23a8e..9ddbbced27c7db42c6e45a76786c8d4e35ecdd8e 100644
+--- a/dist/components/color-picker/color-picker.types.d.cts
++++ b/dist/components/color-picker/color-picker.types.d.cts
+@@ -97,6 +97,10 @@ export interface RootProps {
+     inline?: boolean;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/color-picker/color-picker.types.d.ts b/dist/components/color-picker/color-picker.types.d.ts
+index 2a56875be33eee764a602799512c474d91c23a8e..9ddbbced27c7db42c6e45a76786c8d4e35ecdd8e 100644
+--- a/dist/components/color-picker/color-picker.types.d.ts
++++ b/dist/components/color-picker/color-picker.types.d.ts
+@@ -97,6 +97,10 @@ export interface RootProps {
+     inline?: boolean;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/combobox/combobox-root.vue.d.cts b/dist/components/combobox/combobox-root.vue.d.cts
+index 83df1987a61bae2e19b02cdce319563e765037d2..cec19ec790acbea7ad5c6b6b83b49f01c61c44ed 100644
+--- a/dist/components/combobox/combobox-root.vue.d.cts
++++ b/dist/components/combobox/combobox-root.vue.d.cts
+@@ -25,6 +25,7 @@ declare const __VLS_export: <T extends CollectionItem>(__VLS_props: NonNullable<
+             value: string[];
+             itemValue: string;
+         }) => any) | undefined;
++        onEnterComplete?: (() => any) | undefined;
+         onExitComplete?: (() => any) | undefined;
+         onValueChange?: ((details: ValueChangeDetails<T>) => any) | undefined;
+         "onUpdate:modelValue"?: ((value: string[]) => any) | undefined;
+@@ -48,7 +49,7 @@ declare const __VLS_export: <T extends CollectionItem>(__VLS_props: NonNullable<
+     emit: ((evt: "select", details: {
+         value: string[];
+         itemValue: string;
+-    }) => void) & ((evt: "exitComplete") => void) & ((evt: "valueChange", details: ValueChangeDetails<T>) => void) & ((evt: "update:modelValue", value: string[]) => void) & ((evt: "openChange", details: OpenChangeDetails) => void) & ((evt: "update:open", value: boolean) => void) & ((evt: "focusOutside", event: FocusOutsideEvent) => void) & ((evt: "interactOutside", event: InteractOutsideEvent) => void) & ((evt: "pointerDownOutside", event: PointerDownOutsideEvent) => void) & ((evt: "highlightChange", details: HighlightChangeDetails<T>) => void) & ((evt: "inputValueChange", details: InputValueChangeDetails) => void) & ((evt: "update:highlightedValue", value: string | null) => void) & ((evt: "update:inputValue", value: string) => void);
++    }) => void) & ((evt: "enterComplete") => void) & ((evt: "exitComplete") => void) & ((evt: "valueChange", details: ValueChangeDetails<T>) => void) & ((evt: "update:modelValue", value: string[]) => void) & ((evt: "openChange", details: OpenChangeDetails) => void) & ((evt: "update:open", value: boolean) => void) & ((evt: "focusOutside", event: FocusOutsideEvent) => void) & ((evt: "interactOutside", event: InteractOutsideEvent) => void) & ((evt: "pointerDownOutside", event: PointerDownOutsideEvent) => void) & ((evt: "highlightChange", details: HighlightChangeDetails<T>) => void) & ((evt: "inputValueChange", details: InputValueChangeDetails) => void) & ((evt: "update:highlightedValue", value: string | null) => void) & ((evt: "update:inputValue", value: string) => void);
+ }>) => VNode & {
+     __ctx?: NonNullable<Awaited<typeof __VLS_setup>>;
+ };
+diff --git a/dist/components/combobox/combobox-root.vue.d.ts b/dist/components/combobox/combobox-root.vue.d.ts
+index 83df1987a61bae2e19b02cdce319563e765037d2..cec19ec790acbea7ad5c6b6b83b49f01c61c44ed 100644
+--- a/dist/components/combobox/combobox-root.vue.d.ts
++++ b/dist/components/combobox/combobox-root.vue.d.ts
+@@ -25,6 +25,7 @@ declare const __VLS_export: <T extends CollectionItem>(__VLS_props: NonNullable<
+             value: string[];
+             itemValue: string;
+         }) => any) | undefined;
++        onEnterComplete?: (() => any) | undefined;
+         onExitComplete?: (() => any) | undefined;
+         onValueChange?: ((details: ValueChangeDetails<T>) => any) | undefined;
+         "onUpdate:modelValue"?: ((value: string[]) => any) | undefined;
+@@ -48,7 +49,7 @@ declare const __VLS_export: <T extends CollectionItem>(__VLS_props: NonNullable<
+     emit: ((evt: "select", details: {
+         value: string[];
+         itemValue: string;
+-    }) => void) & ((evt: "exitComplete") => void) & ((evt: "valueChange", details: ValueChangeDetails<T>) => void) & ((evt: "update:modelValue", value: string[]) => void) & ((evt: "openChange", details: OpenChangeDetails) => void) & ((evt: "update:open", value: boolean) => void) & ((evt: "focusOutside", event: FocusOutsideEvent) => void) & ((evt: "interactOutside", event: InteractOutsideEvent) => void) & ((evt: "pointerDownOutside", event: PointerDownOutsideEvent) => void) & ((evt: "highlightChange", details: HighlightChangeDetails<T>) => void) & ((evt: "inputValueChange", details: InputValueChangeDetails) => void) & ((evt: "update:highlightedValue", value: string | null) => void) & ((evt: "update:inputValue", value: string) => void);
++    }) => void) & ((evt: "enterComplete") => void) & ((evt: "exitComplete") => void) & ((evt: "valueChange", details: ValueChangeDetails<T>) => void) & ((evt: "update:modelValue", value: string[]) => void) & ((evt: "openChange", details: OpenChangeDetails) => void) & ((evt: "update:open", value: boolean) => void) & ((evt: "focusOutside", event: FocusOutsideEvent) => void) & ((evt: "interactOutside", event: InteractOutsideEvent) => void) & ((evt: "pointerDownOutside", event: PointerDownOutsideEvent) => void) & ((evt: "highlightChange", details: HighlightChangeDetails<T>) => void) & ((evt: "inputValueChange", details: InputValueChangeDetails) => void) & ((evt: "update:highlightedValue", value: string | null) => void) & ((evt: "update:inputValue", value: string) => void);
+ }>) => VNode & {
+     __ctx?: NonNullable<Awaited<typeof __VLS_setup>>;
+ };
+diff --git a/dist/components/combobox/combobox-root.vue_vue_type_script_setup_true_lang.cjs b/dist/components/combobox/combobox-root.vue_vue_type_script_setup_true_lang.cjs
+index e879f10adba32fff8bccfcc45d8f647a202967ee..c13369bf2e460c39464e3ef0246b14fe17b929d6 100644
+--- a/dist/components/combobox/combobox-root.vue_vue_type_script_setup_true_lang.cjs
++++ b/dist/components/combobox/combobox-root.vue_vue_type_script_setup_true_lang.cjs
+@@ -68,6 +68,7 @@ var combobox_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ (0
+ 		required: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"highlightChange",
+diff --git a/dist/components/combobox/combobox-root.vue_vue_type_script_setup_true_lang.js b/dist/components/combobox/combobox-root.vue_vue_type_script_setup_true_lang.js
+index a9ccb1e9ebf125c4ffcba1ee8f1bc06d7221f9e7..6f60343b3d636335aafeda4cdd7f59b57ee1c73a 100644
+--- a/dist/components/combobox/combobox-root.vue_vue_type_script_setup_true_lang.js
++++ b/dist/components/combobox/combobox-root.vue_vue_type_script_setup_true_lang.js
+@@ -68,6 +68,7 @@ var combobox_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ de
+ 		required: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"highlightChange",
+diff --git a/dist/components/combobox/combobox.types.d.cts b/dist/components/combobox/combobox.types.d.cts
+index e155c8d6fd369d10d56bfb1634b28dcfb95a61b6..5dd73a7ce3ab2e486bca9dedcb5a844c32a88df1 100644
+--- a/dist/components/combobox/combobox.types.d.cts
++++ b/dist/components/combobox/combobox.types.d.cts
+@@ -184,6 +184,10 @@ export interface RootProps<T extends CollectionItem> {
+     translations?: combobox.IntlTranslations;
+ }
+ export type RootEmits<T extends CollectionItem> = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/combobox/combobox.types.d.ts b/dist/components/combobox/combobox.types.d.ts
+index e155c8d6fd369d10d56bfb1634b28dcfb95a61b6..5dd73a7ce3ab2e486bca9dedcb5a844c32a88df1 100644
+--- a/dist/components/combobox/combobox.types.d.ts
++++ b/dist/components/combobox/combobox.types.d.ts
+@@ -184,6 +184,10 @@ export interface RootProps<T extends CollectionItem> {
+     translations?: combobox.IntlTranslations;
+ }
+ export type RootEmits<T extends CollectionItem> = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/date-picker/date-picker-root.vue.d.cts b/dist/components/date-picker/date-picker-root.vue.d.cts
+index b8cf2a78b908f485b3daa712a64275d8f3734634..8f0e89752c22bc45b03652ea58fd725d67e06d03 100644
+--- a/dist/components/date-picker/date-picker-root.vue.d.cts
++++ b/dist/components/date-picker/date-picker-root.vue.d.cts
+@@ -16,6 +16,7 @@ export interface DatePickerRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<DatePickerRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     focusChange: (details: FocusChangeDetails) => any;
+     valueChange: (details: ValueChangeDetails) => any;
+@@ -27,6 +28,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<DatePickerRootProps
+     "update:view": (view: DateView) => any;
+     "update:focusedValue": (focusedValue: DateValue) => any;
+ }, string, PublicProps, Readonly<DatePickerRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onFocusChange?: ((details: FocusChangeDetails) => any) | undefined;
+     onValueChange?: ((details: ValueChangeDetails) => any) | undefined;
+diff --git a/dist/components/date-picker/date-picker-root.vue.d.ts b/dist/components/date-picker/date-picker-root.vue.d.ts
+index b8cf2a78b908f485b3daa712a64275d8f3734634..8f0e89752c22bc45b03652ea58fd725d67e06d03 100644
+--- a/dist/components/date-picker/date-picker-root.vue.d.ts
++++ b/dist/components/date-picker/date-picker-root.vue.d.ts
+@@ -16,6 +16,7 @@ export interface DatePickerRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<DatePickerRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     focusChange: (details: FocusChangeDetails) => any;
+     valueChange: (details: ValueChangeDetails) => any;
+@@ -27,6 +28,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<DatePickerRootProps
+     "update:view": (view: DateView) => any;
+     "update:focusedValue": (focusedValue: DateValue) => any;
+ }, string, PublicProps, Readonly<DatePickerRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onFocusChange?: ((details: FocusChangeDetails) => any) | undefined;
+     onValueChange?: ((details: ValueChangeDetails) => any) | undefined;
+diff --git a/dist/components/date-picker/date-picker-root.vue_vue_type_script_setup_true_lang.cjs b/dist/components/date-picker/date-picker-root.vue_vue_type_script_setup_true_lang.cjs
+index 00640206ceda988afaedfdf51e41b5464578e11c..602acecd4f58557d7d7b8db49f6f6f0b988fb1b4 100644
+--- a/dist/components/date-picker/date-picker-root.vue_vue_type_script_setup_true_lang.cjs
++++ b/dist/components/date-picker/date-picker-root.vue_vue_type_script_setup_true_lang.cjs
+@@ -66,6 +66,7 @@ var date_picker_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/
+ 		showWeekNumbers: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusChange",
+ 		"openChange",
+diff --git a/dist/components/date-picker/date-picker-root.vue_vue_type_script_setup_true_lang.js b/dist/components/date-picker/date-picker-root.vue_vue_type_script_setup_true_lang.js
+index d160227e1cd31bd078c6f2555d1fa5be871290c6..ff0ca73430cd47241e8d20887c2b1bb5394cad27 100644
+--- a/dist/components/date-picker/date-picker-root.vue_vue_type_script_setup_true_lang.js
++++ b/dist/components/date-picker/date-picker-root.vue_vue_type_script_setup_true_lang.js
+@@ -66,6 +66,7 @@ var date_picker_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/
+ 		showWeekNumbers: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusChange",
+ 		"openChange",
+diff --git a/dist/components/date-picker/date-picker.types.d.cts b/dist/components/date-picker/date-picker.types.d.cts
+index 521c91508fb51b26dbaaaff9de493ec3d05d5c83..36267503ac2eabf827d62c1a3d503c7819aa5dc8 100644
+--- a/dist/components/date-picker/date-picker.types.d.cts
++++ b/dist/components/date-picker/date-picker.types.d.cts
+@@ -205,6 +205,10 @@ export interface RootProps {
+     required?: boolean;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/date-picker/date-picker.types.d.ts b/dist/components/date-picker/date-picker.types.d.ts
+index 521c91508fb51b26dbaaaff9de493ec3d05d5c83..36267503ac2eabf827d62c1a3d503c7819aa5dc8 100644
+--- a/dist/components/date-picker/date-picker.types.d.ts
++++ b/dist/components/date-picker/date-picker.types.d.ts
+@@ -205,6 +205,10 @@ export interface RootProps {
+     required?: boolean;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/dialog/dialog-root.vue.d.cts b/dist/components/dialog/dialog-root.vue.d.cts
+index 77bd1a57137ad1a0b9b18f791002a15757c38503..4312afc540d5bd0c8240c245d99e12b2bbfac59f 100644
+--- a/dist/components/dialog/dialog-root.vue.d.cts
++++ b/dist/components/dialog/dialog-root.vue.d.cts
+@@ -12,6 +12,7 @@ export interface DialogRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<DialogRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+@@ -28,6 +29,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<DialogRootProps, {}
+         targetIndex: number;
+     }>) => any;
+ }, string, PublicProps, Readonly<DialogRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/dialog/dialog-root.vue.d.ts b/dist/components/dialog/dialog-root.vue.d.ts
+index 77bd1a57137ad1a0b9b18f791002a15757c38503..4312afc540d5bd0c8240c245d99e12b2bbfac59f 100644
+--- a/dist/components/dialog/dialog-root.vue.d.ts
++++ b/dist/components/dialog/dialog-root.vue.d.ts
+@@ -12,6 +12,7 @@ export interface DialogRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<DialogRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+@@ -28,6 +29,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<DialogRootProps, {}
+         targetIndex: number;
+     }>) => any;
+ }, string, PublicProps, Readonly<DialogRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/dialog/dialog-root.vue_vue_type_script_setup_true_lang.cjs b/dist/components/dialog/dialog-root.vue_vue_type_script_setup_true_lang.cjs
+index 42557bb9ba48734d0c26c2d0b5821e035a45df6c..8630ca8f6615e953c0d0fa0265939c3968890d0d 100644
+--- a/dist/components/dialog/dialog-root.vue_vue_type_script_setup_true_lang.cjs
++++ b/dist/components/dialog/dialog-root.vue_vue_type_script_setup_true_lang.cjs
+@@ -40,6 +40,7 @@ var dialog_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ (0,
+ 	}),
+ 	emits: [
+ 		"escapeKeyDown",
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"interactOutside",
+diff --git a/dist/components/dialog/dialog-root.vue_vue_type_script_setup_true_lang.js b/dist/components/dialog/dialog-root.vue_vue_type_script_setup_true_lang.js
+index aaaae8fb4cbbc8f06957eaee3723f256cad45348..a9af75fd80738f0ba4bdd98fef2abb03778470dd 100644
+--- a/dist/components/dialog/dialog-root.vue_vue_type_script_setup_true_lang.js
++++ b/dist/components/dialog/dialog-root.vue_vue_type_script_setup_true_lang.js
+@@ -40,6 +40,7 @@ var dialog_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ defi
+ 	}),
+ 	emits: [
+ 		"escapeKeyDown",
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"interactOutside",
+diff --git a/dist/components/dialog/dialog.types.d.cts b/dist/components/dialog/dialog.types.d.cts
+index cef5edb062482bc5be2de68f0f193caa3b5500ff..b8eabb793cedb8568334f052836b23db1b153ec8 100644
+--- a/dist/components/dialog/dialog.types.d.cts
++++ b/dist/components/dialog/dialog.types.d.cts
+@@ -89,6 +89,10 @@ export interface RootProps {
+     defaultTriggerValue?: string | null;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the escape key is pressed
+      */
+diff --git a/dist/components/dialog/dialog.types.d.ts b/dist/components/dialog/dialog.types.d.ts
+index cef5edb062482bc5be2de68f0f193caa3b5500ff..b8eabb793cedb8568334f052836b23db1b153ec8 100644
+--- a/dist/components/dialog/dialog.types.d.ts
++++ b/dist/components/dialog/dialog.types.d.ts
+@@ -89,6 +89,10 @@ export interface RootProps {
+     defaultTriggerValue?: string | null;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the escape key is pressed
+      */
+diff --git a/dist/components/drawer/drawer-root.vue.d.cts b/dist/components/drawer/drawer-root.vue.d.cts
+index 81dbfff2a0adac72cf00034adbd3cc781b46e499..48015f6e5480d740c2a1df9e03aa3e72081db1e6 100644
+--- a/dist/components/drawer/drawer-root.vue.d.cts
++++ b/dist/components/drawer/drawer-root.vue.d.cts
+@@ -11,6 +11,7 @@ export interface DrawerRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<DrawerRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+@@ -19,6 +20,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<DrawerRootProps, {}
+     triggerValueChange: (details: TriggerValueChangeDetails) => any;
+     "update:triggerValue": (triggerValue: string | null) => any;
+ }, string, PublicProps, Readonly<DrawerRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/drawer/drawer-root.vue.d.ts b/dist/components/drawer/drawer-root.vue.d.ts
+index 81dbfff2a0adac72cf00034adbd3cc781b46e499..48015f6e5480d740c2a1df9e03aa3e72081db1e6 100644
+--- a/dist/components/drawer/drawer-root.vue.d.ts
++++ b/dist/components/drawer/drawer-root.vue.d.ts
+@@ -11,6 +11,7 @@ export interface DrawerRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<DrawerRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+@@ -19,6 +20,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<DrawerRootProps, {}
+     triggerValueChange: (details: TriggerValueChangeDetails) => any;
+     "update:triggerValue": (triggerValue: string | null) => any;
+ }, string, PublicProps, Readonly<DrawerRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/drawer/drawer-root.vue_vue_type_script_setup_true_lang.cjs b/dist/components/drawer/drawer-root.vue_vue_type_script_setup_true_lang.cjs
+index f566604a653a9c0043823d2cf762328cd0a4ac38..9196a75be9534395ecb59ac01da3d1b2f9d6b540 100644
+--- a/dist/components/drawer/drawer-root.vue_vue_type_script_setup_true_lang.cjs
++++ b/dist/components/drawer/drawer-root.vue_vue_type_script_setup_true_lang.cjs
+@@ -47,6 +47,7 @@ var drawer_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ (0,
+ 		preventDragOnScroll: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"openChange",
+ 		"update:open",
+diff --git a/dist/components/drawer/drawer-root.vue_vue_type_script_setup_true_lang.js b/dist/components/drawer/drawer-root.vue_vue_type_script_setup_true_lang.js
+index 94b18806bd620ef6e88b5f0850c915eefb2b5fde..ba0261e02e8731554c662892212bc798936c21d0 100644
+--- a/dist/components/drawer/drawer-root.vue_vue_type_script_setup_true_lang.js
++++ b/dist/components/drawer/drawer-root.vue_vue_type_script_setup_true_lang.js
+@@ -47,6 +47,7 @@ var drawer_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ defi
+ 		preventDragOnScroll: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"openChange",
+ 		"update:open",
+diff --git a/dist/components/drawer/drawer.types.d.cts b/dist/components/drawer/drawer.types.d.cts
+index 2aa9bd98b8f883d54811cdfcf15ae7380e0ebcf2..97824765071c1beb8527a317855a414ea1cddc77 100644
+--- a/dist/components/drawer/drawer.types.d.cts
++++ b/dist/components/drawer/drawer.types.d.cts
+@@ -117,6 +117,10 @@ export interface RootProps {
+     defaultTriggerValue?: string | null;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/drawer/drawer.types.d.ts b/dist/components/drawer/drawer.types.d.ts
+index 2aa9bd98b8f883d54811cdfcf15ae7380e0ebcf2..97824765071c1beb8527a317855a414ea1cddc77 100644
+--- a/dist/components/drawer/drawer.types.d.ts
++++ b/dist/components/drawer/drawer.types.d.ts
+@@ -117,6 +117,10 @@ export interface RootProps {
+     defaultTriggerValue?: string | null;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/floating-panel/floating-panel-root.vue.d.cts b/dist/components/floating-panel/floating-panel-root.vue.d.cts
+index 7ea0dd5f13a89cf89772024be2312dd0571d670b..91b44a48653e7e0a8274a3cc180cfefcca1e5c7b 100644
+--- a/dist/components/floating-panel/floating-panel-root.vue.d.cts
++++ b/dist/components/floating-panel/floating-panel-root.vue.d.cts
+@@ -11,6 +11,7 @@ export interface FloatingPanelRootProps extends FloatingPanelRootBaseProps {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<FloatingPanelRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+@@ -22,6 +23,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<FloatingPanelRootPr
+     sizeChangeEnd: (details: SizeChangeDetails) => any;
+     stageChange: (details: StageChangeDetails) => any;
+ }, string, PublicProps, Readonly<FloatingPanelRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/floating-panel/floating-panel-root.vue.d.ts b/dist/components/floating-panel/floating-panel-root.vue.d.ts
+index 7ea0dd5f13a89cf89772024be2312dd0571d670b..91b44a48653e7e0a8274a3cc180cfefcca1e5c7b 100644
+--- a/dist/components/floating-panel/floating-panel-root.vue.d.ts
++++ b/dist/components/floating-panel/floating-panel-root.vue.d.ts
+@@ -11,6 +11,7 @@ export interface FloatingPanelRootProps extends FloatingPanelRootBaseProps {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<FloatingPanelRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+@@ -22,6 +23,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<FloatingPanelRootPr
+     sizeChangeEnd: (details: SizeChangeDetails) => any;
+     stageChange: (details: StageChangeDetails) => any;
+ }, string, PublicProps, Readonly<FloatingPanelRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/floating-panel/floating-panel-root.vue_vue_type_script_setup_true_lang.cjs b/dist/components/floating-panel/floating-panel-root.vue_vue_type_script_setup_true_lang.cjs
+index 3752c659077958cee5a966be0b5a4d52e42efb46..57e5edbf86a14bfab7da0dcbf71f7f4e445250b3 100644
+--- a/dist/components/floating-panel/floating-panel-root.vue_vue_type_script_setup_true_lang.cjs
++++ b/dist/components/floating-panel/floating-panel-root.vue_vue_type_script_setup_true_lang.cjs
+@@ -49,6 +49,7 @@ var floating_panel_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE_
+ 		draggable: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"openChange",
+ 		"update:open",
+diff --git a/dist/components/floating-panel/floating-panel-root.vue_vue_type_script_setup_true_lang.js b/dist/components/floating-panel/floating-panel-root.vue_vue_type_script_setup_true_lang.js
+index 39873091138d27caa0c2a1ed43a16f31b25821ef..7ad623e3a5acbc1528a8ac14ba2d779c605f3bde 100644
+--- a/dist/components/floating-panel/floating-panel-root.vue_vue_type_script_setup_true_lang.js
++++ b/dist/components/floating-panel/floating-panel-root.vue_vue_type_script_setup_true_lang.js
+@@ -49,6 +49,7 @@ var floating_panel_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE_
+ 		draggable: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"openChange",
+ 		"update:open",
+diff --git a/dist/components/floating-panel/floating-panel.types.d.cts b/dist/components/floating-panel/floating-panel.types.d.cts
+index 8c4fcb4f2b1010ecd1e86e811e408aea97b425ce..181005497d1b834b883e6467bce02951b0054938 100644
+--- a/dist/components/floating-panel/floating-panel.types.d.cts
++++ b/dist/components/floating-panel/floating-panel.types.d.cts
+@@ -125,6 +125,10 @@ export interface RootProps {
+     translations?: floatingPanel.IntlTranslations;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/floating-panel/floating-panel.types.d.ts b/dist/components/floating-panel/floating-panel.types.d.ts
+index 8c4fcb4f2b1010ecd1e86e811e408aea97b425ce..181005497d1b834b883e6467bce02951b0054938 100644
+--- a/dist/components/floating-panel/floating-panel.types.d.ts
++++ b/dist/components/floating-panel/floating-panel.types.d.ts
+@@ -125,6 +125,10 @@ export interface RootProps {
+     translations?: floatingPanel.IntlTranslations;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/hover-card/hover-card-root.vue.d.cts b/dist/components/hover-card/hover-card-root.vue.d.cts
+index ce36211f61bfeb2070c8581155ce54a5e19da909..fe15819f68f2586097cce2797c4b6b5391a8511b 100644
+--- a/dist/components/hover-card/hover-card-root.vue.d.cts
++++ b/dist/components/hover-card/hover-card-root.vue.d.cts
+@@ -12,6 +12,7 @@ export interface HoverCardRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<HoverCardRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+@@ -21,6 +22,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<HoverCardRootProps,
+     interactOutside: (event: InteractOutsideEvent) => any;
+     pointerDownOutside: (event: PointerDownOutsideEvent) => any;
+ }, string, PublicProps, Readonly<HoverCardRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/hover-card/hover-card-root.vue.d.ts b/dist/components/hover-card/hover-card-root.vue.d.ts
+index ce36211f61bfeb2070c8581155ce54a5e19da909..fe15819f68f2586097cce2797c4b6b5391a8511b 100644
+--- a/dist/components/hover-card/hover-card-root.vue.d.ts
++++ b/dist/components/hover-card/hover-card-root.vue.d.ts
+@@ -12,6 +12,7 @@ export interface HoverCardRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<HoverCardRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+@@ -21,6 +22,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<HoverCardRootProps,
+     interactOutside: (event: InteractOutsideEvent) => any;
+     pointerDownOutside: (event: PointerDownOutsideEvent) => any;
+ }, string, PublicProps, Readonly<HoverCardRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/hover-card/hover-card-root.vue_vue_type_script_setup_true_lang.cjs b/dist/components/hover-card/hover-card-root.vue_vue_type_script_setup_true_lang.cjs
+index 25d86c6d64aee8a1721a91c40873f10a86e091b0..bd897f7ee48d340ec868d488279f2ec19c6b109e 100644
+--- a/dist/components/hover-card/hover-card-root.vue_vue_type_script_setup_true_lang.cjs
++++ b/dist/components/hover-card/hover-card-root.vue_vue_type_script_setup_true_lang.cjs
+@@ -27,6 +27,7 @@ var hover_card_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/
+ 		open: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"interactOutside",
+diff --git a/dist/components/hover-card/hover-card-root.vue_vue_type_script_setup_true_lang.js b/dist/components/hover-card/hover-card-root.vue_vue_type_script_setup_true_lang.js
+index e21b341328dad7f986b4ceead46f833390dce76d..3f3048ef775e11a9ad255705782e5e8a0cae2e0b 100644
+--- a/dist/components/hover-card/hover-card-root.vue_vue_type_script_setup_true_lang.js
++++ b/dist/components/hover-card/hover-card-root.vue_vue_type_script_setup_true_lang.js
+@@ -27,6 +27,7 @@ var hover_card_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/
+ 		open: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"interactOutside",
+diff --git a/dist/components/hover-card/hover-card.types.d.cts b/dist/components/hover-card/hover-card.types.d.cts
+index e916e7b2f4c00ac3cea8e386a0e466381ced4650..c9f5ad977e3128b99fb301b8faeaebcd9fc4ea7c 100644
+--- a/dist/components/hover-card/hover-card.types.d.cts
++++ b/dist/components/hover-card/hover-card.types.d.cts
+@@ -51,6 +51,10 @@ export interface RootProps {
+     defaultTriggerValue?: string | null;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/hover-card/hover-card.types.d.ts b/dist/components/hover-card/hover-card.types.d.ts
+index e916e7b2f4c00ac3cea8e386a0e466381ced4650..c9f5ad977e3128b99fb301b8faeaebcd9fc4ea7c 100644
+--- a/dist/components/hover-card/hover-card.types.d.ts
++++ b/dist/components/hover-card/hover-card.types.d.ts
+@@ -51,6 +51,10 @@ export interface RootProps {
+     defaultTriggerValue?: string | null;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/menu/menu-root.vue.d.cts b/dist/components/menu/menu-root.vue.d.cts
+index 2bdfc15b98669712ea88440babf439bafafe82a5..20d951d783c1789bc861e7c2167432f59d46552a 100644
+--- a/dist/components/menu/menu-root.vue.d.cts
++++ b/dist/components/menu/menu-root.vue.d.cts
+@@ -14,6 +14,7 @@ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<MenuRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+     select: (details: SelectionDetails) => any;
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+@@ -33,6 +34,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<MenuRootProps, {},
+     }>) => any;
+ }, string, PublicProps, Readonly<MenuRootProps> & Readonly<{
+     onSelect?: ((details: SelectionDetails) => any) | undefined;
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/menu/menu-root.vue.d.ts b/dist/components/menu/menu-root.vue.d.ts
+index 2bdfc15b98669712ea88440babf439bafafe82a5..20d951d783c1789bc861e7c2167432f59d46552a 100644
+--- a/dist/components/menu/menu-root.vue.d.ts
++++ b/dist/components/menu/menu-root.vue.d.ts
+@@ -14,6 +14,7 @@ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<MenuRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+     select: (details: SelectionDetails) => any;
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+@@ -33,6 +34,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<MenuRootProps, {},
+     }>) => any;
+ }, string, PublicProps, Readonly<MenuRootProps> & Readonly<{
+     onSelect?: ((details: SelectionDetails) => any) | undefined;
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/menu/menu-root.vue_vue_type_script_setup_true_lang.cjs b/dist/components/menu/menu-root.vue_vue_type_script_setup_true_lang.cjs
+index 29c8955156832ea62d7d78dda8eb7352c63ae70f..c7107d61d153027f932bda3bcce0aa0e0e5d62d5 100644
+--- a/dist/components/menu/menu-root.vue_vue_type_script_setup_true_lang.cjs
++++ b/dist/components/menu/menu-root.vue_vue_type_script_setup_true_lang.cjs
+@@ -40,6 +40,7 @@ var menu_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ (0, vu
+ 	}),
+ 	emits: [
+ 		"escapeKeyDown",
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"highlightChange",
+diff --git a/dist/components/menu/menu-root.vue_vue_type_script_setup_true_lang.js b/dist/components/menu/menu-root.vue_vue_type_script_setup_true_lang.js
+index d8027eded2ca26bf0a8722e6e7995f51efd06f95..e8b7d5e78724bcf09cbf5b8c236f25eb51b23d3b 100644
+--- a/dist/components/menu/menu-root.vue_vue_type_script_setup_true_lang.js
++++ b/dist/components/menu/menu-root.vue_vue_type_script_setup_true_lang.js
+@@ -40,6 +40,7 @@ var menu_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ define
+ 	}),
+ 	emits: [
+ 		"escapeKeyDown",
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"highlightChange",
+diff --git a/dist/components/menu/menu.types.d.cts b/dist/components/menu/menu.types.d.cts
+index 488411decb20e2ec79781cad36262836851686ff..7a1204b1d514e727b14793e2026978b08a9244a9 100644
+--- a/dist/components/menu/menu.types.d.cts
++++ b/dist/components/menu/menu.types.d.cts
+@@ -81,6 +81,10 @@ export interface RootProps {
+     defaultTriggerValue?: string | null;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the escape key is pressed
+      */
+diff --git a/dist/components/menu/menu.types.d.ts b/dist/components/menu/menu.types.d.ts
+index 488411decb20e2ec79781cad36262836851686ff..7a1204b1d514e727b14793e2026978b08a9244a9 100644
+--- a/dist/components/menu/menu.types.d.ts
++++ b/dist/components/menu/menu.types.d.ts
+@@ -81,6 +81,10 @@ export interface RootProps {
+     defaultTriggerValue?: string | null;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the escape key is pressed
+      */
+diff --git a/dist/components/popover/popover-root.vue.d.cts b/dist/components/popover/popover-root.vue.d.cts
+index bd993600efea7b95e99563bfa153787db2e0b8a2..d18826f1ad1918d9f45cf3be72431c560f744f4e 100644
+--- a/dist/components/popover/popover-root.vue.d.cts
++++ b/dist/components/popover/popover-root.vue.d.cts
+@@ -12,6 +12,7 @@ export interface PopoverRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<PopoverRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+@@ -28,6 +29,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<PopoverRootProps, {
+         targetIndex: number;
+     }>) => any;
+ }, string, PublicProps, Readonly<PopoverRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/popover/popover-root.vue.d.ts b/dist/components/popover/popover-root.vue.d.ts
+index bd993600efea7b95e99563bfa153787db2e0b8a2..d18826f1ad1918d9f45cf3be72431c560f744f4e 100644
+--- a/dist/components/popover/popover-root.vue.d.ts
++++ b/dist/components/popover/popover-root.vue.d.ts
+@@ -12,6 +12,7 @@ export interface PopoverRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<PopoverRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+@@ -28,6 +29,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<PopoverRootProps, {
+         targetIndex: number;
+     }>) => any;
+ }, string, PublicProps, Readonly<PopoverRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/popover/popover-root.vue_vue_type_script_setup_true_lang.cjs b/dist/components/popover/popover-root.vue_vue_type_script_setup_true_lang.cjs
+index 9f6b5f2726fe952bd78d28d5390202d5f9bf3107..4267f853e41ad8a096e532ac0815e870b67e1759 100644
+--- a/dist/components/popover/popover-root.vue_vue_type_script_setup_true_lang.cjs
++++ b/dist/components/popover/popover-root.vue_vue_type_script_setup_true_lang.cjs
+@@ -40,6 +40,7 @@ var popover_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ (0,
+ 	}),
+ 	emits: [
+ 		"escapeKeyDown",
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"interactOutside",
+diff --git a/dist/components/popover/popover-root.vue_vue_type_script_setup_true_lang.js b/dist/components/popover/popover-root.vue_vue_type_script_setup_true_lang.js
+index f5a04c644be3de27097ae3adb8c590e3f6c4e91a..3e8d78ac9bef1c0256bad2fdb5e2b35f6e9f64a8 100644
+--- a/dist/components/popover/popover-root.vue_vue_type_script_setup_true_lang.js
++++ b/dist/components/popover/popover-root.vue_vue_type_script_setup_true_lang.js
+@@ -40,6 +40,7 @@ var popover_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ def
+ 	}),
+ 	emits: [
+ 		"escapeKeyDown",
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"interactOutside",
+diff --git a/dist/components/popover/popover.types.d.cts b/dist/components/popover/popover.types.d.cts
+index 609c2229391b65b9ef3d9a523a16278237c71e62..267bd5885181ef3bd20de3890ee0296394d65430 100644
+--- a/dist/components/popover/popover.types.d.cts
++++ b/dist/components/popover/popover.types.d.cts
+@@ -99,6 +99,10 @@ export interface RootProps {
+     defaultTriggerValue?: string | null;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the escape key is pressed
+      */
+diff --git a/dist/components/popover/popover.types.d.ts b/dist/components/popover/popover.types.d.ts
+index 609c2229391b65b9ef3d9a523a16278237c71e62..267bd5885181ef3bd20de3890ee0296394d65430 100644
+--- a/dist/components/popover/popover.types.d.ts
++++ b/dist/components/popover/popover.types.d.ts
+@@ -99,6 +99,10 @@ export interface RootProps {
+     defaultTriggerValue?: string | null;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the escape key is pressed
+      */
+diff --git a/dist/components/select/select-root.vue.d.cts b/dist/components/select/select-root.vue.d.cts
+index ee6046bd6d64d90248eebe4b12bcd90ffac64c39..99013ec04823ca0019e27e3d5dfb1852dfbc0bf5 100644
+--- a/dist/components/select/select-root.vue.d.cts
++++ b/dist/components/select/select-root.vue.d.cts
+@@ -22,6 +22,7 @@ export default _default;
+ declare const __VLS_export: <T extends CollectionItem>(__VLS_props: NonNullable<Awaited<typeof __VLS_setup>>["props"], __VLS_ctx?: __VLS_PrettifyLocal<Pick<NonNullable<Awaited<typeof __VLS_setup>>, "attrs" | "emit" | "slots">>, __VLS_exposed?: NonNullable<Awaited<typeof __VLS_setup>>["expose"], __VLS_setup?: Promise<{
+     props: PublicProps & __VLS_PrettifyLocal<SelectRootProps<T> & {
+         onSelect?: ((details: SelectionDetails) => any) | undefined;
++        onEnterComplete?: (() => any) | undefined;
+         onExitComplete?: (() => any) | undefined;
+         onValueChange?: ((details: ValueChangeDetails<T>) => any) | undefined;
+         "onUpdate:modelValue"?: ((value: string[]) => any) | undefined;
+@@ -40,7 +41,7 @@ declare const __VLS_export: <T extends CollectionItem>(__VLS_props: NonNullable<
+     slots: {
+         default?: (props: {}) => any;
+     };
+-    emit: ((evt: "select", details: SelectionDetails) => void) & ((evt: "exitComplete") => void) & ((evt: "valueChange", details: ValueChangeDetails<T>) => void) & ((evt: "update:modelValue", value: string[]) => void) & ((evt: "openChange", details: OpenChangeDetails) => void) & ((evt: "update:open", open: boolean) => void) & ((evt: "focusOutside", event: FocusOutsideEvent) => void) & ((evt: "interactOutside", event: InteractOutsideEvent) => void) & ((evt: "pointerDownOutside", event: PointerDownOutsideEvent) => void) & ((evt: "highlightChange", details: HighlightChangeDetails<T>) => void) & ((evt: "update:highlightedValue", value: string | null) => void);
++    emit: ((evt: "select", details: SelectionDetails) => void) & ((evt: "enterComplete") => void) & ((evt: "exitComplete") => void) & ((evt: "valueChange", details: ValueChangeDetails<T>) => void) & ((evt: "update:modelValue", value: string[]) => void) & ((evt: "openChange", details: OpenChangeDetails) => void) & ((evt: "update:open", open: boolean) => void) & ((evt: "focusOutside", event: FocusOutsideEvent) => void) & ((evt: "interactOutside", event: InteractOutsideEvent) => void) & ((evt: "pointerDownOutside", event: PointerDownOutsideEvent) => void) & ((evt: "highlightChange", details: HighlightChangeDetails<T>) => void) & ((evt: "update:highlightedValue", value: string | null) => void);
+ }>) => VNode & {
+     __ctx?: NonNullable<Awaited<typeof __VLS_setup>>;
+ };
+diff --git a/dist/components/select/select-root.vue.d.ts b/dist/components/select/select-root.vue.d.ts
+index ee6046bd6d64d90248eebe4b12bcd90ffac64c39..99013ec04823ca0019e27e3d5dfb1852dfbc0bf5 100644
+--- a/dist/components/select/select-root.vue.d.ts
++++ b/dist/components/select/select-root.vue.d.ts
+@@ -22,6 +22,7 @@ export default _default;
+ declare const __VLS_export: <T extends CollectionItem>(__VLS_props: NonNullable<Awaited<typeof __VLS_setup>>["props"], __VLS_ctx?: __VLS_PrettifyLocal<Pick<NonNullable<Awaited<typeof __VLS_setup>>, "attrs" | "emit" | "slots">>, __VLS_exposed?: NonNullable<Awaited<typeof __VLS_setup>>["expose"], __VLS_setup?: Promise<{
+     props: PublicProps & __VLS_PrettifyLocal<SelectRootProps<T> & {
+         onSelect?: ((details: SelectionDetails) => any) | undefined;
++        onEnterComplete?: (() => any) | undefined;
+         onExitComplete?: (() => any) | undefined;
+         onValueChange?: ((details: ValueChangeDetails<T>) => any) | undefined;
+         "onUpdate:modelValue"?: ((value: string[]) => any) | undefined;
+@@ -40,7 +41,7 @@ declare const __VLS_export: <T extends CollectionItem>(__VLS_props: NonNullable<
+     slots: {
+         default?: (props: {}) => any;
+     };
+-    emit: ((evt: "select", details: SelectionDetails) => void) & ((evt: "exitComplete") => void) & ((evt: "valueChange", details: ValueChangeDetails<T>) => void) & ((evt: "update:modelValue", value: string[]) => void) & ((evt: "openChange", details: OpenChangeDetails) => void) & ((evt: "update:open", open: boolean) => void) & ((evt: "focusOutside", event: FocusOutsideEvent) => void) & ((evt: "interactOutside", event: InteractOutsideEvent) => void) & ((evt: "pointerDownOutside", event: PointerDownOutsideEvent) => void) & ((evt: "highlightChange", details: HighlightChangeDetails<T>) => void) & ((evt: "update:highlightedValue", value: string | null) => void);
++    emit: ((evt: "select", details: SelectionDetails) => void) & ((evt: "enterComplete") => void) & ((evt: "exitComplete") => void) & ((evt: "valueChange", details: ValueChangeDetails<T>) => void) & ((evt: "update:modelValue", value: string[]) => void) & ((evt: "openChange", details: OpenChangeDetails) => void) & ((evt: "update:open", open: boolean) => void) & ((evt: "focusOutside", event: FocusOutsideEvent) => void) & ((evt: "interactOutside", event: InteractOutsideEvent) => void) & ((evt: "pointerDownOutside", event: PointerDownOutsideEvent) => void) & ((evt: "highlightChange", details: HighlightChangeDetails<T>) => void) & ((evt: "update:highlightedValue", value: string | null) => void);
+ }>) => VNode & {
+     __ctx?: NonNullable<Awaited<typeof __VLS_setup>>;
+ };
+diff --git a/dist/components/select/select-root.vue_vue_type_script_setup_true_lang.cjs b/dist/components/select/select-root.vue_vue_type_script_setup_true_lang.cjs
+index da9026a3f98c5f1db3e8c22296a42be2d8c6e97e..17352c931043c03f3c1ff86a7b28f8ae7a59f892 100644
+--- a/dist/components/select/select-root.vue_vue_type_script_setup_true_lang.cjs
++++ b/dist/components/select/select-root.vue_vue_type_script_setup_true_lang.cjs
+@@ -51,6 +51,7 @@ var select_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ (0,
+ 		required: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"highlightChange",
+diff --git a/dist/components/select/select-root.vue_vue_type_script_setup_true_lang.js b/dist/components/select/select-root.vue_vue_type_script_setup_true_lang.js
+index 3f617746d65c7efe6b2c2bbcefb34e53431faa87..30c94ff1d8a433bccf2aab2c8d39820b0d53b334 100644
+--- a/dist/components/select/select-root.vue_vue_type_script_setup_true_lang.js
++++ b/dist/components/select/select-root.vue_vue_type_script_setup_true_lang.js
+@@ -51,6 +51,7 @@ var select_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ defi
+ 		required: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"highlightChange",
+diff --git a/dist/components/select/select.types.d.cts b/dist/components/select/select.types.d.cts
+index f2facc2bef4962cdd489d8061b16312e0b2c4de7..8435e028ea5ad3678bba3c12f2ad6cb548472559 100644
+--- a/dist/components/select/select.types.d.cts
++++ b/dist/components/select/select.types.d.cts
+@@ -118,6 +118,10 @@ export interface RootProps<T extends CollectionItem> {
+     translations?: select.IntlTranslations;
+ }
+ export type RootEmits<T extends CollectionItem> = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/select/select.types.d.ts b/dist/components/select/select.types.d.ts
+index f2facc2bef4962cdd489d8061b16312e0b2c4de7..8435e028ea5ad3678bba3c12f2ad6cb548472559 100644
+--- a/dist/components/select/select.types.d.ts
++++ b/dist/components/select/select.types.d.ts
+@@ -118,6 +118,10 @@ export interface RootProps<T extends CollectionItem> {
+     translations?: select.IntlTranslations;
+ }
+ export type RootEmits<T extends CollectionItem> = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/tooltip/tooltip-root.vue.d.cts b/dist/components/tooltip/tooltip-root.vue.d.cts
+index 7956a15281e9ba6b879b37cde117c5fa7c568977..773f4cbdab8005ffa373730550d39b566ac89cf8 100644
+--- a/dist/components/tooltip/tooltip-root.vue.d.cts
++++ b/dist/components/tooltip/tooltip-root.vue.d.cts
+@@ -11,12 +11,14 @@ export interface TooltipRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<TooltipRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+     triggerValueChange: (details: TriggerValueChangeDetails) => any;
+     "update:triggerValue": (triggerValue: string | null) => any;
+ }, string, PublicProps, Readonly<TooltipRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/tooltip/tooltip-root.vue.d.ts b/dist/components/tooltip/tooltip-root.vue.d.ts
+index 7956a15281e9ba6b879b37cde117c5fa7c568977..773f4cbdab8005ffa373730550d39b566ac89cf8 100644
+--- a/dist/components/tooltip/tooltip-root.vue.d.ts
++++ b/dist/components/tooltip/tooltip-root.vue.d.ts
+@@ -11,12 +11,14 @@ export interface TooltipRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<TooltipRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     openChange: (details: OpenChangeDetails) => any;
+     "update:open": (open: boolean) => any;
+     triggerValueChange: (details: TriggerValueChangeDetails) => any;
+     "update:triggerValue": (triggerValue: string | null) => any;
+ }, string, PublicProps, Readonly<TooltipRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onOpenChange?: ((details: OpenChangeDetails) => any) | undefined;
+     "onUpdate:open"?: ((open: boolean) => any) | undefined;
+diff --git a/dist/components/tooltip/tooltip-root.vue_vue_type_script_setup_true_lang.cjs b/dist/components/tooltip/tooltip-root.vue_vue_type_script_setup_true_lang.cjs
+index 034f175a880138bb214a0015798754cfff886863..3b5f91833ad6bcabaeedcc2b192e149205784016 100644
+--- a/dist/components/tooltip/tooltip-root.vue_vue_type_script_setup_true_lang.cjs
++++ b/dist/components/tooltip/tooltip-root.vue_vue_type_script_setup_true_lang.cjs
+@@ -38,6 +38,7 @@ var tooltip_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ (0,
+ 		open: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"openChange",
+ 		"triggerValueChange",
+diff --git a/dist/components/tooltip/tooltip-root.vue_vue_type_script_setup_true_lang.js b/dist/components/tooltip/tooltip-root.vue_vue_type_script_setup_true_lang.js
+index 6857a1de0cebdca8421e72d3e5f803c1e42fce3e..9d59bcb7b21fa8fcf5b92620edf8334c135e98c2 100644
+--- a/dist/components/tooltip/tooltip-root.vue_vue_type_script_setup_true_lang.js
++++ b/dist/components/tooltip/tooltip-root.vue_vue_type_script_setup_true_lang.js
+@@ -38,6 +38,7 @@ var tooltip_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ def
+ 		open: void 0
+ 	}),
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"openChange",
+ 		"triggerValueChange",
+diff --git a/dist/components/tooltip/tooltip.types.d.cts b/dist/components/tooltip/tooltip.types.d.cts
+index a2f21c1246f86f7b8dd691943486dba723a6d515..4d9df037a14fe6591c458571c657cc591ff26894 100644
+--- a/dist/components/tooltip/tooltip.types.d.cts
++++ b/dist/components/tooltip/tooltip.types.d.cts
+@@ -83,6 +83,10 @@ export interface RootProps {
+     defaultTriggerValue?: string | null;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/tooltip/tooltip.types.d.ts b/dist/components/tooltip/tooltip.types.d.ts
+index a2f21c1246f86f7b8dd691943486dba723a6d515..4d9df037a14fe6591c458571c657cc591ff26894 100644
+--- a/dist/components/tooltip/tooltip.types.d.ts
++++ b/dist/components/tooltip/tooltip.types.d.ts
+@@ -83,6 +83,10 @@ export interface RootProps {
+     defaultTriggerValue?: string | null;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/tour/tour-root.vue.d.cts b/dist/components/tour/tour-root.vue.d.cts
+index 4c46cc0a7fa63bd894a8fe72a613b401139118b6..7f05090fdab9bc9c05dac7a8649d5138add524c8 100644
+--- a/dist/components/tour/tour-root.vue.d.cts
++++ b/dist/components/tour/tour-root.vue.d.cts
+@@ -16,6 +16,7 @@ export interface TourRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<TourRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     statusChange: (details: StatusChangeDetails) => any;
+     focusOutside: (event: FocusOutsideEvent) => any;
+@@ -26,6 +27,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<TourRootProps, {},
+         steps: StepDetails[];
+     }) => any;
+ }, string, PublicProps, Readonly<TourRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onStatusChange?: ((details: StatusChangeDetails) => any) | undefined;
+     onFocusOutside?: ((event: FocusOutsideEvent) => any) | undefined;
+diff --git a/dist/components/tour/tour-root.vue.d.ts b/dist/components/tour/tour-root.vue.d.ts
+index 4c46cc0a7fa63bd894a8fe72a613b401139118b6..7f05090fdab9bc9c05dac7a8649d5138add524c8 100644
+--- a/dist/components/tour/tour-root.vue.d.ts
++++ b/dist/components/tour/tour-root.vue.d.ts
+@@ -16,6 +16,7 @@ export interface TourRootEmits extends RootEmits {
+ declare const _default: typeof __VLS_export;
+ export default _default;
+ declare const __VLS_export: __VLS_WithSlots< DefineComponent<TourRootProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
++    enterComplete: () => any;
+     exitComplete: () => any;
+     statusChange: (details: StatusChangeDetails) => any;
+     focusOutside: (event: FocusOutsideEvent) => any;
+@@ -26,6 +27,7 @@ declare const __VLS_export: __VLS_WithSlots< DefineComponent<TourRootProps, {},
+         steps: StepDetails[];
+     }) => any;
+ }, string, PublicProps, Readonly<TourRootProps> & Readonly<{
++    onEnterComplete?: (() => any) | undefined;
+     onExitComplete?: (() => any) | undefined;
+     onStatusChange?: ((details: StatusChangeDetails) => any) | undefined;
+     onFocusOutside?: ((event: FocusOutsideEvent) => any) | undefined;
+diff --git a/dist/components/tour/tour-root.vue_vue_type_script_setup_true_lang.cjs b/dist/components/tour/tour-root.vue_vue_type_script_setup_true_lang.cjs
+index 6c7b52566654f03deeadfeb5a1f30794e79ea574..02652bd2b58519def557d0da7d12d9224e566144 100644
+--- a/dist/components/tour/tour-root.vue_vue_type_script_setup_true_lang.cjs
++++ b/dist/components/tour/tour-root.vue_vue_type_script_setup_true_lang.cjs
+@@ -13,6 +13,7 @@ var tour_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ (0, vu
+ 		unmountOnExit: { type: Boolean }
+ 	},
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"interactOutside",
+diff --git a/dist/components/tour/tour-root.vue_vue_type_script_setup_true_lang.js b/dist/components/tour/tour-root.vue_vue_type_script_setup_true_lang.js
+index a6f4309d9b41d86d6e346387a6d5de0a6d0967fb..220d62d77c388219c8e9ce500c453bec9b578f5d 100644
+--- a/dist/components/tour/tour-root.vue_vue_type_script_setup_true_lang.js
++++ b/dist/components/tour/tour-root.vue_vue_type_script_setup_true_lang.js
+@@ -13,6 +13,7 @@ var tour_root_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ define
+ 		unmountOnExit: { type: Boolean }
+ 	},
+ 	emits: [
++		"enterComplete",
+ 		"exitComplete",
+ 		"focusOutside",
+ 		"interactOutside",
+diff --git a/dist/components/tour/tour.types.d.cts b/dist/components/tour/tour.types.d.cts
+index b9ea95d45ddec12b843989967ce35e12fad2f8b8..d5081fd770e2d7126a23ca5a226fe5d2e1c1eca1 100644
+--- a/dist/components/tour/tour.types.d.cts
++++ b/dist/components/tour/tour.types.d.cts
+@@ -59,6 +59,10 @@ export interface RootProps {
+     translations?: tour.IntlTranslations;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */
+diff --git a/dist/components/tour/tour.types.d.ts b/dist/components/tour/tour.types.d.ts
+index b9ea95d45ddec12b843989967ce35e12fad2f8b8..d5081fd770e2d7126a23ca5a226fe5d2e1c1eca1 100644
+--- a/dist/components/tour/tour.types.d.ts
++++ b/dist/components/tour/tour.types.d.ts
+@@ -59,6 +59,10 @@ export interface RootProps {
+     translations?: tour.IntlTranslations;
+ }
+ export type RootEmits = {
++    /**
++     * Function called when the animation ends in the open state
++     */
++    enterComplete: [];
+     /**
+      * Function called when the animation ends in the closed state
+      */

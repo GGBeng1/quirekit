@@ -1,0 +1,1 @@
+export { toQuireFontServiceSources } from "./adapter";

@@ -1,0 +1,42 @@
+{
+  "name": "@quirekit/math-omml",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/math-omml"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/math-omml#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Convert formulas between LaTeX and Word OMML, the formula format inside DOCX: Word-native encoding and strict, verified decoding.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "README.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/math": "workspace:*"
+  },
+  "devDependencies": {
+    "@quirekit/math-mathjax": "workspace:*",
+    "@types/node": "catalog:",
+    "fast-xml-parser": "5.5.8",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

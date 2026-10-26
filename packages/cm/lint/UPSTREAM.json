@@ -1,0 +1,16 @@
+{
+  "name": "@codemirror/lint",
+  "version": "6.9.7",
+  "commit": "dc7cf103c2f7730b93c52d7350955c43bbb58f66",
+  "repository": "https://code.haverbeke.berlin/codemirror/lint.git",
+  "integrity": "sha512-28/+iWLYxKxsvGYhSYL7zaCZqLz5+FFFDq9tVsvGv9kv8RY4fFAchJ5WX9M3YrrRlTIsECjsXPqeNgnSmNP2dg==",
+  "tarball": "https://registry.npmjs.org/@codemirror/lint/-/lint-6.9.7.tgz",
+  "license": "MIT",
+  "sourceDirectory": "src",
+  "sourceSha256": "b5f25bc4541fcbfacf2a9342f4f7e7fc5f86be800732ace04bbe8edf29d911b4",
+  "licenseSha256": "05c6130cda97e7600ca91427a41e8a065efcf82365fc0293e7de80faec494c07",
+  "localChanges": [
+    "Package names, imports and build/test configuration use QuireKit workspace identities."
+  ],
+  "sourceEntry": "src/lint.ts"
+}

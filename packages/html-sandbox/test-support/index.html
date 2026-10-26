@@ -1,0 +1,9 @@
+<!doctype html><html><head><meta charset="utf-8"><title>HTML sandbox contract fixture</title></head><body><h1>Host</h1><div id="mount" style="height:320px"></div><script type="module">
+import { createHtmlSandbox } from '../src/browser/index.ts';
+window.createSandbox = createHtmlSandbox;
+window.events = [];
+window.make = (html, config = {}, complete = true) => {
+  window.handle?.destroy(); window.events = [];
+  window.handle = createHtmlSandbox({ container: document.querySelector('#mount'), source: { html, complete, identity: 'fixture' }, config, onEvent: event => window.events.push(event) });
+};
+</script></body></html>

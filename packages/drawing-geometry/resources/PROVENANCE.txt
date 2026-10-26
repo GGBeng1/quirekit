@@ -1,0 +1,11 @@
+DrawingML preset shape definitions, Apache POI REL_5_4_1.
+Copyright 2003-2025 The Apache Software Foundation.
+Source commit: 4554f204cbbf00ecbcaed134fe57e43a1779a612
+Source: https://github.com/apache/poi/blob/REL_5_4_1/poi/src/main/resources/org/apache/poi/sl/draw/geom/presetShapeDefinitions.xml
+Original SHA-256: a7dad593d27bd70536b41da9b761fa16409536cc0c25ef2b6c7a61c5d9b3e738
+License: Apache License 2.0, reproduced in LICENSE-APACHE.txt.
+Upstream notices are reproduced in NOTICE-APACHE.txt.
+The generated src/presets data is a mechanical projection of this XML:
+names, adjustment formulas, guide formulas, text rectangles, adjustment handles
+and drawing paths. Connection sites and extrusion flags are not projected.
+QuireKit's evaluator is an independent implementation.

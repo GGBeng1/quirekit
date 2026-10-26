@@ -1,0 +1,1 @@
+export type { QuireKitCommandListItem as ClassicEditorCommandMenuItem, QuireKitCommandListProps as ClassicEditorCommandMenuProps, QuireKitCommandListSlots as ClassicEditorCommandMenuSlots } from "@quirekit/ui/vue";

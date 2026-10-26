@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QuireKit 思维导图基础预览</title>
+    <style>
+      body { margin: 28px; color: #163337; background: #f4f6f7; font: 16px/1.6 Arial, sans-serif; }
+      h1 { margin-bottom: 4px; font-size: 24px; } h2 { font-size: 17px; margin: 0 0 10px; }
+      p { color: #587073; margin: 8px 0 16px; }
+      .workspace { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); gap: 20px; }
+      .host { height: 540px; background: white; border: 1px solid #cddadb; border-radius: 8px; overflow: hidden; }
+      #second { height: 320px; }
+      #preview-toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 8px; }
+      button { font: inherit; color: #163337; background: white; padding: 6px 13px; border: 1px solid #b5cbcd; border-radius: 6px; cursor: pointer; }
+      button:hover { background: #e9f1f2; } button:disabled { opacity: .5; cursor: wait; }
+      button:first-child { color: white; background: #087f89; border-color: #087f89; }
+      button:focus-visible, input:focus-visible { outline: 2px solid #087f89; outline-offset: 3px; }
+      #preview-status { font-size: 14px; min-height: 23px; }
+      .isolation { display: block; margin-top: 20px; font-size: 14px; }
+      #outside { box-sizing: border-box; margin-top: 6px; padding: 10px; width: 100%; font: inherit; }
+      .hint { font-size: 14px; }
+      kbd { padding: 1px 5px; border: 1px solid #cddadb; border-radius: 4px; background: white; }
+      #file-notice { padding: 20px; border: 1px solid #cddadb; border-radius: 8px; background: white; }
+      code { overflow-wrap: anywhere; } a { color: #087f89; }
+      [hidden] { display: none !important; }
+      @media (max-width: 1000px) { body { margin: 18px; } .workspace { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <h1>共享思维导图 · 基础预览</h1>
+    <p>用于体验节点编辑、撤销重做和实例隔离。当前数据仅在本页保留，刷新会重置；Classic、Block、MSFE 的产品入口尚未接入。</p>
+    <div id="file-notice" role="alert" hidden>
+      <strong>这个开发页面不能直接作为文件运行。</strong>
+      <p>请在项目目录运行 <code>pnpm --filter @quirekit/mind-map-simple dev</code>，然后打开本地预览。</p>
+      <a href="http://127.0.0.1:8993/">打开本地思维导图预览</a>
+    </div>
+    <div id="interactive-preview">
+      <div id="preview-toolbar" role="group" aria-label="主脑图编辑操作">
+        <button type="button" data-command="add-child" disabled>新增子主题</button>
+        <button type="button" data-command="add-sibling" disabled>新增同级主题</button>
+        <button type="button" data-command="edit-text" disabled>编辑文字</button>
+        <button type="button" data-command="remove" disabled>删除主题</button>
+        <button type="button" data-command="undo" disabled>撤销</button>
+        <button type="button" data-command="redo" disabled>重做</button>
+      </div>
+      <p id="preview-status" role="status">正在加载脑图…</p>
+      <div class="workspace">
+        <section>
+          <h2>脑图编辑区</h2>
+          <div id="first" class="host"></div>
+          <p class="hint">单击节点后可用上方按钮，双击节点修改文字。<kbd>Tab</kbd> 新增子主题；<kbd>Enter</kbd> 新增同级主题（根节点没有同级）。编辑文字时按回车确认，<kbd>Shift + Enter</kbd> 换行。</p>
+        </section>
+        <section>
+          <h2>独立实例 · 隔离验证</h2>
+          <div id="second" class="host"></div>
+          <p class="hint">这里也可双击编辑；两张图的内容互不影响。上方按钮只操作主脑图。</p>
+          <label class="isolation" for="outside">外部输入框 · 仅验证焦点隔离，不编辑脑图</label>
+          <input id="outside" placeholder="在这里按回车，脑图应保持不变" aria-label="外部输入框">
+        </section>
+      </div>
+    </div>
+    <noscript>请启用 JavaScript，并通过本地服务打开此预览。</noscript>
+    <script>
+      if (location.protocol === "file:") {
+        document.getElementById("file-notice").hidden = false;
+        document.getElementById("interactive-preview").hidden = true;
+      } else {
+        const entry = document.createElement("script");
+        entry.type = "module";
+        entry.src = "/fixture.ts";
+        entry.addEventListener("error", () => {
+          document.getElementById("preview-status").textContent = "脑图加载失败，请检查本地服务是否通过 pnpm --filter @quirekit/mind-map-simple dev 启动。";
+        });
+        document.body.append(entry);
+      }
+    </script>
+  </body>
+</html>

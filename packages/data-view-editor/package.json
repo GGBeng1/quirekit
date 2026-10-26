@@ -1,0 +1,58 @@
+{
+  "name": "@quirekit/data-view-editor",
+  "version": "0.1.0-alpha.0",
+  "description": "MIT shared table and kanban authoring workspace.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quirekit/quirekit.git",
+    "directory": "packages/data-view-editor"
+  },
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/data-view-editor#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./vue": {
+      "types": "./dist/vue.d.mts",
+      "import": "./dist/vue.mjs"
+    },
+    "./styles.css": "./dist/style.css"
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown --config tsdown.config.ts",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "unplugin-vue": "^7.2.0",
+    "vue-tsc": "^3.3.7",
+    "vue": "3.5.40",
+    "@tsdown/css": "catalog:",
+    "happy-dom": "20.10.6"
+  },
+  "dependencies": {
+    "@quirekit/data-view": "workspace:*",
+    "@quirekit/ui": "workspace:*",
+    "uuid": "14.0.3"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  }
+}

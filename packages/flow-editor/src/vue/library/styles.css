@@ -1,0 +1,19 @@
+.qk-flow-library { width: min(1000px,calc(100vw - 32px)); max-width: calc(100vw - 24px); }
+.qk-flow-library__tools,.qk-flow-library__actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.qk-flow-library__tools { justify-content:space-between; margin-bottom:16px; }
+.qk-flow-library__body { display:grid; grid-template-columns:minmax(220px,0.8fr) minmax(0,1.2fr); gap:20px; min-height:320px; }
+.qk-flow-library__list { display:flex; flex-direction:column; gap:4px; max-height:52vh; overflow:auto; min-width:0; }
+.qk-flow-library__item { width:100%; height:auto; min-height:62px; justify-content:flex-start; padding:10px 12px; gap:12px; text-align:left; }
+.qk-flow-library__item[aria-pressed="true"] { background:var(--qk-color-surface-workspace); box-shadow:inset 3px 0 var(--qk-color-action-primary); }
+.qk-flow-library__item-content { display:flex; align-items:center; gap:12px; width:100%; min-width:0; }
+.qk-flow-library__item-copy { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.qk-flow-library__item small { display:block; margin-top:4px; font-size:11px; color:var(--qk-color-text-tertiary); font-weight:400; }
+.qk-flow-library__preview { display:flex; align-items:center; justify-content:center; height:300px; padding:18px; border:1px solid var(--qk-color-border-subtle); border-radius:var(--qk-radius-control); background:var(--qk-color-surface-workspace); }
+.qk-flow-library__preview img { width:100%; height:100%; object-fit:contain; }
+.qk-flow-library__detail,.qk-flow-library__draft { min-width:0; }
+.qk-flow-library h3 { margin:14px 0 8px; font-size:14px; overflow-wrap:anywhere; }
+.qk-flow-library p,.qk-flow-library__preview span { font-size:12px; line-height:1.8; color:var(--qk-color-text-secondary); }
+.qk-flow-library__empty { padding:40px 16px; }
+.qk-flow-library__confirm { border-top:1px solid var(--qk-color-border-subtle); margin-top:12px; }
+.qk-flow-library__renderer { position:fixed; left:-20000px; top:0; width:1200px; height:900px; visibility:hidden; pointer-events:none; }
+@media(max-width:650px) { .qk-flow-library__body { grid-template-columns:minmax(0,1fr); } .qk-flow-library__list { max-height:22vh; } .qk-flow-library__preview { height:170px; } }

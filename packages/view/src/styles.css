@@ -1,0 +1,74 @@
+/* Mounted geometry owns dimensions; these rules keep its surfaces in one coordinate space. */
+.qk-canvas-editor,
+.qk-svg-editor {
+  position: relative;
+  display: block;
+  min-width: 0;
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.qk-canvas-editor__pointer,
+.qk-canvas-editor__page-stack,
+.qk-svg-editor__page-stack,
+.qk-canvas-editor__overlays,
+.qk-svg-editor__overlays {
+  position: absolute;
+  inset: 0;
+}
+
+/* Paper and painted layers pass native input to the View's pointer surface. */
+.qk-canvas-editor__page-stack,
+.qk-svg-editor__page-stack,
+.qk-canvas-editor__overlays,
+.qk-svg-editor__overlays {
+  pointer-events: none;
+}
+
+.qk-canvas-editor__page,
+.qk-svg-editor__page {
+  overflow: hidden;
+}
+
+.qk-canvas-editor__content,
+.qk-svg-editor__content {
+  display: block;
+}
+
+.qk-canvas-editor__page > .qk-canvas-editor__content,
+.qk-svg-editor__page > .qk-svg-editor__content,
+.qk-canvas-editor__overlay,
+.qk-svg-editor__overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}
+
+.qk-canvas-editor__overlay,
+.qk-svg-editor__overlay {
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Inline tile dimensions and offsets remain authoritative, including sparse overlay canvases. */
+.qk-canvas-editor__overlays,
+.qk-svg-editor__overlays {
+  z-index: 2;
+}
+
+.qk-canvas-editor__input-proxy,
+.qk-svg-editor__input-proxy {
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.qk-canvas-editor__caret,
+.qk-svg-editor__caret {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}

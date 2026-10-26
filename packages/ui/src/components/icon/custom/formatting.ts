@@ -1,0 +1,24 @@
+// Size actions and text color share a letter skeleton. Color translates it as
+// a whole to leave room for the state strip without changing its stroke weight.
+const letterA = '<path d="M3 19 8.5 5 14 19M5 14h7"/>';
+// Empty color is an unpainted state, so its indicator stays below the glyph.
+const emptyStrip = '<path class="qk-icon__empty-mark" stroke-width="1.5" stroke-dasharray="2 4" d="M5 20.5h14"/>';
+const colorStrip = '<path class="qk-icon__accent" stroke-width="2.5" d="M5 20.5h14"/>';
+
+/** Purpose-specific editor artwork on the shared 24-unit, 2-unit stroke grid. */
+export const formattingIconSvg = Object.freeze({
+  outlineColor: `<svg data-icon-style="lucide-custom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 10-10 4 4L9 16l-5 1ZM12 5l4 4"/>${colorStrip}${emptyStrip}</svg>`,
+  alignDistribute: "<svg data-icon-style=\"lucide-custom\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 5v14M21 5v14M7 6h10M7 12h10M7 18h10\"/></svg>",
+  lineSpacing: '<svg data-icon-style="lucide-custom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7 5 5 3 7M5 5v14M3 17l2 2 2-2M11 5h10M11 12h10M11 19h10"/></svg>',
+  fontSizeIncrease: `<svg data-icon-style="lucide-custom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${letterA}<path d="M16 8h6M19 5v6"/></svg>`,
+  fontSizeDecrease: `<svg data-icon-style="lucide-custom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${letterA}<path d="M16 8h6"/></svg>`,
+  textDirectionLtr: "<svg data-icon-style=\"lucide-custom\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M13 3H9a4 4 0 0 0 0 8h1M10 3v11M14 3v11M4 18h16m-3-3 3 3-3 3\"/></svg>",
+  textDirectionRtl: "<svg data-icon-style=\"lucide-custom\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M13 3H9a4 4 0 0 0 0 8h1M10 3v11M14 3v11M20 18H4m3-3-3 3 3 3\"/></svg>",
+  pageBreak: "<svg data-icon-style=\"lucide-custom\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 8V3h14v5M5 16v5h14v-5M3 12h3m4 0h4m4 0h3\"/></svg>",
+  textColor: `<svg data-icon-style="lucide-custom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(3.5 -1.5)">${letterA}</g>${colorStrip}${emptyStrip}</svg>`,
+  fillColor: `<svg data-icon-style="lucide-custom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="qk-icon__accent-fill" fill="currentColor" stroke="none" fill-opacity=".32" d="M4.5 11.5h13l-5.4 5.4a2.8 2.8 0 0 1-4 0l-3-3a2.8 2.8 0 0 1-.6-2.4Z"/><path d="M11 7 7 3M4.5 11.5h13"/><path d="m9 5 1.5-1.5a1.2 1.2 0 0 1 1.7 0L18 9.3a1.2 1.2 0 0 1 0 1.7l-5.9 5.9a2.8 2.8 0 0 1-4 0l-3-3a2.8 2.8 0 0 1 0-4L7 7"/><path class="qk-icon__accent" d="M20.5 13c-.4 1.5-1.5 2.1-1.5 3.2a1.5 1.5 0 0 0 3 0c0-1.1-1.1-1.7-1.5-3.2Z"/>${colorStrip}${emptyStrip}</svg>`,
+  textHighlight: `<svg data-icon-style="lucide-custom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 11.5-4 4v2h7l2.5-2.5"/><path d="m20 9.5-4.2 4.2a2 2 0 0 1-2.8 0l-3.2-3.2a2 2 0 0 1 0-2.8L14 3.5"/>${colorStrip}${emptyStrip}</svg>`,
+  // East Asian and Latin script scope: a boxed 中 beside a capital A.
+  fontScript: '<svg data-icon-style="lucide-custom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9v6.5H3zM7.5 4v16"/><path d="m14 20 3.5-9.5L21 20M15.3 16.8h4.4"/></svg>',
+  revisionSimpleMarkup: "<svg data-icon-style=\"lucide-custom\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h9l4 4v14H7zM16 3v5h4M3 9v8\"/></svg>"
+});

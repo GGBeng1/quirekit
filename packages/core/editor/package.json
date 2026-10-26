@@ -1,0 +1,56 @@
+{
+  "name": "@quirekit/core",
+  "version": "0.1.0-alpha.0",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/core/editor"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/core/editor#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "QuireKit editor core and extension manager.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./layout-provider": {
+      "types": "./dist/layout-provider/index.d.mts",
+      "import": "./dist/layout-provider/index.mjs"
+    },
+    "./document-profile": {
+      "types": "./dist/document-profile/index.d.mts",
+      "import": "./dist/document-profile/index.mjs"
+    },
+    "./selection-adapter": {
+      "types": "./dist/selection-adapter/index.d.mts",
+      "import": "./dist/selection-adapter/index.mjs"
+    },
+    "./jsx-runtime": {
+      "types": "./dist/jsx-runtime.d.mts",
+      "import": "./dist/jsx-runtime.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts src/jsx-runtime.ts src/layout-provider/index.ts src/document-profile/index.ts src/selection-adapter/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/docx": "workspace:*",
+    "@quirekit/markdown": "workspace:*",
+    "@quirekit/pm": "workspace:*",
+    "@quirekit/pm-view": "workspace:*"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

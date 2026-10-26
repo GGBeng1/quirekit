@@ -1,0 +1,7 @@
+export {
+ createEditorFontSizeOptions as createClassicFontSizeOptions,
+ resolveEditorFontSizeControlValue as resolveClassicFontSizeControlValue,
+ createEditorFontSizeCustomOption as createClassicFontSizeCustomOption,
+ resolveEditorFontSizeSelection as resolveClassicFontSizeSelection,
+ normalizeEditorFontSizeInput as normalizeClassicFontSizeInput
+} from "@quirekit/editor-ui";

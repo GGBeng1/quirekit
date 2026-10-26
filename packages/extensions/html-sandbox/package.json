@@ -1,0 +1,61 @@
+{
+  "name": "@quirekit/extension-html-sandbox",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "description": "Tiptap-compatible node for embedding isolated, sandboxed HTML snippets in QuireKit documents.",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/extensions/html-sandbox"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/extensions/html-sandbox#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./vue": {
+      "types": "./dist/vue.d.mts",
+      "import": "./dist/vue.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown --config tsdown.config.ts",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/core": "workspace:*",
+    "@quirekit/pm": "workspace:*",
+    "@quirekit/html-sandbox": "workspace:*"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0",
+    "@quirekit/ui": "workspace:*"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    },
+    "@quirekit/ui": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "vue": "3.5.40",
+    "unplugin-vue": "^7.2.0",
+    "happy-dom": "20.10.6",
+    "@quirekit/ui": "workspace:*",
+    "@quirekit/starter-kit": "workspace:*"
+  }
+}

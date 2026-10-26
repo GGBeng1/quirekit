@@ -1,0 +1,71 @@
+{
+  "name": "@quirekit/ui",
+  "version": "0.1.0-alpha.0",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/ui"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/ui#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Framework-neutral browser UI primitives shared by QuireKit products and mounted views.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs"
+    },
+    "./vue": {
+      "types": "./dist/vue.d.mts",
+      "import": "./dist/vue.mjs"
+    },
+    "./vue/chat": {
+      "types": "./dist/chat.d.mts",
+      "import": "./dist/chat.mjs"
+    },
+    "./vue/html-sandbox": {
+      "types": "./dist/html-sandbox.d.mts",
+      "import": "./dist/html-sandbox.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "pnpm icons:generate && tsdown --config tsdown.config.ts",
+    "dev": "pnpm icons:generate && tsdown --config tsdown.config.ts --watch --no-clean",
+    "icons:generate": "node scripts/generate-editor-icons.mjs",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "peerDependencies": {
+    "@ark-ui/vue": "^5.39.1",
+    "vue": "^3.5.0"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@tsdown/css": "catalog:",
+    "@ark-ui/vue": "5.39.1",
+    "lucide-static": "^1.25.0",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "unplugin-vue": "^7.2.0",
+    "vitest": "catalog:",
+    "vue": "^3.5.40",
+    "vue-tsc": "^3.3.7"
+  },
+  "dependencies": {
+    "@floating-ui/dom": "1.8.0",
+    "@internationalized/date": "3.12.3",
+    "@tanstack/vue-table": "8.21.3",
+    "vee-validate": "4.15.1",
+    "@quirekit/html-sandbox": "workspace:*"
+  }
+}

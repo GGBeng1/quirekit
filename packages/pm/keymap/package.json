@@ -1,0 +1,38 @@
+{
+  "name": "@quirekit/pm-keymap",
+  "version": "0.1.0-alpha.0",
+  "description": "QuireKit vendored ProseMirror keymap boundary.",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/pm/keymap"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/pm/keymap#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "LICENSE",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/keymap.d.mts",
+      "import": "./dist/keymap.mjs"
+    }
+  },
+  "types": "./dist/keymap.d.mts",
+  "scripts": {
+    "build": "tsdown src/keymap.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/pm-state": "workspace:*",
+    "w3c-keyname": "^2.2.0"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

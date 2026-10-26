@@ -1,0 +1,23 @@
+.qk-whiteboard-editor { display:flex; flex-direction:column; width:100%; height:100%; min-height:300px; min-width:0; overflow:hidden; isolation:isolate; container-type:inline-size; color:var(--qk-color-text-primary); background:var(--qk-color-surface-page); font:var(--qk-type-body-font-size)/var(--qk-type-body-line-height) var(--qk-type-body-font-family); }
+.qk-whiteboard-editor__header { display:flex; flex-wrap:wrap; align-items:center; flex:none; gap:var(--qk-space-inline) var(--qk-space-surface); padding:var(--qk-space-inline) 20px; border-bottom:1px solid var(--qk-color-border-subtle); }
+.qk-whiteboard-editor__identity { display:flex; align-items:center; gap:10px; color:var(--qk-color-action-primary); min-width:0; max-width:240px; }
+.qk-whiteboard-editor__identity h1 { font-size:16px; font-weight:600; margin:0; color:var(--qk-color-text-primary); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.qk-whiteboard-editor__status,.qk-whiteboard-editor__footer>span { font-size:12px; color:var(--qk-color-text-tertiary); }
+.qk-whiteboard-editor__status { text-align:end; }
+.qk-whiteboard-editor__actions { display:flex; flex:none; align-items:center; gap:var(--qk-space-surface-compact); margin-inline-start:auto; }
+.qk-whiteboard-editor__toolbar { flex:1 1 0; min-width:0; max-width:100%; }
+.qk-whiteboard-editor__workspace { position:relative; flex:1 1 0; min-height:0; overflow:hidden; }
+.qk-whiteboard-editor__surface { width:100%; height:100%; overscroll-behavior:contain; }
+.qk-whiteboard-editor .qk-whiteboard-editor__surface .excalidraw { --color-primary:var(--qk-color-action-primary); --color-primary-darker:var(--qk-color-action-primary); --color-primary-darkest:var(--qk-color-action-primary); --color-primary-light:var(--qk-color-action-soft); --color-primary-light-darker:var(--qk-color-action-soft); --color-primary-hover:var(--qk-color-action-primary); --color-on-primary-container:var(--qk-color-action-primary); --color-on-surface:var(--qk-color-text-primary); --island-bg-color:var(--qk-color-surface-page); --ui-font:var(--qk-type-body-font-family); --color-surface-primary-container:var(--qk-color-action-soft); --color-surface-low:var(--qk-color-surface-page); --color-surface-mid:var(--qk-color-surface-hover); --color-surface-high:var(--qk-color-surface-raised); --button-hover-bg:var(--qk-color-surface-hover); --button-gray-1:var(--qk-color-surface-raised); }
+.qk-whiteboard-editor__footer { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:6px 12px 6px 20px; border-top:1px solid var(--qk-color-border-subtle); flex:none; }
+.qk-whiteboard-editor__loading { position:absolute; inset:0; display:grid; place-items:center; background:var(--qk-color-surface-workspace); color:var(--qk-color-text-secondary); }
+.qk-whiteboard-editor__error { position:absolute; top:12px; left:12px; right:12px; padding:10px 14px; border-radius:var(--qk-radius-control); background:var(--qk-color-danger-surface); color:var(--qk-color-danger-text); }
+.qk-whiteboard-dialog { width:min(1280px,calc(100vw - 32px)); max-width:calc(100vw - 32px); }
+.qk-whiteboard-dialog,.qk-whiteboard-rename { font-family:var(--qk-type-body-font-family); }
+.qk-whiteboard-dialog__workspace { height:min(68vh,720px); min-height:300px; }
+.qk-whiteboard-dialog__confirm { display:flex; align-items:center; justify-content:space-between; flex:1; gap:var(--qk-space-surface); flex-wrap:wrap; }
+.qk-whiteboard-dialog__choices { display:flex; gap:var(--qk-space-inline); flex-wrap:wrap; margin-inline-start:auto; }
+.qk-whiteboard-editor__import-confirm { display:flex; align-items:center; gap:var(--qk-space-inline); flex-wrap:wrap; padding:var(--qk-space-inline) var(--qk-space-surface); background:var(--qk-color-surface-raised); }
+@container (max-width:850px) { .qk-whiteboard-editor__status { display:none; } }
+@container (max-width:720px) { .qk-whiteboard-editor__footer>span { display:none; } .qk-whiteboard-editor__footer { justify-content:flex-end; } .qk-whiteboard-editor__header { padding:var(--qk-space-inline) var(--qk-space-surface-compact); } .qk-whiteboard-editor__identity { flex:1 1 0; } .qk-whiteboard-editor__toolbar { order:1; flex-basis:100%; } }
+.qk-whiteboard-editor__footer>.qk-whiteboard-editor__backup { display:block; overflow-wrap:anywhere; }

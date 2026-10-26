@@ -1,0 +1,22 @@
+import { afterEach, expect, it } from "vitest";
+import { createBlockEditor } from "../runtime/create";
+import { createInsertContent } from "../ui/insert/execute";
+const sessions: ReturnType<typeof createBlockEditor>[] = [];
+afterEach(() => sessions.splice(0).forEach(s => s.destroy()));
+it("edits paired fields, appends terms and unwraps without losing marked text or paragraphs", () => {
+  const session = createBlockEditor({ content: { type: "doc", content: [createInsertContent("definitionList"), { type: "paragraph" }] } }); sessions.push(session);
+  const editor = session.editor; editor.commands.setTextSelection(3); editor.commands.insertContent({ type: "text", text: "Term", marks: [{ type: "bold" }] });
+  expect(editor.commands.navigateBlockDefinition("description")).toBe(true);
+  editor.commands.insertContent("Explanation");
+  expect(editor.commands.navigateBlockDefinition("term")).toBe(true);
+  expect(editor.state.pm.selection.$from.parent.type.name).toBe("definitionTerm");
+  expect(editor.commands.addBlockDefinition(0)).toBe(true);
+  expect(editor.state.doc.firstChild!.childCount).toBe(2);
+  editor.commands.undo(); expect(editor.state.doc.firstChild!.childCount).toBe(1);
+  expect(editor.commands.unwrapBlockDefinitions(0)).toBe(true);
+  expect(editor.state.doc.firstChild!.type.name).toBe("paragraph");
+  expect(editor.state.doc.firstChild!.firstChild!.marks[0]!.type.name).toBe("bold");
+  expect(editor.state.doc.child(1).textContent).toBe("Explanation");
+  editor.commands.undo(); expect(editor.state.doc.firstChild!.type.name).toBe("definitionList");
+  editor.setEditable(false); expect(editor.commands.addBlockDefinition(0)).toBe(false); expect(editor.commands.unwrapBlockDefinitions(0)).toBe(false);
+});

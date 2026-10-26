@@ -1,0 +1,99 @@
+{
+  "name": "@quirekit/block-editor",
+  "version": "0.1.0-alpha.0",
+  "license": "AGPL-3.0-only",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/block-editor"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/block-editor#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "QuireKit continuous-flow HTML block editor product foundation.",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./vue": {
+      "types": "./dist/vue.d.mts",
+      "import": "./dist/vue.mjs"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown --config tsdown.config.ts && node scripts/copy-styles.mjs",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src",
+    "test:browser": "playwright test --config test-support/playwright.config.ts"
+  },
+  "dependencies": {
+    "uuid": "14.0.3",
+    "@quirekit/cm-language": "workspace:*",
+    "@quirekit/cm-legacy-modes": "workspace:*",
+    "@quirekit/lezer-markdown": "workspace:*",
+    "@lezer/python": "^1.1.4",
+    "@quirekit/clipboard": "workspace:*",
+    "@quirekit/math": "workspace:*",
+    "@quirekit/math-ui": "workspace:*",
+    "@quirekit/math-mathjax": "workspace:*",
+    "@quirekit/editor-ui": "workspace:*",
+    "@quirekit/view-engine": "workspace:*",
+    "@lezer/common": "^1.0.0",
+    "@lezer/highlight": "^1.2.3",
+    "@lezer/javascript": "^1.0.0",
+    "@lezer/json": "^1.0.0",
+    "@lezer/css": "^1.0.0",
+    "@lezer/html": "^1.0.0",
+    "@quirekit/extension-code-block": "workspace:*",
+    "@quirekit/extension-underline": "workspace:*",
+    "@quirekit/extension-horizontal-rule": "workspace:*",
+    "@quirekit/classic-paragraph-model": "workspace:*",
+    "@quirekit/core": "workspace:*",
+    "@quirekit/extension-link": "workspace:*",
+    "@quirekit/extension-search": "workspace:*",
+    "@quirekit/extension-text-style": "workspace:*",
+    "@quirekit/extensions": "workspace:*",
+    "@quirekit/pm": "workspace:*",
+    "@quirekit/starter-kit": "workspace:*",
+    "@quirekit/ui": "workspace:*",
+    "@quirekit/view-html": "workspace:*",
+    "@quirekit/extension-whiteboard": "workspace:*",
+    "@quirekit/whiteboard-editor": "workspace:*",
+    "@quirekit/extension-flowchart": "workspace:*",
+    "@quirekit/flow-editor": "workspace:*",
+    "@quirekit/extension-mind-map": "workspace:*",
+    "@quirekit/mind-editor": "workspace:*",
+    "@quirekit/text-diagram-editor": "workspace:*",
+    "@quirekit/extension-text-diagram": "workspace:*",
+    "@quirekit/data-view": "workspace:*",
+    "@quirekit/data-view-editor": "workspace:*",
+    "@quirekit/extension-data-view": "workspace:*"
+  },
+  "devDependencies": {
+    "happy-dom": "20.10.6",
+    "@playwright/test": "1.61.1",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "unplugin-vue": "^7.2.0",
+    "vue": "^3.5.40",
+    "vue-tsc": "^3.3.7",
+    "vite": "^8.1.0",
+    "vitest": "catalog:"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    }
+  }
+}

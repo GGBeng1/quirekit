@@ -1,0 +1,46 @@
+{
+  "name": "@quirekit/extension-bold",
+  "version": "0.1.0-alpha.0",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/extensions/bold"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/extensions/bold#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "QuireKit bold mark extension.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/core": "workspace:*",
+    "@quirekit/lit-docx-contract": "workspace:*"
+  },
+  "devDependencies": {
+    "@quirekit/accessibility-contract": "workspace:*",
+    "@quirekit/ai-contract": "workspace:*",
+    "@quirekit/extension-document": "workspace:*",
+    "@quirekit/extension-heading": "workspace:*",
+    "@quirekit/extension-paragraph": "workspace:*",
+    "@quirekit/extension-text": "workspace:*",
+    "@quirekit/extension-text-style": "workspace:*",
+    "@quirekit/extensions": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

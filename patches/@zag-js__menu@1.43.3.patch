@@ -1,0 +1,58 @@
+diff --git a/dist/menu.machine.js b/dist/menu.machine.js
+index f35618ace4d14616c45ea4d874c167fb8b9ca721..28ae1e7f0ddf1887f664abbe3df13f1a143e7379 100644
+--- a/dist/menu.machine.js
++++ b/dist/menu.machine.js
+@@ -625,6 +625,7 @@ var machine = (0, import_core.createMachine)({
+           },
+           onEscapeKeyDown(event) {
+             prop("onEscapeKeyDown")?.(event);
++            if (event.defaultPrevented) return;
+             if (context.get("isSubmenu")) event.preventDefault();
+             (0, import_menu.closeRootMenu)({ parent: refs.get("parent") });
+           },
+@@ -814,10 +815,15 @@ var machine = (0, import_core.createMachine)({
+         dom.dispatchSelectionEvent(node, value);
+         prop("onSelect")?.({ value });
+       },
+-      focusTrigger({ scope, context, event }) {
++      focusTrigger({ scope, context, event, refs }) {
+         if (context.get("isSubmenu") || context.get("anchorPoint") || event.restoreFocus === false) return;
+         queueMicrotask(() => {
+           const triggerEl = dom.getActiveTriggerEl(scope, context.get("triggerValue"));
++          const activeElement = scope.getActiveElement();
++          // A selected command may already have handed focus to another task.
++          if (activeElement && activeElement !== scope.getDoc().body && activeElement !== triggerEl
++            && !(0, import_dom_query.contains)(dom.getContentEl(scope), activeElement)
++            && !dom.isTargetWithinMenuTree(activeElement, refs.get("children"))) return;
+           triggerEl?.focus({ preventScroll: true });
+         });
+       },
+diff --git a/dist/menu.machine.mjs b/dist/menu.machine.mjs
+index b8facff3003d0f0d72352b323352956a7e898853..b225f5080a6757659c9582122e4d2737beb3ed5a 100644
+--- a/dist/menu.machine.mjs
++++ b/dist/menu.machine.mjs
+@@ -610,6 +610,7 @@ var machine = createMachine({
+           },
+           onEscapeKeyDown(event) {
+             prop("onEscapeKeyDown")?.(event);
++            if (event.defaultPrevented) return;
+             if (context.get("isSubmenu")) event.preventDefault();
+             closeRootMenu({ parent: refs.get("parent") });
+           },
+@@ -799,10 +800,15 @@ var machine = createMachine({
+         dom.dispatchSelectionEvent(node, value);
+         prop("onSelect")?.({ value });
+       },
+-      focusTrigger({ scope, context, event }) {
++      focusTrigger({ scope, context, event, refs }) {
+         if (context.get("isSubmenu") || context.get("anchorPoint") || event.restoreFocus === false) return;
+         queueMicrotask(() => {
+           const triggerEl = dom.getActiveTriggerEl(scope, context.get("triggerValue"));
++          const activeElement = scope.getActiveElement();
++          // A selected command may already have handed focus to another task.
++          if (activeElement && activeElement !== scope.getDoc().body && activeElement !== triggerEl
++            && !contains(dom.getContentEl(scope), activeElement)
++            && !dom.isTargetWithinMenuTree(activeElement, refs.get("children"))) return;
+           triggerEl?.focus({ preventScroll: true });
+         });
+       },

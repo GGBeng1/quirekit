@@ -1,0 +1,88 @@
+[
+  {
+    "fixture": "w1-accent",
+    "paragraphs": 7,
+    "equations": 7,
+    "docxSha256": "ffc8b251216b12c76069347df219c902e5165f7c7dcad9d4044a6d2c17109e71"
+  },
+  {
+    "fixture": "w1-box",
+    "paragraphs": 6,
+    "equations": 6,
+    "docxSha256": "65969e7aa5c44fc895ef4a42ab82264985ad3597162ca03ee1e74a157ad38831"
+  },
+  {
+    "fixture": "w1-delimiter",
+    "paragraphs": 6,
+    "equations": 6,
+    "docxSha256": "4ae1b05f20ce5b0e8328c431a1f6c7e0dbd85b47b0af0189d16d2f4134501c86"
+  },
+  {
+    "fixture": "w1-fraction",
+    "paragraphs": 5,
+    "equations": 5,
+    "docxSha256": "dd2f7386b394a9a07adf7ec426b0470dcbe972f60b40767efb81f54a358b1fcd"
+  },
+  {
+    "fixture": "w1-function",
+    "paragraphs": 4,
+    "equations": 4,
+    "docxSha256": "ad80fc9dc867618f1e4f94201b62aeae9446be1ab190f2d4a400a11e772f1a6f"
+  },
+  {
+    "fixture": "w1-inline-display",
+    "paragraphs": 5,
+    "equations": 6,
+    "docxSha256": "29cd714dafb0869bcdd6bee10ae9b18fd2beb9a7ce42bf6e27c35253fd446d3a"
+  },
+  {
+    "fixture": "w1-matrix",
+    "paragraphs": 4,
+    "equations": 4,
+    "docxSha256": "1226aad448a69eeb2a7795e8b0e93e382bd1e2e9edffeacc6ce458b531ff6f52"
+  },
+  {
+    "fixture": "w1-nary",
+    "paragraphs": 6,
+    "equations": 6,
+    "docxSha256": "8a2c0a3484249edb7da63f3b5921a4780c25d92dc1588dffcea79b89d94d810a"
+  },
+  {
+    "fixture": "w1-radical",
+    "paragraphs": 3,
+    "equations": 3,
+    "docxSha256": "769b89566e239ad591acfb9b7201355cc9240cafa4cef1e606022fe51cbc8a59"
+  },
+  {
+    "fixture": "w1-scripts",
+    "paragraphs": 5,
+    "equations": 5,
+    "docxSha256": "acd05bdaea3fecaf349584a13198e5917477b80732dd84891389b882f82c9080"
+  },
+  {
+    "fixture": "w2-latex-input",
+    "paragraphs": 50,
+    "equations": 50,
+    "docxSha256": "eed839a0cfa8f74c44cd3cdc131efa13ec51a8e3626e9a541c4b1014714e2ed4",
+    "action": "Equations created from LaTeX linear text with the Equation LaTeX input mode selected, then built up"
+  },
+  {
+    "fixture": "w3-revisions",
+    "paragraphs": 5,
+    "equations": 5,
+    "docxSha256": [
+      "20489c9d5d197014e453ae694a9d8208b3f8969ad21b3e035b0bbb9a9338a30b",
+      "01d45fa844eb641f679ec0951ea8d8d298af98cd771d922242692deb3dc8ebb2"
+    ],
+    "note": "Word 16.109.2 修订模式样本；作者已替换为占位名，w14/w16du 扩展属性已去除"
+  },
+  {
+    "fixture": "w4-mathPr-nondefault",
+    "paragraphs": 2,
+    "equations": 2,
+    "docxSha256": [
+      "c2b5ac0c349cf4eca258b6de55f045d924246a502b3eea4bb5ad3c8c9c9ad3c0"
+    ],
+    "note": "Word 16.109.2 打开注入非默认 defJc/intLim/naryLim 的文档后另存；Mac 版界面与脚本均无法设置这三项"
+  }
+]

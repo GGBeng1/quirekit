@@ -1,0 +1,45 @@
+{
+  "name": "@quirekit/pm-view",
+  "version": "0.1.0-alpha.0",
+  "description": "QuireKit vendored ProseMirror DOM view boundary.",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/pm/view"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/pm/view#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": [
+    "./style/prosemirror.css"
+  ],
+  "files": [
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "LICENSE",
+    "src",
+    "style"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./style/prosemirror.css": "./style/prosemirror.css"
+  },
+  "types": "./dist/index.d.mts",
+  "style": "style/prosemirror.css",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/pm-decoration": "workspace:*",
+    "@quirekit/pm-model": "workspace:*",
+    "@quirekit/pm-state": "workspace:*",
+    "@quirekit/pm-transform": "workspace:*"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

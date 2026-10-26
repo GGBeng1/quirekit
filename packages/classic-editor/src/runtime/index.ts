@@ -1,0 +1,10 @@
+export { createClassicEditor } from "./create";
+export { updateClassicEditorPresetPresentation } from "./updates/presentation";
+export { createDefaultClassicEditorMediaServices } from "./media";
+export { createDefaultClassicEditorHostServices } from "./host-resource/services";
+export { createDefaultClassicEditorWebFontOptions } from "./web-fonts";
+export { ClassicEditorHostResourceCoordinator } from "./host-resource/coordinator";
+export { ClassicEditorTargetFreshnessRegistry } from "./target/freshness";
+export { ClassicEditorHostResourceTaskRuntime } from "./resource-task";
+export * from "./insert";
+export * from "./object-workspace";

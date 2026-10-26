@@ -1,0 +1,16 @@
+{
+  "name": "@codemirror/theme-one-dark",
+  "version": "6.1.3",
+  "commit": "5c4c69e48964fab6b3fbb2b60501533ff69d5238",
+  "repository": "https://github.com/codemirror/theme-one-dark.git",
+  "integrity": "sha512-NzBdIvEJmx6fjeremiGp3t/okrLPYT0d9orIc7AFun8oZcRk58aejkqhv6spnz4MLAevrKNPMQYXEWMg4s+sKA==",
+  "tarball": "https://registry.npmjs.org/@codemirror/theme-one-dark/-/theme-one-dark-6.1.3.tgz",
+  "license": "MIT",
+  "sourceDirectory": "src",
+  "sourceSha256": "ad9b5cabf9ecf4f93f5aff06403e24b16b652748b1a897fa206a376458f693d0",
+  "licenseSha256": "05c6130cda97e7600ca91427a41e8a065efcf82365fc0293e7de80faec494c07",
+  "localChanges": [
+    "Package names, imports and build/test configuration use QuireKit workspace identities."
+  ],
+  "sourceEntry": "src/one-dark.ts"
+}

@@ -1,0 +1,80 @@
+import json, os
+def M(root, **equation): return ['math', {'root': root, 'equation': equation} if equation else root]
+def T(text): return ['text', text]
+def e(t, *args, props=None, named=None, cols=None):
+    n = {'t': t}
+    if args: n['args'] = list(args)
+    if props: n['props'] = props
+    if named: n['named'] = named
+    if cols: n['cols'] = cols
+    return n
+fx = lambda name, *paras, settings=None: dict(name=name, paragraphs=[list(p) for p in paras], **({'settings': settings} if settings else {}))
+FT = '@math fraction type '
+fixtures = [
+ fx('w1-fraction',
+    [M(e('frac', 'a', 'b'))],
+    [M(e('frac', 'a', 'b', props={'fraction type': FT + 'stack'}))],
+    [M(e('frac', 'a', 'b', props={'fraction type': FT + 'slashed'}))],
+    [M(e('frac', 'a', 'b', props={'fraction type': FT + 'linear'}))],
+    [M(e('frac', '', ''))]),
+ fx('w1-radical',
+    [M(e('rad', named={'equation base': 'x'}, props={'hide degree': True}))],
+    [M(e('rad', named={'degree': '3', 'equation base': 'x'}))],
+    [M(e('rad', named={'equation base': 'x'}, props={'hide degree': False}))]),
+ fx('w1-scripts',
+    [M(e('sub', named={'equation base': 'x', 'subscript': '1'}))],
+    [M(e('sup', named={'equation base': 'x', 'superscript': '2'}))],
+    [M(e('subsup', named={'equation base': 'x', 'subscript': '1', 'superscript': '2'}))],
+    [M(e('subsup', named={'equation base': 'x', 'subscript': '1', 'superscript': '2'}, props={'align scripts': True}))],
+    [M(e('pre', named={'equation base': 'X', 'subscript': '1', 'superscript': '2'}))]),
+ fx('w1-nary',
+    [M(e('nary', named={'lower limit': '0', 'upper limit': '1', 'equation base': 'x'}))],
+    [M(e('nary', named={'lower limit': 'i=1', 'upper limit': 'n', 'equation base': 'a'}, props={'operator character': 8721}))],
+    [M(e('nary', named={'lower limit': 'i', 'upper limit': 'n', 'equation base': 'a'}, props={'operator character': 8721, 'use sub and super script positioning': True}))],
+    [M(e('nary', named={'equation base': 'f'}, props={'operator character': 8747, 'hides lower limit': True, 'hides upper limit': True}))],
+    [M(e('nary', named={'lower limit': 'S', 'equation base': 'F'}, props={'operator character': 8751, 'hides upper limit': True, 'should grow': True}))],
+    [M(e('nary', named={'lower limit': 'k', 'upper limit': 'n'}, props={'operator character': 8719}))]),
+ fx('w1-delimiter',
+    [M(e('d', 'x'))],
+    [M(e('d', 'a,b', props={'beginning character': 91, 'ending character': 41}))],
+    [M(e('d', 'x', props={'beginning character': 124, 'ending character': 124}))],
+    [M(e('d', 'a', 'b', props={'beginning character': 10216, 'ending character': 10217, 'separator character': 124}))],
+    [M(e('d', 'x', props={'beginning character': 123, 'hide right delimiter': True}))],
+    [M(e('d', 'x', props={'delimiter shape': '@math delimiters match content size', 'should grow': False}))]),
+ fx('w1-function',
+    [M(e('func', named={'func name': 'sin', 'equation base': 'x'}))],
+    [M(e('limlow', named={'equation base': 'lim', 'limit': 'x→0'}))],
+    [M(e('limupp', named={'equation base': 'x', 'limit': 'n'}))],
+    [M(e('func', named={'func name': e('limlow', named={'equation base': 'lim', 'limit': 'n→∞'}), 'equation base': 'a'}))]),
+ fx('w1-accent',
+    [M(e('acc', named={'equation base': 'a'}))],
+    [M(e('acc', named={'equation base': 'x'}, props={'char': 770}))],
+    [M(e('acc', named={'equation base': 'v'}, props={'char': 8407}))],
+    [M(e('bar', named={'equation base': 'x'}, props={'is top bar': True}))],
+    [M(e('bar', named={'equation base': 'x'}, props={'is top bar': False}))],
+    [M(e('group', named={'equation base': 'a+b'}))],
+    [M(e('group', named={'equation base': 'a+b'}, props={'the character': 9182, 'is on top': True}))]),
+ fx('w1-matrix',
+    [M(e('m', 'a', 'b', 'c', 'd', cols=2))],
+    [M(e('d', e('m', '1', '0', '0', '1', cols=2)))],
+    [M(e('m', '', '', '', '', cols=2, props={'hide placeholders': True}))],
+    [M(e('eqarr', 'x=1', 'y=2'))]),
+ fx('w1-box',
+    [M(e('box', named={'equation base': 'dx'}))],
+    [M(e('box', named={'equation base': 'dx'}, props={'is differential': True}))],
+    [M(e('border', named={'equation base': 'E=mc^2'}))],
+    [M(e('border', named={'equation base': 'x'}, props={'hide top': True, 'horizontal strikethrough': True}))],
+    [M(e('phant', named={'equation base': 'x'}))],
+    [M(e('phant', named={'equation base': 'x'}, props={'transparent': True, 'zero width': True}))]),
+ fx('w1-inline-display',
+    [T('Let '), M('x+1'), T(' be positive.')],
+    [T('Both '), M(e('frac', 'a', 'b')), T(' and '), M(e('sup', named={'equation base': 'x', 'superscript': '2'})), T(' are inline.')],
+    [M('a=b')],
+    [M('c=d', justification='equation justification left')],
+    [M('e=f', **{'display type': 'equation display inline'})]),
+ fx('w1-settings',
+    [M(e('frac', 'a', 'b'))],
+    settings={'math default justification': 'equation justification left', 'math binary operator break': 'math binary operator break after',
+              'math subtraction operator': 'plus minus', 'math left margin': '10', 'math right margin': '10', 'math wrap': '20'}),
+]
+json.dump({'dir': os.environ['WORD_FIXTURE_DIR'], 'fixtures': fixtures}, open(os.environ['WORD_FIXTURE_SPEC'], 'w'), ensure_ascii=False)

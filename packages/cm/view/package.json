@@ -1,0 +1,44 @@
+{
+  "name": "@quirekit/cm-view",
+  "version": "0.1.0-alpha.0",
+  "description": "DOM view component for the CodeMirror code editor",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/cm/view"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/cm/view#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "UPSTREAM.json"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "node ../../../scripts/source-vendor/build.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run --config vitest.config.ts"
+  },
+  "dependencies": {
+    "@quirekit/cm-state": "workspace:*",
+    "crelt": "^1.0.6",
+    "style-mod": "^4.1.0",
+    "w3c-keyname": "^2.2.4"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "ist": "1.1.7",
+    "happy-dom": "20.10.6"
+  }
+}

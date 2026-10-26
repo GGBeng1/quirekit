@@ -1,0 +1,39 @@
+{
+  "name": "@quirekit/msfe-collaboration-hocuspocus",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "description": "Optional Hocuspocus transport for MSFE collaboration sessions.",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/msfe/collaboration-hocuspocus"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/msfe/collaboration-hocuspocus#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": ["LICENSE.md", "THIRD_PARTY_NOTICES.md", "licenses", "dist", "src"],
+  "exports": {
+    ".": { "types": "./dist/index.d.mts", "import": "./dist/index.mjs" },
+    "./server": { "types": "./dist/server/index.d.mts", "import": "./dist/server/index.mjs" }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts src/server/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/edit-history": "workspace:*",
+    "@quirekit/msfe-collaboration": "workspace:*",
+    "@hocuspocus/provider": "4.7.0",
+    "uuid": "14.0.3",
+    "yjs": "13.6.33",
+    "y-protocols": "1.0.7"
+  },
+  "devDependencies": {
+    "@hocuspocus/server": "4.7.0",
+    "@types/ws": "^8.18.1",
+    "ws": "^8.18.3",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

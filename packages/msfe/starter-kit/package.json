@@ -1,0 +1,44 @@
+{
+  "name": "@quirekit/msfe-starter-kit",
+  "version": "0.1.0-alpha.0",
+  "description": "Default extension bundle for the MSFE Markdown source editor.",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/msfe/starter-kit"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/msfe/starter-kit#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "types",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./types/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./types/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src --passWithNoTests"
+  },
+  "dependencies": {
+    "@quirekit/msfe-core": "workspace:*",
+    "@quirekit/msfe-heading": "workspace:*",
+    "@quirekit/msfe-bold": "workspace:*",
+    "@quirekit/msfe-link": "workspace:*",
+    "@quirekit/msfe-code-block": "workspace:*",
+    "@quirekit/msfe-image": "workspace:*",
+    "@quirekit/msfe-prose": "workspace:*"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

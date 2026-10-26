@@ -1,0 +1,39 @@
+{
+  "recordedAt": "2026-10-10T02:27:13.430Z",
+  "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.7827.55 Safari/537.36",
+  "measurements": [
+    {
+      "count": 100,
+      "nodesAfterEdit": 101,
+      "svgNodeCount": 101,
+      "mountMs": 205.29999999701977,
+      "editMs": 20.400000005960464,
+      "exportMs": 40.599999994039536,
+      "svgBytes": 115919,
+      "width": 1683,
+      "height": 1617
+    },
+    {
+      "count": 500,
+      "nodesAfterEdit": 501,
+      "svgNodeCount": 501,
+      "mountMs": 728.8999999910593,
+      "editMs": 65.20000000298023,
+      "exportMs": 68.09999999403954,
+      "svgBytes": 579250,
+      "width": 2119,
+      "height": 8553
+    },
+    {
+      "count": 1000,
+      "nodesAfterEdit": 1001,
+      "svgNodeCount": 1001,
+      "mountMs": 1417,
+      "editMs": 163.79999999701977,
+      "exportMs": 156.5,
+      "svgBytes": 1157697,
+      "width": 2342,
+      "height": 14775
+    }
+  ]
+}

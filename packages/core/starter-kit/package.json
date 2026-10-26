@@ -1,0 +1,53 @@
+{
+  "name": "@quirekit/starter-kit",
+  "version": "0.1.0-alpha.0",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/core/starter-kit"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/core/starter-kit#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Default QuireKit extension bundle.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/core": "workspace:*",
+    "@quirekit/extension-blockquote": "workspace:*",
+    "@quirekit/extension-bold": "workspace:*",
+    "@quirekit/extension-code": "workspace:*",
+    "@quirekit/extension-code-block": "workspace:*",
+    "@quirekit/extension-document": "workspace:*",
+    "@quirekit/extension-hard-break": "workspace:*",
+    "@quirekit/extension-heading": "workspace:*",
+    "@quirekit/extension-horizontal-rule": "workspace:*",
+    "@quirekit/extension-italic": "workspace:*",
+    "@quirekit/extension-list": "workspace:*",
+    "@quirekit/extension-paragraph": "workspace:*",
+    "@quirekit/extension-strike": "workspace:*",
+    "@quirekit/extension-text": "workspace:*",
+    "@quirekit/extension-underline": "workspace:*",
+    "@quirekit/extensions": "workspace:*"
+  },
+  "devDependencies": {
+    "@quirekit/pm": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

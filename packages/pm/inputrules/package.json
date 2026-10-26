@@ -1,0 +1,39 @@
+{
+  "name": "@quirekit/pm-inputrules",
+  "version": "0.1.0-alpha.0",
+  "description": "QuireKit vendored ProseMirror input rules boundary.",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/pm/inputrules"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/pm/inputrules#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "LICENSE",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/pm-model": "workspace:*",
+    "@quirekit/pm-state": "workspace:*",
+    "@quirekit/pm-transform": "workspace:*"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

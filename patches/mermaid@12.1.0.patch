@@ -1,0 +1,12 @@
+diff --git a/dist/chunks/mermaid.core/mindmap-definition-LZFPQGKD.mjs b/dist/chunks/mermaid.core/mindmap-definition-LZFPQGKD.mjs
+index 0745b29ad0707f1c53c44e3b87783338a150c3e4..1f62e58d824c2794ba9bbf2c2258fdd3299dae4a 100644
+--- a/dist/chunks/mermaid.core/mindmap-definition-LZFPQGKD.mjs
++++ b/dist/chunks/mermaid.core/mindmap-definition-LZFPQGKD.mjs
+@@ -921,6 +921,7 @@ var MindmapDB = class {
+       id: node.id.toString(),
+       domId: "node_" + node.id.toString(),
+       label: node.descr,
++      centerLabel: true,
+       labelType: "markdown",
+       isGroup: false,
+       shape: getShapeFromType(node.type),

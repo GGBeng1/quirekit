@@ -1,0 +1,36 @@
+{
+  "name": "@quirekit/cm-legacy-modes",
+  "version": "0.1.0-alpha.0",
+  "description": "Collection of ported legacy language modes for the CodeMirror code editor",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/cm/legacy-modes"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/cm/legacy-modes#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "mode",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "UPSTREAM.json"
+  ],
+  "exports": {
+    "./mode/*": {
+      "types": "./dist/mode/*.d.ts",
+      "import": "./dist/mode/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "node ../../../scripts/source-vendor/legacy.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@quirekit/cm-language": "workspace:*"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
+  }
+}

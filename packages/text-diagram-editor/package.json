@@ -1,0 +1,71 @@
+{
+  "name": "@quirekit/text-diagram-editor",
+  "version": "0.1.0-alpha.0",
+  "description": "Vue workspace for editing Mermaid, PlantUML and Graphviz diagrams with live preview and export.",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/text-diagram-editor"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/text-diagram-editor#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./vue": {
+      "types": "./dist/vue.d.mts",
+      "import": "./dist/vue.mjs"
+    },
+    "./styles.css": "./dist/style.css"
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown --config tsdown.config.ts",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src --passWithNoTests"
+  },
+  "dependencies": {
+    "@lezer/highlight": "^1.0.0",
+    "@quirekit/cm-commands": "workspace:*",
+    "@quirekit/cm-language": "workspace:*",
+    "@quirekit/cm-search": "workspace:*",
+    "@quirekit/cm-state": "workspace:*",
+    "@quirekit/cm-view": "workspace:*",
+    "@quirekit/text-diagram": "workspace:*",
+    "@quirekit/ui": "workspace:*",
+    "uuid": "14.0.3"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@tsdown/css": "catalog:",
+    "@ark-ui/vue": "5.39.1",
+    "@playwright/test": "1.61.1",
+    "@quirekit/unocss-preset": "workspace:*",
+    "@unocss/vite": "catalog:",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "unplugin-vue": "^7.2.0",
+    "vite": "^8.1.0",
+    "vitest": "catalog:",
+    "vue": "^3.5.40",
+    "vue-tsc": "^3.3.7",
+    "happy-dom": "20.10.6"
+  }
+}

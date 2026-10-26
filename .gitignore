@@ -1,0 +1,9 @@
+node_modules
+dist
+coverage
+.nx
+.DS_Store
+.playwright-results
+playwright-report
+test-results
+*.tgz

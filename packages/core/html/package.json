@@ -1,0 +1,49 @@
+{
+  "name": "@quirekit/html",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/core/html"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/core/html#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "HTML parser and serializer utilities for QuireKit.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./server": {
+      "types": "./dist/server/index.d.mts",
+      "import": "./dist/server/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts src/server/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/core": "workspace:*",
+    "@quirekit/pm": "workspace:*",
+    "happy-dom": "^20.0.2"
+  },
+  "devDependencies": {
+    "@quirekit/extension-document": "workspace:*",
+    "@quirekit/extension-paragraph": "workspace:*",
+    "@quirekit/extension-text": "workspace:*",
+    "@quirekit/starter-kit": "workspace:*",
+    "@types/node": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

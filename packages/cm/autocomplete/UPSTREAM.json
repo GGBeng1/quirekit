@@ -1,0 +1,16 @@
+{
+  "name": "@codemirror/autocomplete",
+  "version": "6.20.3",
+  "commit": "66587500a48805a4f43c7f5216ffce131b52dec2",
+  "repository": "https://code.haverbeke.berlin/codemirror/autocomplete.git",
+  "integrity": "sha512-tlosUqb+3BbxCxZdu4tKeRghPFC+QM7q4X5YhKV2eCmPG+1r2F3f4AaSz5sCrFqUtX4Jh20VFTKecl16MgiV9g==",
+  "tarball": "https://registry.npmjs.org/@codemirror/autocomplete/-/autocomplete-6.20.3.tgz",
+  "license": "MIT",
+  "sourceDirectory": "src",
+  "sourceSha256": "e995ecf91c40fb7f49ee415878342a4ac6b4ca72b848c211a374364491e5415f",
+  "licenseSha256": "05c6130cda97e7600ca91427a41e8a065efcf82365fc0293e7de80faec494c07",
+  "localChanges": [
+    "Package names, imports and build/test configuration use QuireKit workspace identities."
+  ],
+  "sourceEntry": "src/index.ts"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@codemirror/lang-css",
+  "version": "6.3.1",
+  "commit": "253b0baa868d87d0a57fd9e1ac5415b20881ccaf",
+  "repository": "https://github.com/codemirror/lang-css.git",
+  "integrity": "sha512-kr5fwBGiGtmz6l0LSJIbno9QrifNMUusivHbnA1H6Dmqy4HZFte3UAICix1VuKo0lMPKQr2rqB+0BkKi/S3Ejg==",
+  "tarball": "https://registry.npmjs.org/@codemirror/lang-css/-/lang-css-6.3.1.tgz",
+  "license": "MIT",
+  "sourceDirectory": "src",
+  "sourceSha256": "56fb85af9b7c45cc1c7f5d327ffe2a583e1767aade6a4b40811e3542f1e79f8a",
+  "licenseSha256": "05c6130cda97e7600ca91427a41e8a065efcf82365fc0293e7de80faec494c07",
+  "localChanges": [
+    "Package names, imports and build/test configuration use QuireKit workspace identities."
+  ],
+  "sourceEntry": "src/css.ts"
+}

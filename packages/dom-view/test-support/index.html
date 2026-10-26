@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><title>QuireKit 原生 DOM 输入框</title>
+  <style>
+    body { margin: 40px auto; max-width: 680px; font: 16px/1.6 system-ui, sans-serif; }
+    .ProseMirror { min-height: 110px; padding: 16px; border: 1px solid #aaa; border-radius: 8px; }
+    .ProseMirror p { margin: 0 0 8px; }
+    button { margin: 12px 8px 12px 0; padding: 4px 12px; }
+    pre { white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>原生 DOM 富文本输入</h1>
+  <p>与 QuireKit 共用扩展和命令，可用于评论或聊天输入。</p>
+  <div id="editor"></div>
+  <button id="bold">加粗</button><button id="submit">读取内容</button>
+  <pre id="output"></pre><div id="sibling"></div>
+  <script type="module" src="./fixture.ts"></script>
+</body>
+</html>

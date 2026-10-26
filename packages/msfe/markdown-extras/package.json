@@ -1,0 +1,52 @@
+{
+  "name": "@quirekit/msfe-markdown-extras",
+  "version": "0.1.0-alpha.0",
+  "description": "Optional Markdown syntax for MSFE: frontmatter, footnotes, math, callouts, containers, definition lists, Mermaid, text diagrams, emoji and typographic marks.",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/msfe/markdown-extras"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/msfe/markdown-extras#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src --passWithNoTests"
+  },
+  "dependencies": {
+    "@quirekit/msfe-core": "workspace:*",
+    "@quirekit/cm-view": "workspace:*",
+    "@quirekit/cm-state": "workspace:*",
+    "@quirekit/lezer-markdown": "workspace:*",
+    "katex": "0.16.47",
+    "mermaid": "12.1.0",
+    "dompurify": "3.4.16",
+    "@quirekit/cm-language": "workspace:*",
+    "@lezer/common": "1.5.3",
+    "node-emoji": "2.2.0",
+    "@quirekit/text-diagram": "workspace:*",
+    "yaml": "2.9.0"
+  },
+  "devDependencies": {
+    "@quirekit/ai-contract": "workspace:*",
+    "@quirekit/cm-lang-markdown": "workspace:*",
+    "@types/katex": "0.16.8",
+    "happy-dom": "20.10.6",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

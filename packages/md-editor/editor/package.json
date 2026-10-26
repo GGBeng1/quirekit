@@ -1,0 +1,103 @@
+{
+  "name": "@quirekit/md-editor",
+  "version": "0.1.0-alpha.0",
+  "description": "QuireKit Markdown document editor with shared Prose presentation.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/md-editor/editor"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/md-editor/editor#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./vue": {
+      "types": "./dist/vue.d.mts",
+      "import": "./dist/vue.mjs"
+    },
+    "./styles.css": "./dist/style.css"
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown --config tsdown.config.ts",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/edit-history": "workspace:*",
+    "@quirekit/export-template": "workspace:*",
+    "@quirekit/cm-lang-markdown": "workspace:*",
+    "@quirekit/cm-language": "workspace:*",
+    "@quirekit/cm-search": "workspace:*",
+    "@quirekit/cm-state": "workspace:*",
+    "@quirekit/cm-view": "workspace:*",
+    "@lezer/common": "1.5.3",
+    "@lezer/highlight": "1.2.5",
+    "@quirekit/cm-lang-javascript": "workspace:*",
+    "@quirekit/cm-lang-json": "workspace:*",
+    "@quirekit/cm-lang-css": "workspace:*",
+    "@quirekit/cm-lang-html": "workspace:*",
+    "@quirekit/cm-lang-python": "workspace:*",
+    "@quirekit/cm-legacy-modes": "workspace:*",
+    "@quirekit/suggestion": "workspace:*",
+    "@quirekit/math": "workspace:*",
+    "@quirekit/math-ui": "workspace:*",
+    "@quirekit/msfe-bold": "workspace:*",
+    "@quirekit/msfe-code-block": "workspace:*",
+    "@quirekit/msfe-core": "workspace:*",
+    "@quirekit/msfe-heading": "workspace:*",
+    "@quirekit/msfe-image": "workspace:*",
+    "@quirekit/msfe-link": "workspace:*",
+    "@quirekit/msfe-markdown-extras": "workspace:*",
+    "@quirekit/msfe-prose": "workspace:*",
+    "@quirekit/msfe-starter-kit": "workspace:*",
+    "@quirekit/msfe-vue": "workspace:*",
+    "@quirekit/ui": "workspace:*",
+    "katex": "0.16.47",
+    "@quirekit/msfe-whiteboard": "workspace:*",
+    "@quirekit/whiteboard-editor": "workspace:*",
+    "@quirekit/whiteboard": "workspace:*",
+    "@quirekit/msfe-flowchart": "workspace:*",
+    "@quirekit/flow-editor": "workspace:*",
+    "@quirekit/flowchart": "workspace:*",
+    "@quirekit/msfe-mind-map": "workspace:*",
+    "@quirekit/mind-map": "workspace:*",
+    "@quirekit/mind-editor": "workspace:*",
+    "@quirekit/incremark": "workspace:*",
+    "@quirekit/text-diagram": "workspace:*",
+    "@quirekit/text-diagram-editor": "workspace:*",
+    "uuid": "14.0.3",
+    "@quirekit/data-view": "workspace:*",
+    "@quirekit/data-view-editor": "workspace:*",
+    "@quirekit/msfe-data-view": "workspace:*"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@quirekit/lezer-markdown": "workspace:*",
+    "happy-dom": "20.10.6",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "unplugin-vue": "^7.2.0",
+    "vite": "^8.1.0",
+    "vitest": "catalog:",
+    "vue": "3.5.40",
+    "vue-tsc": "^3.3.7"
+  }
+}

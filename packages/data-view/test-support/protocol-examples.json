@@ -1,0 +1,102 @@
+{
+  "dataset": {
+    "format": "quirekit-dataset",
+    "version": 1,
+    "id": "tasks",
+    "revision": "local:initial",
+    "primaryFieldId": "f_title",
+    "fields": [
+      { "id": "f_title", "name": "任务", "type": "text" },
+      {
+        "id": "f_status", "name": "状态", "type": "singleSelect",
+        "options": [{ "id": "todo", "label": "待办" }, { "id": "done", "label": "完成" }]
+      },
+      { "id": "f_effort", "name": "工作量", "type": "number" }
+    ],
+    "records": [
+      { "id": "r1", "values": { "f_title": "设计保存协议", "f_status": "todo", "f_effort": 3 } },
+      { "id": "r2", "values": { "f_title": "核对三端接入", "f_status": null, "f_effort": 0 } }
+    ]
+  },
+  "inline": {
+    "format": "quirekit-data-view",
+    "version": 1,
+    "id": "embed_inline",
+    "source": {
+      "kind": "inline",
+      "dataset": {
+        "format": "quirekit-dataset",
+        "version": 1,
+        "id": "tasks",
+        "revision": "local:initial",
+        "primaryFieldId": "f_title",
+        "fields": [
+          { "id": "f_title", "name": "任务", "type": "text" },
+          {
+            "id": "f_status", "name": "状态", "type": "singleSelect",
+            "options": [{ "id": "todo", "label": "待办" }, { "id": "done", "label": "完成" }]
+          },
+          { "id": "f_effort", "name": "工作量", "type": "number" }
+        ],
+        "records": [
+          { "id": "r1", "values": { "f_title": "设计保存协议", "f_status": "todo", "f_effort": 3 } },
+          { "id": "r2", "values": { "f_title": "核对三端接入", "f_status": null, "f_effort": 0 } }
+        ]
+      }
+    },
+    "views": [
+      {
+        "id": "v_table", "name": "全部任务", "type": "table",
+        "visibleFieldIds": ["f_title", "f_status", "f_effort"],
+        "query": { "sort": [] },
+        "columnWidths": { "f_title": 240, "f_status": 120, "f_effort": 100 }
+      },
+      {
+        "id": "v_board", "name": "状态看板", "type": "board", "groupBy": "f_status",
+        "visibleFieldIds": ["f_title", "f_effort"],
+        "query": { "sort": [{ "fieldId": "f_effort", "direction": "asc", "nulls": "last" }] }
+      }
+    ],
+    "defaultViewId": "v_table"
+  },
+  "resource": {
+    "format": "quirekit-data-view",
+    "version": 1,
+    "id": "embed_file",
+    "source": { "kind": "resource", "datasetId": "tasks", "ref": "./data/tasks.qdata.json" },
+    "views": [
+      {
+        "id": "v_table", "name": "本地共享任务", "type": "table",
+        "visibleFieldIds": ["f_title", "f_status"], "query": { "sort": [] }
+      }
+    ],
+    "defaultViewId": "v_table"
+  },
+  "remote": {
+    "format": "quirekit-data-view",
+    "version": 1,
+    "id": "embed_remote",
+    "source": { "kind": "remote", "provider": "workspace-data", "datasetId": "tasks" },
+    "views": [
+      {
+        "id": "v_board", "name": "云端任务", "type": "board", "groupBy": "f_status",
+        "visibleFieldIds": ["f_title", "f_effort"],
+        "query": {
+          "filter": {
+            "all": [
+              { "fieldId": "f_title", "op": "isNotEmpty" },
+              {
+                "any": [
+                  { "fieldId": "f_status", "op": "eq", "value": "todo" },
+                  { "fieldId": "f_status", "op": "isEmpty" }
+                ]
+              }
+            ]
+          },
+          "sort": [{ "fieldId": "f_effort", "direction": "desc", "nulls": "last" }]
+        }
+      }
+    ],
+    "defaultViewId": "v_board"
+  }
+}

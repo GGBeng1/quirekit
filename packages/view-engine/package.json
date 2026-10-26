@@ -1,0 +1,57 @@
+{
+  "name": "@quirekit/view-engine",
+  "version": "0.1.0-alpha.0",
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quirekit/quirekit.git",
+    "directory": "packages/view-engine"
+  },
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/view-engine#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Internal API, no compatibility guarantee: editor-aware retained geometry and interaction engine.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./layout-provider": {
+      "types": "./dist/layout-provider/index.d.mts",
+      "import": "./dist/layout-provider/index.mjs"
+    },
+    "./selection-adapter": {
+      "types": "./dist/selection-adapter/index.d.mts",
+      "import": "./dist/selection-adapter/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts src/layout-provider/index.ts src/selection-adapter/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src",
+    "benchmark:textblock-tail": "vitest bench tests/benchmarks/textblock-tail.bench.ts --pool=forks --maxWorkers=1 --no-file-parallelism"
+  },
+  "dependencies": {
+    "@quirekit/core": "workspace:*",
+    "@quirekit/layout": "workspace:*",
+    "@quirekit/media": "workspace:*",
+    "@quirekit/pm": "workspace:*",
+    "@quirekit/renderer": "workspace:*",
+    "@quirekit/drawing-geometry": "workspace:*"
+  },
+  "devDependencies": {
+    "@quirekit/extension-text-style": "workspace:*",
+    "@quirekit/starter-kit": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

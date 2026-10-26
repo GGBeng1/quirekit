@@ -1,0 +1,26 @@
+{
+  "name": "@codemirror/view",
+  "version": "6.43.13",
+  "commit": "59d70a1edbb9641161e34333f132cfd4be2e6596",
+  "repository": "https://code.haverbeke.berlin/codemirror/view.git",
+  "integrity": "sha512-sihaFrUzAsYBQsL9J2t69y8nfMQGwcYmggAZsk+kjPbjYZMyuf2hU8tUNTZ+P+isb6XRr8JE22TZlJxBoVdH1A==",
+  "tarball": "https://registry.npmjs.org/@codemirror/view/-/view-6.43.13.tgz",
+  "license": "MIT",
+  "sourceDirectory": "src",
+  "sourceSha256": "afce8eb6e605e4f7e5d52d5a622e3c638d5c79a79a7f2fea6e1653c91da8bb17",
+  "licenseSha256": "05c6130cda97e7600ca91427a41e8a065efcf82365fc0293e7de80faec494c07",
+  "localChanges": [
+    "Package names, imports and build/test configuration use QuireKit workspace identities.",
+    "src/docview.ts: measure sibling gaps, assign trailing wrapper padding to its last block, and avoid accumulating skipped viewports' spacing.",
+    "src/docview.ts: lock content height before tile construction and component retirement so transient DOM shrinkage cannot clamp the outer scroll position.",
+    "src/buildtile.ts and src/docview.ts: retire previous parent links when DOM is reused; undo full reuse for merged input tiles.",
+    "src/buildtile.ts and src/tile.ts: keep virtual viewport gaps outside content wrappers and apply vertical wrapper edges only at real source boundaries, including reused fragments.",
+    "src/viewstate.ts: initialize a refreshed height map once before merging measurements from all mounted viewports.",
+    "src/viewstate.ts: keep an already mounted explicit scroll target stable before navigation, then recrop using the destination viewport after the scroll is consumed.",
+    "src/editorview.ts: give one explicit target scroll a separate bounded measurement phase after mounting the distant target.",
+    "src/editorview.ts, src/extension.ts and src/docview.ts: retain measured source anchors for outer scroll snapshots without synchronous geometry reads during capture.",
+    "src/dom.ts: resolve physical scroll owners by axis from both overflow dimensions and computed CSS, ignoring visible or clipped decoration overflow while retaining programmatic hidden scrolling.",
+    "src/cursor.ts, src/input.ts and src/domchange.ts: require mounted keyboard and pointer endpoints to own a positive-height line, excluding phantom font rectangles on collapsed rows and preserving corrected undirectional atomic ranges."
+  ],
+  "sourceEntry": "src/index.ts"
+}

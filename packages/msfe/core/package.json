@@ -1,0 +1,60 @@
+{
+  "name": "@quirekit/msfe-core",
+  "version": "0.1.0-alpha.0",
+  "description": "Source-first Markdown editor framework on CodeMirror: editor state, blocks, history and live presentation.",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/msfe/core"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/msfe/core#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./state": {
+      "types": "./dist/state/index.d.mts",
+      "import": "./dist/state/index.mjs"
+    },
+    "./source-provider": {
+      "types": "./dist/source-provider/index.d.mts",
+      "import": "./dist/source-provider/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts src/state/index.ts src/source-provider/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src --passWithNoTests"
+  },
+  "dependencies": {
+    "@lezer/common": "1.5.3",
+    "@quirekit/cm-autocomplete": "workspace:*",
+    "@quirekit/cm-commands": "workspace:*",
+    "@quirekit/cm-lang-markdown": "workspace:*",
+    "@quirekit/cm-language": "workspace:*",
+    "@quirekit/cm-search": "workspace:*",
+    "@quirekit/cm-state": "workspace:*",
+    "@quirekit/cm-theme-one-dark": "workspace:*",
+    "@quirekit/cm-view": "workspace:*",
+    "@quirekit/ime": "workspace:*",
+    "@quirekit/lezer-markdown": "workspace:*",
+    "micromark-util-decode-string": "2.0.1",
+    "micromark-util-normalize-identifier": "2.0.1",
+    "micromark-util-sanitize-uri": "2.0.1",
+    "uuid": "14.0.3"
+  },
+  "devDependencies": {
+    "happy-dom": "20.10.6",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

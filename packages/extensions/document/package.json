@@ -1,0 +1,50 @@
+{
+  "name": "@quirekit/extension-document",
+  "version": "0.1.0-alpha.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quirekit/quirekit.git",
+    "directory": "packages/extensions/document"
+  },
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/extensions/document#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "QuireKit document node extension.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "@quirekit/ai-contract": "workspace:*"
+  },
+  "peerDependenciesMeta": {
+    "@quirekit/ai-contract": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@quirekit/ai-contract": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

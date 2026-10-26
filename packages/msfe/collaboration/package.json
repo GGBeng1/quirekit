@@ -1,0 +1,53 @@
+{
+  "name": "@quirekit/msfe-collaboration",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "description": "Optional Yjs source collaboration for MSFE.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quirekit/quirekit.git",
+    "directory": "packages/msfe/collaboration"
+  },
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/msfe/collaboration#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "licenses",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./presence": {
+      "types": "./dist/presence/index.d.mts",
+      "import": "./dist/presence/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts src/presence/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/cm-state": "workspace:*",
+    "@quirekit/cm-view": "workspace:*",
+    "@quirekit/cm-commands": "workspace:*",
+    "@quirekit/msfe-core": "workspace:*",
+    "uuid": "14.0.3",
+    "yjs": "13.6.33"
+  },
+  "devDependencies": {
+    "happy-dom": "20.10.6",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

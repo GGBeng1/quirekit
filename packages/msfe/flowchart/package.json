@@ -1,0 +1,42 @@
+{
+  "name": "@quirekit/msfe-flowchart",
+  "version": "0.1.0-alpha.0",
+  "description": "Editable flowchart blocks stored as Markdown fences in the MSFE source editor.",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/msfe/flowchart"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/msfe/flowchart#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/flowchart": "workspace:*",
+    "@quirekit/msfe-core": "workspace:*",
+    "@quirekit/cm-commands": "workspace:*",
+    "uuid": "14.0.3"
+  },
+  "devDependencies": {
+    "@quirekit/ai-contract": "workspace:*",
+    "happy-dom": "20.10.6",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

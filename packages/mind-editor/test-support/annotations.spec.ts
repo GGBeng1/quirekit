@@ -1,0 +1,31 @@
+import { toggleMindPreviewTheme } from "./preferences/testing";
+import { expect, test } from "@playwright/test";
+
+test("shared annotation panel creates, edits, removes and restores all three kinds", async ({ page }, info) => {
+  const errors: string[] = []; page.on("pageerror", error => errors.push(error.message));
+  await page.goto("/"); const nodes = page.locator(".smm-node"); await expect(nodes).toHaveCount(14);
+  await nodes.filter({ hasText: /^本周计划$/ }).click();
+  await nodes.filter({ hasText: /^周工作总结$/ }).click({ modifiers: ["Shift"] });
+  await page.getByRole("button", { name: "编辑", exact: true }).click(); await page.getByRole("menuitem", { name: "关联线、概要与外框…", exact: true }).click();
+  await page.getByRole("button", { name: "添加关联线", exact: true }).click();
+  await page.getByRole("textbox", { name: "标注标题", exact: true }).fill("执行与复盘");
+  await page.getByRole("button", { name: "应用标注", exact: true }).click();
+  await expect(page.locator('[data-qk-mind-annotation][data-kind="relation"]')).toContainText("执行与复盘");
+  await page.getByRole("button", { name: "添加概要", exact: true }).click();
+  await page.getByRole("button", { name: "添加外框", exact: true }).click();
+  await expect(page.locator("[data-qk-mind-annotation]")).toHaveCount(3);
+  await page.getByRole("button", { name: "删除标注", exact: true }).click();
+  await expect(page.locator("[data-qk-mind-annotation]")).toHaveCount(2);
+  await page.getByRole("button", { name: "撤销", exact: true }).click();
+  await expect(page.locator("[data-qk-mind-annotation]")).toHaveCount(3);
+  await page.getByRole("button", { name: /保存到本机/ }).click();
+  await expect(page.getByRole("button", { name: "已保存到本机", exact: true })).toBeVisible();
+  await page.reload(); await expect(page.locator("[data-qk-mind-annotation]")).toHaveCount(3);
+  await page.getByRole("button", { name: "编辑", exact: true }).click(); await page.getByRole("menuitem", { name: "关联线、概要与外框…", exact: true }).click();
+  await toggleMindPreviewTheme(page);
+  await expect(page.getByRole("complementary", { name: "关联线、概要与外框" })).toHaveCSS("color", "rgb(232, 237, 244)");
+  await page.getByRole("button", { name: "适应画布", exact: true }).click();
+  await expect(page.locator("[data-icon-missing]")).toHaveCount(0);
+  await page.screenshot({ path: info.outputPath("annotation-panel-dark.png") });
+  expect(errors).toEqual([]);
+});

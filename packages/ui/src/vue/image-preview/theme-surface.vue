@@ -1,0 +1,27 @@
+<script lang="ts">
+import { defineComponent, h, type PropType } from "vue";
+import { previewColors } from "./appearance";
+
+const styles = Object.freeze({
+  light: Object.freeze({ ...previewColors.light, display: "contents" }),
+  dark: Object.freeze({ ...previewColors.dark, display: "contents" })
+});
+
+export default defineComponent({
+  name: "QuireImagePreviewThemeSurface",
+  inheritAttrs: false,
+  props: {
+    /** Preview-owned contrast palette; host geometry and typography still inherit. */
+    scheme: { type: String as PropType<"light" | "dark">, required: true }
+  },
+  /**
+   * Keeps the preview palette independent of Ark content attribute updates.
+   * @param props - Explicit preview contrast scheme.
+   * @param context - Original content without an additional layout box.
+   * @returns Native renderer whose stable style identity avoids palette rewrites.
+   */
+  setup(props, context) {
+    return () => h("div", { style: styles[props.scheme] }, context.slots.default?.());
+  }
+});
+</script>

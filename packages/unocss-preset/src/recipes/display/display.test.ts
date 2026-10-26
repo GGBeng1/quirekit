@@ -1,0 +1,22 @@
+import { createGenerator } from "@unocss/core";
+import type { Theme } from "@unocss/preset-wind3";
+import { presetWind3 } from "@unocss/preset-wind3";
+import { expect, it } from "vitest";
+import { tagShortcuts, tagRecipeCatalog } from "../tag";
+import { badgeShortcuts, badgeRecipeCatalog } from "../badge";
+import { kbdShortcuts, kbdRecipeCatalog } from "../kbd";
+import { skeletonShortcuts, skeletonRecipeCatalog, skeletonStaticCss } from "../skeleton";
+import { quireKitUnoTheme } from "../../theme/bridge";
+it("emits all static display recipes from tokens and disables decorative motion on request", async () => {
+  const catalog = [...badgeRecipeCatalog, ...tagRecipeCatalog, ...kbdRecipeCatalog, ...skeletonRecipeCatalog];
+  const generator = await createGenerator<Theme>({ presets: [presetWind3()], theme: quireKitUnoTheme, shortcuts: [...badgeShortcuts, ...tagShortcuts, ...kbdShortcuts, ...skeletonShortcuts] });
+  const { css, matched } = await generator.generate(catalog.join(" "));
+  for (const name of catalog) expect(matched.has(name)).toBe(true);
+  expect(css).toContain("var(--qk-badge-warning-text)");
+  expect(css).toContain("var(--qk-skeleton-background)");
+  expect(css).toContain("var(--qk-skeleton-easing)");
+  expect(skeletonStaticCss).toContain("var(--qk-skeleton-minimum-opacity)");
+  expect(css).toContain("var(--qk-kbd-border-color)");
+  expect(skeletonStaticCss).toContain("prefers-reduced-motion: reduce");
+  expect(skeletonStaticCss).toContain("animation: none !important");
+});

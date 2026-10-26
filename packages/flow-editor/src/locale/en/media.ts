@@ -1,0 +1,21 @@
+/** English media chooser and input feedback. */
+export const media = {
+  "图片 / SVG…": "Image / SVG…", "常用图标…": "Diagram icons…", "编辑图片…": "Edit image…",
+  "编辑图片": "Edit image", "插入图片与图标": "Insert images and icons",
+  "图片随图表保存，支持 PNG、JPEG、WebP 和静态 SVG。": "Images are saved with the diagram. Supports PNG, JPEG, WebP and static SVG.",
+  "图片来源": "Image source", "上传图片": "Upload image", "常用图标": "Diagram icons", "选择图片文件": "Choose an image file",
+  "拖放图片到这里，或点击选择": "Drop an image here, or click to choose",
+  "单个文件最多 8 MB；图片内容与尺寸会在导入时检查。": "Up to 8 MB per file. Content and dimensions are checked on import.",
+  "正在读取图片…": "Reading image…", "选择图片或图标": "Choose an image or icon", "图片说明": "Image description", "图标颜色": "Icon color",
+  "应用图片": "Apply image", "插入图片": "Insert image", "云服务": "Cloud", "服务器": "Server", "数据库": "Database", "浏览器": "Browser",
+  "移动端": "Mobile", "用户": "User", "邮件": "Email", "安全": "Security", "文件夹": "Folder", "网络": "Network", "互联网": "Internet", "权限": "Permissions",
+  "请选择图片节点": "Select an image node.", "图片文件不能超过 8 MB": "Image files cannot exceed 8 MB.",
+  "SVG 含不支持的内容，请使用静态路径图标或转为 PNG": "This SVG contains unsupported content. Use a static path icon or convert it to PNG.",
+  "请选择 PNG、JPEG、WebP 或 SVG 图片": "Choose a PNG, JPEG, WebP or SVG image.", "图片解码不可用": "Image decoding is unavailable.",
+  "图片尺寸不能超过 4096 像素或 800 万像素": "Images cannot exceed 4,096 pixels per side or 8 million pixels.",
+  "图片内容过大，请压缩后重试": "This image is too large. Compress it and try again.",
+  "无法读取图片，请检查文件是否完整": "Unable to read this image. Check that the file is complete.",
+  "裁剪图片…": "Crop image…", "完成裁剪": "Finish crop", "只调整可见范围，原图保留在图表中。": "Only the visible region changes. The original stays in the diagram.",
+  "图框适应方式": "Image fit", "完整显示": "Contain", "填满图框": "Cover", "锁定缩放比例": "Lock resize ratio",
+  "拖动调整尺寸时保留图框比例。": "Keep the frame ratio when dragging to resize.", "裁剪后至少保留 1 × 1 像素": "The crop must retain at least 1 × 1 source pixel.",
+} as const;

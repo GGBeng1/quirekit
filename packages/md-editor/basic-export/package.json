@@ -1,0 +1,48 @@
+{
+  "name": "@quirekit/md-editor-basic-export",
+  "version": "0.1.0-alpha.0",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/md-editor/basic-export"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/md-editor/basic-export#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Open-source basic Word import/export and PDF export for md-editor, built on established open-source converters.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@mohtasham/md-to-docx": "4.0.1",
+    "@quirekit/font-pack": "workspace:*",
+    "@quirekit/md-editor": "workspace:*",
+    "mammoth": "1.13.0",
+    "pdfmake": "0.3.11",
+    "remark-gfm": "4.0.1",
+    "remark-math": "6.0.0",
+    "remark-parse": "11.0.0",
+    "turndown": "7.2.4",
+    "turndown-plugin-gfm": "1.0.2",
+    "unified": "11.0.5"
+  },
+  "devDependencies": {
+    "@types/mdast": "4.0.4",
+    "jszip": "3.10.1",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

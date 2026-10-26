@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>QuireKit accessibility acceptance</title>
+<style>
+body { margin: 24px; font: 16px system-ui; color: #172333; background: #f4f6f8; }
+button { margin: 4px; padding: 6px 12px; font: inherit; }
+#editor { height: 600px; overflow: auto; border: 1px solid #728095; background: white; }
+.qk-canvas-editor, .qk-svg-editor { position: relative; width: 100%; }
+.qk-canvas-editor__content, .qk-canvas-editor__overlay { display: block; width: 100%; height: 100%; }
+.qk-canvas-editor__pointer, .qk-canvas-editor__overlay, .qk-canvas-editor__overlays,
+.qk-svg-editor__overlay, .qk-svg-editor__overlays { position: absolute; inset: 0; }
+.qk-canvas-editor__overlay, .qk-canvas-editor__overlays, .qk-svg-editor__overlays,
+.qk-canvas-editor__page-stack, .qk-svg-editor__page-stack { pointer-events: none; }
+[data-qk-input-proxy] { position: absolute; pointer-events: none; }
+[data-qk-accessibility] { background: Canvas; color: CanvasText; }
+</style></head><body>
+<button id="before">编辑器之前</button><div id="editor"></div><button id="after">编辑器之后</button>
+<script type="module" src="./fixture.ts"></script></body></html>

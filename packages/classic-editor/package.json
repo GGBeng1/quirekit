@@ -1,0 +1,96 @@
+{
+  "name": "@quirekit/classic-editor",
+  "version": "0.1.0-alpha.0",
+  "license": "AGPL-3.0-only",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/classic-editor"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/classic-editor#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "QuireKit paginated classic editor product shell and contribution runtime.",
+  "type": "module",
+  "sideEffects": [
+    "./dist/styles.css",
+    "./src/styles.css",
+    "./dist/standalone-components.css",
+    "./dist/vue-components.css",
+    "./dist/image-gallery-components.css"
+  ],
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src/styles.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./vue": {
+      "types": "./dist/vue.d.mts",
+      "import": "./dist/vue.mjs"
+    },
+    "./headless": {
+      "types": "./dist/headless.d.mts",
+      "import": "./dist/headless.mjs"
+    },
+    "./image-gallery": {
+      "types": "./dist/image-gallery.d.mts",
+      "import": "./dist/image-gallery.mjs"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "pnpm icons:generate && tsdown --config tsdown.standalone.config.ts && tsdown --config tsdown.vue.config.ts && tsdown --config tsdown.image-gallery.config.ts && mkdir -p dist/shell/components/insert dist/shell/components/object-workspace dist/shell/mobile dist/extensions/typography && node scripts/build-styles.mjs && cp src/shell/mobile/styles.css dist/shell/mobile/styles.css && cp src/shell/components/insert/styles.css dist/shell/components/insert/styles.css && cp src/shell/components/object-workspace/styles.css dist/shell/components/object-workspace/styles.css && cp src/extensions/typography/highlighter-cursor.css dist/extensions/typography/highlighter-cursor.css",
+    "icons:generate": "node scripts/generate-icons.mjs",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src && vitest run --config vitest.mount.config.ts",
+    "test:artifacts": "node scripts/verify-artifacts.mjs"
+  },
+  "dependencies": {
+    "@floating-ui/dom": "1.8.0",
+    "@quirekit/clipboard": "workspace:*",
+    "@quirekit/core": "workspace:*",
+    "@quirekit/lit-docx-contract": "workspace:*",
+    "@quirekit/editor-ui": "workspace:*",
+    "@quirekit/extension-horizontal-rule": "workspace:*",
+    "@quirekit/extension-search": "workspace:*",
+    "@quirekit/extension-text-style": "workspace:*",
+    "@quirekit/extension-underline": "workspace:*",
+    "@quirekit/extensions": "workspace:*",
+    "@quirekit/layout": "workspace:*",
+    "@quirekit/media": "workspace:*",
+    "@quirekit/pm": "workspace:*",
+    "@quirekit/renderer": "workspace:*",
+    "@quirekit/starter-kit": "workspace:*",
+    "@quirekit/ui": "workspace:*",
+    "@quirekit/unocss-preset": "workspace:*",
+    "@quirekit/view": "workspace:*",
+    "@quirekit/view-engine": "workspace:*",
+    "@quirekit/web-fonts": "workspace:*",
+    "@zag-js/dialog": "1.43.3",
+    "@zag-js/vue": "1.43.3",
+    "@quirekit/data-view": "workspace:*",
+    "@quirekit/data-view-editor": "workspace:*",
+    "@quirekit/extension-data-view": "workspace:*"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@iconify-json/tabler": "^1.2.37",
+    "@tsdown/css": "catalog:",
+    "lucide-static": "^1.25.0",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "unplugin-vue": "^7.2.0",
+    "vitest": "catalog:",
+    "vue": "^3.5.40",
+    "vue-tsc": "^3.3.7"
+  }
+}

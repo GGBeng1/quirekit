@@ -1,0 +1,48 @@
+{
+  "name": "@quirekit/extension-code-block",
+  "version": "0.1.0-alpha.0",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/extensions/code-block"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/extensions/code-block#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "QuireKit code block node extension.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@quirekit/core": "workspace:*",
+    "@quirekit/lit-docx-contract": "workspace:*",
+    "@quirekit/pm": "workspace:*",
+    "@quirekit/classic-revision-contract": "workspace:*"
+  },
+  "peerDependencies": {
+    "@quirekit/ai-contract": "workspace:*"
+  },
+  "peerDependenciesMeta": {
+    "@quirekit/ai-contract": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@quirekit/ai-contract": "workspace:*",
+    "@quirekit/accessibility-contract": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
+  }
+}

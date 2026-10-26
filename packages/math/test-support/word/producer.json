@@ -1,0 +1,11 @@
+{
+  "producer": "Microsoft Word for Mac",
+  "version": "16.109.2",
+  "created": "2026-09-30",
+  "action": "Blank document; Insert Equation; select LaTeX; paste source; Convert to Professional; Save as DOCX",
+  "latex": "\\frac{x_1}{\\sqrt[3]{y^2}}",
+  "originalDocxSha256": "d36fcea967f47e9a8866250337d25b8c8fd6744292755ca3f2a9df3e819d91d5",
+  "extraction": "Only the original oMath subtree, with inherited namespace declarations materialized. No document author metadata included.",
+  "reopenVerified": true,
+  "reopenEvidence": "Word reopened saved DOCX; equation accessibility exposes x sub 1 over cube root of y squared."
+}

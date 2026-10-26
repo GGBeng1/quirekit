@@ -1,0 +1,9 @@
+export { default as QuireProseSmall } from "./small.vue";
+export { default as QuireProseMark } from "./mark.vue";
+export { default as QuireProseDel } from "./del.vue";
+export { default as QuireProseS } from "./s.vue";
+export { default as QuireProseIns } from "./ins.vue";
+export { default as QuireProseU } from "./u.vue";
+export { default as QuireProseSub } from "./sub.vue";
+export { default as QuireProseSup } from "./sup.vue";
+export { default as QuireProseAbbr } from "./abbr.vue";

@@ -1,0 +1,1 @@
+export { WordParagraphNode } from "./node";

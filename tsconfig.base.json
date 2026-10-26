@@ -1,0 +1,486 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "strict": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@quirekit/data-view-editor": [
+        "packages/data-view-editor/src/index.ts"
+      ],
+      "@quirekit/data-view-editor/vue": [
+        "packages/data-view-editor/src/vue/index.ts"
+      ],
+      "@quirekit/extension-data-view": [
+        "packages/extensions/data-view/src/index.ts"
+      ],
+      "@quirekit/msfe-data-view": [
+        "packages/msfe/data-view/src/index.ts"
+      ],
+      "@quirekit/data-view": [
+        "packages/data-view/src/index.ts"
+      ],
+      "@quirekit/text-diagram": [
+        "packages/text-diagram/src/index.ts"
+      ],
+      "@quirekit/text-diagram/browser": [
+        "packages/text-diagram/src/browser/index.ts"
+      ],
+      "@quirekit/text-diagram-editor": [
+        "packages/text-diagram-editor/src/index.ts"
+      ],
+      "@quirekit/text-diagram-editor/vue": [
+        "packages/text-diagram-editor/src/vue/index.ts"
+      ],
+      "@quirekit/extension-text-diagram": [
+        "packages/extensions/text-diagram/src/index.ts"
+      ],
+      "@quirekit/extension-mind-map": [
+        "packages/extensions/mind-map/src/index.ts"
+      ],
+      "@quirekit/msfe-mind-map": [
+        "packages/msfe/mind-map/src/index.ts"
+      ],
+      "@quirekit/mind-map-docx": [
+        "packages/mind-map-docx/src/index.ts"
+      ],
+      "@quirekit/whiteboard": [
+        "packages/whiteboard/src/index.ts"
+      ],
+      "@quirekit/whiteboard-docx": [
+        "packages/whiteboard-docx/src/index.ts"
+      ],
+      "@quirekit/whiteboard-excalidraw": [
+        "packages/whiteboard-excalidraw/src/index.ts"
+      ],
+      "@quirekit/whiteboard-editor/vue": [
+        "packages/whiteboard-editor/src/vue/index.ts"
+      ],
+      "@quirekit/whiteboard-editor": [
+        "packages/whiteboard-editor/src/index.ts"
+      ],
+      "@quirekit/extension-whiteboard": [
+        "packages/extensions/whiteboard/src/index.ts"
+      ],
+      "@quirekit/msfe-whiteboard": [
+        "packages/msfe/whiteboard/src/index.ts"
+      ],
+      "@quirekit/extension-flowchart": [
+        "packages/extensions/flowchart/src/index.ts"
+      ],
+      "@quirekit/msfe-flowchart": [
+        "packages/msfe/flowchart/src/index.ts"
+      ],
+      "@quirekit/flowchart": [
+        "packages/flowchart/src/index.ts"
+      ],
+      "@quirekit/flowchart-pdf": [
+        "packages/flowchart-pdf/src/index.ts"
+      ],
+      "@quirekit/flowchart-pdf/fonts": [
+        "packages/flowchart-pdf/src/fonts/index.ts"
+      ],
+      "@quirekit/font-pack/pdf/browser": [
+        "packages/font-pack/src/pdf/browser.ts"
+      ],
+      "@quirekit/flowchart-docx": [
+        "packages/flowchart-docx/src/index.ts"
+      ],
+      "@quirekit/flowchart-x6": [
+        "packages/flowchart-x6/src/index.ts"
+      ],
+      "@quirekit/flow-editor": [
+        "packages/flow-editor/src/index.ts"
+      ],
+      "@quirekit/flow-editor/vue": [
+        "packages/flow-editor/src/vue/index.ts"
+      ],
+      "@quirekit/mind-map": [
+        "packages/mind-map/src/index.ts"
+      ],
+      "@quirekit/mind-map-simple": [
+        "packages/mind-map-simple/src/index.ts"
+      ],
+      "@quirekit/mind-editor": [
+        "packages/mind-editor/src/index.ts"
+      ],
+      "@quirekit/mind-editor/vue": [
+        "packages/mind-editor/src/vue/index.ts"
+      ],
+      "@quirekit/chart": [
+        "packages/chart/src/index.ts"
+      ],
+      "@quirekit/chart-echarts": [
+        "packages/chart-echarts/src/index.ts"
+      ],
+      "@quirekit/math": [
+        "packages/math/src/index.ts"
+      ],
+      "@quirekit/math/browser": [
+        "packages/math/src/browser/index.ts"
+      ],
+      "@quirekit/math-mathjax": [
+        "packages/math-mathjax/src/index.ts"
+      ],
+      "@quirekit/math-omml": [
+        "packages/math-omml/src/index.ts"
+      ],
+      "@quirekit/math-ui": [
+        "packages/math-ui/src/index.ts"
+      ],
+      "@quirekit/drawing-geometry": [
+        "packages/drawing-geometry/src/index.ts"
+      ],
+      "@classic/*": [
+        "packages/classic-editor/src/*"
+      ],
+      "@quirekit/classic-editor": [
+        "packages/classic-editor/src/index.ts"
+      ],
+      "@quirekit/classic-editor/headless": [
+        "packages/classic-editor/src/distribution/headless.ts"
+      ],
+      "@quirekit/block-numbering": [
+        "packages/block-numbering/src/index.ts"
+      ],
+      "@quirekit/block-table": [
+        "packages/block-table/src/index.ts"
+      ],
+      "@quirekit/block-table/vue": [
+        "packages/block-table/src/vue/index.ts"
+      ],
+      "@quirekit/block-editor": [
+        "packages/block-editor/src/index.ts"
+      ],
+      "@quirekit/block-editor/vue": [
+        "packages/block-editor/src/vue/index.ts"
+      ],
+      "@quirekit/md-editor": [
+        "packages/md-editor/editor/src/index.ts"
+      ],
+      "@quirekit/md-editor/vue": [
+        "packages/md-editor/editor/src/vue/index.ts"
+      ],
+      "@quirekit/incremark": [
+        "packages/incremark/src/index.ts"
+      ],
+      "@quirekit/incremark-core": [
+        "packages/incremark-core/src/index.ts"
+      ],
+      "@quirekit/incremark-react": [
+        "packages/incremark-react/src/index.ts"
+      ],
+      "@quirekit/incremark/vue": [
+        "packages/incremark/src/vue/index.ts"
+      ],
+      "@quirekit/dom-view": [
+        "packages/dom-view/src/index.ts"
+      ],
+      "@quirekit/view": [
+        "packages/view/src/index.ts"
+      ],
+      "@quirekit/view/mounted-services": [
+        "packages/view/src/mounted-services/index.ts"
+      ],
+      "@quirekit/view/mounted-backend": [
+        "packages/view/src/mounted-backend/index.ts"
+      ],
+      "@quirekit/view/test-support/svg-mount": [
+        "packages/view/test-support/mount/svg/index.ts"
+      ],
+      "@quirekit/view/test-support/canvas-mount": [
+        "packages/view/test-support/mount/canvas/index.ts"
+      ],
+      "@quirekit/view/test-support/post-update": [
+        "packages/view/test-support/lifecycle/post-update-contract.ts"
+      ],
+      "@quirekit/view-html": [
+        "packages/view-html/src/index.ts"
+      ],
+      "@quirekit/accessibility-contract": [
+        "packages/accessibility-contract/src/index.ts"
+      ],
+      "@quirekit/accessibility": [
+        "packages/accessibility/src/index.ts"
+      ],
+      "@quirekit/accessibility/contract": [
+        "packages/accessibility/src/contract/index.ts"
+      ],
+      "@quirekit/view-engine": [
+        "packages/view-engine/src/index.ts"
+      ],
+      "@quirekit/view-engine/layout-provider": [
+        "packages/view-engine/src/layout-provider/index.ts"
+      ],
+      "@quirekit/view-engine/selection-adapter": [
+        "packages/view-engine/src/selection-adapter/index.ts"
+      ],
+      "@quirekit/view-engine/test-support/layout": [
+        "packages/view-engine/test-support/layout/index.ts"
+      ],
+      "@quirekit/ai-contract": [
+        "packages/ai/contract/src/index.ts"
+      ],
+      "@quirekit/clipboard": [
+        "packages/input/clipboard/src/index.ts"
+      ],
+      "@quirekit/core": [
+        "packages/core/editor/src/index.ts"
+      ],
+      "@quirekit/core/layout-provider": [
+        "packages/core/editor/src/layout-provider/index.ts"
+      ],
+      "@quirekit/core/document-profile": [
+        "packages/core/editor/src/document-profile/index.ts"
+      ],
+      "@quirekit/core/selection-adapter": [
+        "packages/core/editor/src/selection-adapter/index.ts"
+      ],
+      "@quirekit/suggestion": [
+        "packages/suggestion/src/index.ts"
+      ],
+      "@quirekit/editor-ui": [
+        "packages/editor-ui/src/index.ts"
+      ],
+      "@quirekit/editor-ui/vue": [
+        "packages/editor-ui/src/vue/index.ts"
+      ],
+      "@quirekit/devtools": [
+        "packages/devtools/devtools/src/index.ts"
+      ],
+      "@quirekit/docx": [
+        "packages/core/docx/src/index.ts"
+      ],
+      "@quirekit/extension-blockquote": [
+        "packages/extensions/blockquote/src/index.ts"
+      ],
+      "@quirekit/extension-bold": [
+        "packages/extensions/bold/src/index.ts"
+      ],
+      "@quirekit/extension-code": [
+        "packages/extensions/code/src/index.ts"
+      ],
+      "@quirekit/extension-code-block": [
+        "packages/extensions/code-block/src/index.ts"
+      ],
+      "@quirekit/extension-document": [
+        "packages/extensions/document/src/index.ts"
+      ],
+      "@quirekit/extension-hard-break": [
+        "packages/extensions/hard-break/src/index.ts"
+      ],
+      "@quirekit/extension-heading": [
+        "packages/extensions/heading/src/index.ts"
+      ],
+      "@quirekit/extension-horizontal-rule": [
+        "packages/extensions/horizontal-rule/src/index.ts"
+      ],
+      "@quirekit/extension-floating-object": [
+        "packages/extensions/floating-object/src/index.ts"
+      ],
+      "@quirekit/extension-italic": [
+        "packages/extensions/italic/src/index.ts"
+      ],
+      "@quirekit/extension-link": [
+        "packages/extensions/link/src/index.ts"
+      ],
+      "@quirekit/extension-proofing": [
+        "packages/extensions/proofing/src/index.ts"
+      ],
+      "@quirekit/extension-search": [
+        "packages/extensions/search/src/index.ts"
+      ],
+      "@quirekit/proofing-harper": [
+        "packages/proofing-harper/src/index.ts"
+      ],
+      "@quirekit/proofing-hunspell": [
+        "packages/proofing-hunspell/src/index.ts"
+      ],
+      "@quirekit/proofing-hunspell/worker": [
+        "packages/proofing-hunspell/src/worker.ts"
+      ],
+      "@quirekit/extension-list": [
+        "packages/extensions/list/src/index.ts"
+      ],
+      "@quirekit/extension-paragraph": [
+        "packages/extensions/paragraph/src/index.ts"
+      ],
+      "@quirekit/extension-strike": [
+        "packages/extensions/strike/src/index.ts"
+      ],
+      "@quirekit/extension-text": [
+        "packages/extensions/text/src/index.ts"
+      ],
+      "@quirekit/extension-text-style": [
+        "packages/extensions/text-style/src/index.ts"
+      ],
+      "@quirekit/extension-underline": [
+        "packages/extensions/underline/src/index.ts"
+      ],
+      "@quirekit/extensions": [
+        "packages/extensions/extensions/src/index.ts"
+      ],
+      "@quirekit/html": [
+        "packages/core/html/src/index.ts"
+      ],
+      "@quirekit/html/server": [
+        "packages/core/html/src/server/index.ts"
+      ],
+      "@quirekit/ime": [
+        "packages/input/ime/src/index.ts"
+      ],
+      "@quirekit/layout": [
+        "packages/layout/src/index.ts"
+      ],
+      "@quirekit/layout/block-flow": [
+        "packages/layout/src/block-flow/index.ts"
+      ],
+      "@quirekit/layout/child-flow": [
+        "packages/layout/src/child-flow/index.ts"
+      ],
+      "@quirekit/layout/identity": [
+        "packages/layout/src/identity/index.ts"
+      ],
+      "@quirekit/layout/inline": [
+        "packages/layout/src/inline/index.ts"
+      ],
+      "@quirekit/layout/pagination": [
+        "packages/layout/src/pagination/index.ts"
+      ],
+      "@quirekit/layout/products": [
+        "packages/layout/src/products/index.ts"
+      ],
+      "@quirekit/layout/shaping": [
+        "packages/layout/src/shaping/index.ts"
+      ],
+      "@quirekit/layout/table": [
+        "packages/layout/src/table/index.ts"
+      ],
+      "@quirekit/layout/text": [
+        "packages/layout/src/text/index.ts"
+      ],
+      "@quirekit/lit-docx-contract": [
+        "packages/lit-docx-contract/dist/index.d.mts"
+      ],
+      "@quirekit/media": [
+        "packages/media/src/index.ts"
+      ],
+      "@quirekit/web-fonts": [
+        "packages/web-fonts/src/index.ts"
+      ],
+      "@quirekit/markdown": [
+        "packages/core/markdown/src/index.ts"
+      ],
+      "@quirekit/pm": [
+        "packages/pm/pm/dist/index.d.mts"
+      ],
+      "@quirekit/pm-collab": [
+        "packages/pm/collab/dist/collab.d.mts"
+      ],
+      "@quirekit/pm-commands": [
+        "packages/pm/commands/dist/commands.d.mts"
+      ],
+      "@quirekit/pm-decoration": [
+        "packages/pm/decoration/dist/index.d.mts"
+      ],
+      "@quirekit/pm-gapcursor": [
+        "packages/pm/gapcursor/dist/index.d.mts"
+      ],
+      "@quirekit/pm-history": [
+        "packages/pm/history/dist/history.d.mts"
+      ],
+      "@quirekit/pm-inputrules": [
+        "packages/pm/inputrules/dist/index.d.mts"
+      ],
+      "@quirekit/pm-keymap": [
+        "packages/pm/keymap/dist/keymap.d.mts"
+      ],
+      "@quirekit/pm-model": [
+        "packages/pm/model/dist/index.d.mts"
+      ],
+      "@quirekit/pm-state": [
+        "packages/pm/state/dist/index.d.mts"
+      ],
+      "@quirekit/pm-transform": [
+        "packages/pm/transform/dist/index.d.mts"
+      ],
+      "@quirekit/pm-view": [
+        "packages/pm/view/dist/index.d.mts"
+      ],
+      "@quirekit/ofd": [
+        "packages/ofd/src/index.ts"
+      ],
+      "@quirekit/ui": [
+        "packages/ui/src/index.ts"
+      ],
+      "@quirekit/ui/vue": [
+        "packages/ui/src/vue/index.ts"
+      ],
+      "@quirekit/unocss-preset": [
+        "packages/unocss-preset/src/index.ts"
+      ],
+      "@quirekit/render-contract": [
+        "packages/render-contract/src/index.ts"
+      ],
+      "@quirekit/renderer": [
+        "packages/renderer/src/index.ts"
+      ],
+      "@quirekit/starter-kit": [
+        "packages/core/starter-kit/src/index.ts"
+      ],
+      "@quirekit/classic-table-model": [
+        "packages/classic/table-model/src/index.ts"
+      ],
+      "@quirekit/classic-paragraph-model": [
+        "packages/classic/paragraph-model/src/index.ts"
+      ],
+      "@quirekit/classic-styles-model": [
+        "packages/classic/styles-model/src/index.ts"
+      ],
+      "@quirekit/classic-numbering-model": [
+        "packages/classic/numbering-model/src/index.ts"
+      ],
+      "@quirekit/classic-revision-contract": [
+        "packages/classic/revision-contract/src/index.ts"
+      ],
+      "@quirekit/html-sandbox": [
+        "packages/html-sandbox/src/index.ts"
+      ],
+      "@quirekit/html-sandbox/browser": [
+        "packages/html-sandbox/src/browser/index.ts"
+      ],
+      "@quirekit/html-sandbox/markdown": [
+        "packages/html-sandbox/src/markdown/index.ts"
+      ],
+      "@quirekit/ui/vue/html-sandbox": [
+        "packages/ui/src/vue/html-sandbox/index.ts"
+      ],
+      "@quirekit/msfe-html-sandbox": [
+        "packages/msfe/html-sandbox/src/index.ts"
+      ],
+      "@quirekit/msfe-html-sandbox/vue": [
+        "packages/msfe/html-sandbox/src/vue/index.ts"
+      ],
+      "@quirekit/extension-html-sandbox": [
+        "packages/extensions/html-sandbox/src/index.ts"
+      ],
+      "@quirekit/extension-html-sandbox/vue": [
+        "packages/extensions/html-sandbox/src/vue/index.ts"
+      ]
+    }
+  }
+}

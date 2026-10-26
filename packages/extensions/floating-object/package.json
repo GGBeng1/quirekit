@@ -1,0 +1,44 @@
+{
+  "name": "@quirekit/extension-floating-object",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/extensions/floating-object"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/extensions/floating-object#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "QuireKit floating object and nested text-box extension.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/core": "workspace:*",
+    "@quirekit/pm": "workspace:*",
+    "@quirekit/renderer": "workspace:*",
+    "@quirekit/view-engine": "workspace:*"
+  },
+  "devDependencies": {
+    "@quirekit/html": "workspace:*",
+    "@quirekit/starter-kit": "workspace:*",
+    "@quirekit/view": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

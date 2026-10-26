@@ -1,0 +1,15 @@
+body { margin:0;background:#f5f6f8;color:#182235;font:14px/1.6 system-ui,sans-serif; }
+main { max-width:800px;margin:auto;padding:32px 20px; } h1 { font-size:24px; } h2 { font-size:16px; }
+section { padding:20px;margin:20px 0;background:white;border:1px solid #d9dfe8;border-radius:12px; }
+nav { display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px; }
+button,select,input { font:inherit; } button { padding:4px 10px;border:1px solid #c4cbd6;background:#fff;border-radius:6px;cursor:pointer; }
+button:disabled { opacity:.45;cursor:default; } button:hover:enabled { background:#f0f4ff; } button:focus-visible,input:focus-visible,select:focus-visible { outline:2px solid #3953db;outline-offset:2px; }
+label,output { display:block;margin-top:8px; } input.source { box-sizing:border-box;display:block;width:100%;padding:8px;border:1px solid #c4cbd6;border-radius:6px; }
+.surface { position:relative;box-sizing:border-box;min-height:150px;padding:20px;border:1px solid #c4cbd6;border-radius:8px;display:grid;align-items:center;font-size:32px;overflow:auto;touch-action:none;user-select:none;cursor:text; }
+.graphic { position:relative;display:flex;justify-content:center;width:max-content;min-width:100%;z-index:1; } .graphic>svg { display:block;flex:none; }
+.capture { position:absolute;width:2px;height:24px;border:0;padding:0;opacity:0;resize:none;pointer-events:none;font-size:24px; }
+.overlay { position:absolute;inset:0;pointer-events:none; } .overlay>span { position:absolute; } .slot { outline:1px dashed #3953db;outline-offset:3px;z-index:2; }
+.selection { background:#d9e3ff; } .caret { background:#3953db;z-index:2;animation:cursor-blink 1s step-end infinite; } .preedit { width:max-content!important;background:white;border-bottom:1px dashed #3953db;z-index:3; }
+.commands { padding:12px;margin-top:12px;border:1px solid #c4cbd6;border-radius:8px; } .commands input,.commands select { display:block;box-sizing:border-box;width:100%;margin-bottom:8px; } .commands select { padding:8px; }
+@keyframes cursor-blink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+@media(prefers-reduced-motion:reduce) { .caret { animation:none; } }

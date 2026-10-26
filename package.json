@@ -1,0 +1,40 @@
+{
+  "name": "quirekit",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.22.0",
+  "engines": {
+    "node": ">=22 <23",
+    "pnpm": ">=10"
+  },
+  "scripts": {
+    "build": "nx run-many -t build",
+    "typecheck": "nx run-many -t typecheck",
+    "test": "nx run-many -t test --parallel=1",
+    "licenses:sync": "node scripts/licensing/sync.mjs",
+    "licenses:check": "node --test scripts/licensing/*.test.mjs && node scripts/licensing/check.mjs",
+    "licenses:pack:check": "node scripts/licensing/pack.mjs",
+    "release:install:check": "node scripts/release/install-check.mjs",
+    "publish:closure:check": "node --test scripts/check-publish-closure.test.mjs && node scripts/check-publish-closure.mjs",
+    "cm:vendor:check": "node --test scripts/source-vendor/check.test.mjs && node scripts/source-vendor/check.mjs",
+    "check": "pnpm licenses:check && pnpm publish:closure:check && pnpm typecheck && pnpm test && pnpm build && pnpm licenses:pack:check",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm licenses:check && pnpm publish:closure:check && pnpm build && pnpm licenses:pack:check && pnpm release:install:check && changeset publish --tag alpha"
+  },
+  "devDependencies": {
+    "@changesets/cli": "2.31.0",
+    "@playwright/test": "1.61.1",
+    "@quirekit/unocss-preset": "workspace:*",
+    "@types/node": "26.0.0",
+    "nx": "23.0.0",
+    "tsdown": "0.22.3",
+    "typescript": "6.0.3",
+    "unocss": "catalog:",
+    "vitest": "4.1.9",
+    "vue-tsc": "^3.3.7",
+    "yaml": "2.9.0"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "@quirekit/flowchart-x6",
+  "version": "0.1.0-alpha.0",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/flowchart-x6"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/flowchart-x6#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Isolated AntV X6 adapter for QuireKit flowcharts.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src",
+    "licenses"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@antv/x6": "3.1.8",
+    "@quirekit/flowchart": "workspace:*",
+    "@quirekit/ime": "workspace:*",
+    "roughjs": "4.6.6",
+    "uuid": "14.0.3"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

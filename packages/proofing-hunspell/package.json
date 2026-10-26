@@ -1,0 +1,45 @@
+{
+  "name": "@quirekit/proofing-hunspell",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/proofing-hunspell"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/proofing-hunspell#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Hunspell spelling provider for the QuireKit proofing extension, running in a Web Worker.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dictionaries",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./worker": {
+      "types": "./dist/worker.d.mts",
+      "import": "./dist/worker.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts src/worker.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "dependencies": {
+    "@quirekit/extension-proofing": "workspace:*",
+    "hunspell-wasm": "0.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "@quirekit/renderer",
+  "version": "0.1.0-alpha.0",
+  "license": "AGPL-3.0-only",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/renderer"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/renderer#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "description": "Quire Render core: declarative qkView, neutral display lists, Canvas 2D and SVG backends.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "API.md",
+    "API.zh-CN.md",
+    "dist",
+    "README.md",
+    "README.zh-CN.md",
+    "src",
+    "tsconfig.json"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean --out-dir dist",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "dependencies": {
+    "@quirekit/render-contract": "workspace:*",
+    "bidi-js": "^1.0.3"
+  }
+}

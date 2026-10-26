@@ -1,0 +1,95 @@
+{
+  "name": "@quirekit/font-pack",
+  "version": "0.1.0-alpha.0",
+  "description": "Optional application-mounted open font assets for QuireKit.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/font-pack"},
+  "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/font-pack#readme",
+  "bugs": "https://github.com/quirekit/quirekit/issues",
+  "sideEffects": [
+    "./dist/styles.css",
+    "./dist/carlito.css",
+    "./dist/noto-sans-sc.css",
+    "./dist/noto-serif-sc.css",
+    "./dist/lxgw-wenkai.css",
+    "./dist/zhuque-fangsong.css",
+    "./styles.css",
+    "./carlito.css",
+    "./noto-sans-sc.css",
+    "./noto-serif-sc.css",
+    "./lxgw-wenkai.css",
+    "./zhuque-fangsong.css",
+    "./dist/jetbrains-mono.css",
+    "./jetbrains-mono.css"
+  ],
+  "files": [
+    "THIRD_PARTY_NOTICES.md",
+    "dist",
+    "src",
+    "styles.css",
+    "carlito.css",
+    "noto-sans-sc.css",
+    "noto-serif-sc.css",
+    "lxgw-wenkai.css",
+    "zhuque-fangsong.css",
+    "LICENSE.md",
+    "licenses"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./pdf": {
+      "types": "./dist/pdf/index.d.mts",
+      "import": "./dist/pdf/index.mjs"
+    },
+    "./pdf/fonts/*": "./dist/pdf/fonts/*",
+    "./styles.css": "./dist/styles.css",
+    "./carlito.css": "./dist/carlito.css",
+    "./noto-sans-sc.css": "./dist/noto-sans-sc.css",
+    "./noto-serif-sc.css": "./dist/noto-serif-sc.css",
+    "./lxgw-wenkai.css": "./dist/lxgw-wenkai.css",
+    "./zhuque-fangsong.css": "./dist/zhuque-fangsong.css",
+    "./licenses/carlito-OFL.txt": "./dist/licenses/carlito-OFL.txt",
+    "./licenses/noto-sans-sc-OFL.txt": "./dist/licenses/noto-sans-sc-OFL.txt",
+    "./licenses/noto-serif-sc-OFL.txt": "./dist/licenses/noto-serif-sc-OFL.txt",
+    "./licenses/lxgw-wenkai-OFL.txt": "./dist/licenses/lxgw-wenkai-OFL.txt",
+    "./licenses/zhuque-fangsong-OFL.txt": "./dist/licenses/zhuque-fangsong-OFL.txt",
+    "./licenses/noto-sans-hans-OFL.txt": "./dist/licenses/noto-sans-hans-OFL.txt",
+    "./licenses/noto-sans-symbols-2-OFL.txt": "./dist/licenses/noto-sans-symbols-2-OFL.txt",
+    "./licenses/dejavu-fonts-LICENSE.txt": "./dist/licenses/dejavu-fonts-LICENSE.txt",
+    "./jetbrains-mono.css": "./dist/jetbrains-mono.css",
+    "./licenses/jetbrains-mono-OFL.txt": "./dist/licenses/jetbrains-mono-OFL.txt",
+    "./pdf/browser": {
+      "types": "./dist/pdf/browser.d.mts",
+      "import": "./dist/pdf/browser.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown --config tsdown.config.ts && node scripts/copy-assets.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run src && pnpm build && node scripts/verify-artifacts.mjs"
+  },
+  "dependencies": {
+    "@embedpdf/fonts-sc": "1.0.0",
+    "@expo-google-fonts/noto-serif-sc": "0.4.2",
+    "@fontsource/carlito": "5.3.0",
+    "@fontsource/noto-sans-sc": "5.3.0",
+    "@fontsource/noto-sans-symbols-2": "5.3.0",
+    "@fontsource/noto-serif-sc": "5.3.0",
+    "@free-fonts/lxgw-wenkai": "1.0.1",
+    "@free-fonts/zhuque-fangsong": "1.0.0",
+    "@openfonts/carlito_all": "1.0.0",
+    "dejavu-fonts-ttf": "2.37.3"
+  },
+  "devDependencies": {
+    "fontkit": "2.0.4",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "wawoff2": "2.0.1"
+  }
+}

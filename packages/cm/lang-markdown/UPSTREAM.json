@@ -1,0 +1,16 @@
+{
+  "name": "@codemirror/lang-markdown",
+  "version": "6.5.2",
+  "commit": "f90daf6e56a72f1cf8bbe10b07867f535d0ad2e4",
+  "repository": "https://code.haverbeke.berlin/codemirror/lang-markdown.git",
+  "integrity": "sha512-AwBOdkWYuA//WcM0xO5PfHPUcmz/O2i5o0Nsg1U69SII/loCJlFI1Romd9xp2HYb1kYJRGZotyqRghuHH5n8Kw==",
+  "tarball": "https://registry.npmjs.org/@codemirror/lang-markdown/-/lang-markdown-6.5.2.tgz",
+  "license": "MIT",
+  "sourceDirectory": "src",
+  "sourceSha256": "2747d4064c41d358bf7e96c8920b8e26581d32b32e671f6d15de46d1cacd1453",
+  "licenseSha256": "05c6130cda97e7600ca91427a41e8a065efcf82365fc0293e7de80faec494c07",
+  "localChanges": [
+    "Package names, imports and build/test configuration use QuireKit workspace identities."
+  ],
+  "sourceEntry": "src/index.ts"
+}

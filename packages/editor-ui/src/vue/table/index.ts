@@ -1,0 +1,13 @@
+export { createEditorUITableResizeController } from "./resize-session";
+export { createEditorUITableMoveController } from "./reorder-session";
+export { createEditorUITableMoveRequestFromPreview, resolveNearestEditorUITableMoveBoundary } from "./reorder-target";
+export { createEditorUITableInsertionStyle, createEditorUITableInsertionGuideStyle, createEditorUITableResizeHoverGuideStyle, createEditorUITableResizeHandleStyle, createEditorUITableResizeGuideStyle } from "./boundary-geometry";
+export { createEditorUITableColumnBarStyle, createEditorUITableRowBarStyle, translateEditorUITableChromeModel, projectEditorUITableChromeModelToScrollSpace, createEditorUITableMoveGuideStyle } from "./geometry";
+export { useEditorUITableRailNeighborhood } from "./rail/neighborhood";
+export { createEditorUITableRailLabel } from "./rail/label";
+export { createTableResizeHitTest } from "./rail/hit/geometry";
+export { useTableResizeHover } from "./rail/hit/hover";
+export * from "./types";
+export * from "./constraints";
+export { default as EditorUITableChrome } from "./chrome.vue";
+export { createEditorUITableRailBackground } from "./rail/background";

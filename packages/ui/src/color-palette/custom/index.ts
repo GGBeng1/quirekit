@@ -1,0 +1,1 @@
+export { createQuireCustomColorPanel } from "./panel";
