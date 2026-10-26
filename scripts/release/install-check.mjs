@@ -116,7 +116,12 @@ try {
     loaded += loadable.length - failures.length;
     errors.push(...failures.map(({ specifier, error }) => `${specifier}: ${error}`));
   });
-  for (const specifier of unusedSkips) errors.push(`allowances.mjs lists ${specifier}, which no package exports or loads`);
+  // An allowance for a package this release does not publish is kept for later batches.
+  const published = new Set(packages.map(({ name }) => name));
+  const packageOf = (specifier) => specifier.split("/").slice(0, specifier.startsWith("@") ? 2 : 1).join("/");
+  for (const specifier of unusedSkips) {
+    if (published.has(packageOf(specifier))) errors.push(`allowances.mjs lists ${specifier}, which no package exports or loads`);
+  }
 
   // Phase 5: declaration resolution under NodeNext, covering skipped runtime entries too.
   process.stdout.write("Resolving declarations with tsc (moduleResolution NodeNext)\n");

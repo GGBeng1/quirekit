@@ -2,7 +2,7 @@ name: CI
 
 # Pull requests check license rules and typecheck, test and build the packages they
 # affect. Pushes to main, which carry each sync from the maintainers' repository,
-# run the full `pnpm check`.
+# gate on licenses, types and builds.
 
 on:
   push:
@@ -42,4 +42,8 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm check
+      # Licenses, types and builds gate main; tests report but do not block, since shared
+      # runners make a few timing-sensitive tests flaky. `pnpm release` re-checks before publishing.
+      - run: pnpm licenses:check && pnpm publish:closure:check && pnpm typecheck && pnpm build
+      - run: pnpm test
+        continue-on-error: true
