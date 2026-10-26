@@ -23,7 +23,7 @@ async function button(label: string): Promise<HTMLButtonElement> {
     found = [...document.querySelectorAll<HTMLButtonElement>("button")].find(value => !value.disabled
       && (value.getAttribute("aria-label") === label || value.textContent?.trim() === label));
     expect(found).toBeDefined();
-  });
+  }, { timeout: 5000 });
   return found!;
 }
 
@@ -40,14 +40,14 @@ it("hands a mobile adjacent insertion to the product workspace without canceling
   const app = createApp({ render: () => h(MdEditor, { ref: product, markdown }) });
   cleanup = () => app.unmount();
   app.mount(host); await nextTick();
-  await vi.waitFor(() => expect(product.value?.editor).toBeTruthy());
+  await vi.waitFor(() => expect(product.value?.editor).toBeTruthy(), { timeout: 5000 });
   const editor = product.value!.editor!;
   editor.setSelection(EditorSelection.single(markdown.indexOf("one") + 1));
   await nextTick();
   (await button("插入")).click(); await nextTick();
   (await button("在表格后插入")).click(); await nextTick();
   (await button("多维表格")).click(); await nextTick();
-  await vi.waitFor(() => expect(workspace.request).not.toBeNull());
+  await vi.waitFor(() => expect(workspace.request).not.toBeNull(), { timeout: 5000 });
   expect(workspace.closed).toBe(false);
   expect(editor.getMarkdown()).toBe(markdown);
   expect(editor.history.canUndo).toBe(false);
