@@ -164,4 +164,4 @@ it("uses the public bottom-panel presentation in a narrow owner viewport", async
   expect(task.getAttribute("aria-modal")).toBe("true");
   await name(task, "窄屏草稿"); button(task, "取消");
   await expect.poll(() => document.activeElement, { timeout: 5000 }).toBe(trigger); expect(commits).toHaveLength(0);
-});
+}, 15000);

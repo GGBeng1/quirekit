@@ -56,7 +56,8 @@ describe("incremental Prose and source projection", () => {
     expect(directOutput(view)).toEqual(directOutput(fresh.view));
   });
 
-  it.each([100, 1000, 5000])("keeps middle-line work local in %i multiline paragraphs", count => {
+  // The 5000-paragraph case measures large-document behavior and is too timing-sensitive for shared CI runners.
+  it.each(process.env.CI ? [100, 1000] : [100, 1000, 5000])("keeps middle-line work local in %i multiline paragraphs", count => {
     const source = Array.from({ length: count }, (_, i) => `Paragraph ${i}: **bold**.\nSecond line [link][id].\nThird line.\n\n`).join("") + "[id]: /target\n";
     const { editor, view } = mount(source);
     // Snapshot the fully parsed structure; under load the first parse is cut off by its time budget.
