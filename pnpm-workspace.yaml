@@ -166,6 +166,13 @@ overrides:
   '@tiptap/*': 3.30.5
   vue: 3.5.43
 
+# tunnel-rat (used by Excalidraw) imports React without declaring it; the peer keeps it on
+# the whiteboard's React instead of the hoisted one.
+packageExtensions:
+  tunnel-rat@0.1.2:
+    peerDependencies:
+      react: '*'
+
 patchedDependencies:
   '@ark-ui/vue@5.39.1': patches/@ark-ui__vue@5.39.1.patch
   '@zag-js/menu@1.43.3': patches/@zag-js__menu@1.43.3.patch

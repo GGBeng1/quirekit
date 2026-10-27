@@ -26,17 +26,12 @@ no API guarantee.
 
 ## Licensing
 
-Packages in this repository use one of two licenses; each package's `LICENSE.md` is
-authoritative:
-
-- **MIT**: the editor core, extensions, MSFE, MD Editor, diagram and formula editors, data view, the AI contract, UI and
-  more, free for any project.
-- **AGPL-3.0-only**: the Canvas layout engine (`renderer`, `layout`, `view-engine`, `view` and
-  related packages) and the Classic and Block editor shells. Distributing them in closed-source
-  products (including shipping them to browsers), or offering a modified version as a network
-  service, can be done under a QuireKit commercial license instead, without AGPL obligations, as
-  section 7 of
-  [`licenses/QuireKit-Commercial.md`](licenses/QuireKit-Commercial.md) describes.
+Every package in this repository is MIT and free for any project, including the editor
+core, the Canvas/SVG layout engine and views, the Classic and Block editor shells, MSFE,
+MD Editor, the diagram and formula editors, data views and UI. Each package's `LICENSE.md`
+is authoritative. Word compatibility (the Word semantic stack, DOCX round trips, PDF/OFD
+export, review and official-document templates) ships separately as QuireKit commercial
+components.
 
 Vendored ProseMirror, CodeMirror and Lezer packages keep their upstream license files, and
 third-party notices ship with every package in `THIRD_PARTY_NOTICES.md`.

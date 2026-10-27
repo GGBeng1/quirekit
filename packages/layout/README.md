@@ -19,4 +19,4 @@ Use `@quirekit/view` or Classic for application integration. This package is pub
 
 ## License
 
-[AGPL-3.0-only](./LICENSE.md). Third-party notices: [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).
+[MIT](./LICENSE.md). Third-party notices: [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).

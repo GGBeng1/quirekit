@@ -1,6 +1,6 @@
 # QuireKit Commercial License / QuireKit 商业许可证
 
-Version 0.7. 中文版见下文。The Chinese version follows the English version.
+Version 0.8. 中文版见下文。The Chinese version follows the English version.
 
 Copyright (c) 2026 Wang Yishuai (王一帅). All rights reserved.
 
@@ -10,9 +10,6 @@ Copyright (c) 2026 Wang Yishuai (王一帅). All rights reserved.
   legal entity to which that holder assigns the rights.
 - "Commercial Component" means any software package the Licensor publishes under
   this license, including its source code, build output and documentation.
-- "AGPL Packages" means every software package the Licensor publishes under the GNU
-  Affero General Public License version 3 only, as listed in `licenses/policy.json` of
-  the official QuireKit repository at the time of the relevant release.
 - "Agreement" means a written order, subscription or license agreement, including an
   online order, signed or accepted by the Licensor that names the Commercial Component.
   Every paid license key is issued under an Agreement.
@@ -57,7 +54,7 @@ Projects whose complete corresponding source, including the deployed version of 
 hosted service, is published under a license approved by the Open Source Initiative
 may use the value `open-source` in place of a license key, only within that project.
 It removes the notices of Commercial Components in that project and permits its
-Production use, but is not a free key for the purposes of section 7.
+Production use.
 
 The Licensor may also, at its sole discretion and case by case, issue free license
 keys through its official channel, for example to individuals for personal,
@@ -89,28 +86,11 @@ Unless an Agreement expressly allows it, you must not:
   against its functionality. Building and selling your own applications and services
   on top of it, including document editors and online document products, is allowed.
 
-Section 6 does not restrict anything you do with an AGPL Package under the AGPL.
+## 7. Relationship with the open-source packages
 
-## 7. Relationship with the open tiers
-
-QuireKit packages licensed under the MIT License remain under the MIT License.
-
-As the copyright holder of the AGPL Packages, the Licensor additionally offers them
-under this license, as an alternative to the AGPL, to:
-
-- every holder of an Agreement, for the applications and services the Agreement
-  covers; and
-- every holder of a free key issued under section 5, whether or not they also use a
-  Commercial Component, for the uses the key permits.
-
-Such holders may use, modify and include the AGPL Packages in their applications and
-services, including closed-source ones, without the obligations of the AGPL, subject
-to section 6, which then applies to the AGPL Packages as it does to Commercial
-Components. Everyone else uses the AGPL Packages under the AGPL; the Licensor
-nevertheless permits combining them with Commercial Components without releasing the
-Commercial Components themselves under the AGPL, while all other parts of the
-application remain subject to the AGPL. This offer does not limit any right granted by
-the AGPL.
+QuireKit packages licensed under the MIT License remain under the MIT License. This
+license adds no restriction to them, and you may combine them with Commercial
+Components.
 
 ## 8. Third-party material
 
@@ -134,9 +114,9 @@ NEGLIGENCE, OR ANY OTHER LIABILITY THAT CANNOT BE LIMITED UNDER APPLICABLE LAW.
 ## 10. Termination
 
 For holders of an Agreement, termination is governed by the Agreement. For everyone
-else, rights under sections 3, 5 and 7 end if a breach is not cured within thirty
+else, rights under sections 3 and 5 end if a breach is not cured within thirty
 days after notice from the Licensor. On termination you must stop using and delete the
-Commercial Component; you may continue to use AGPL Packages under the AGPL. Sections 6,
+Commercial Component. Sections 6,
 8, 9, 12, 14 and 15 survive termination. The expiry of an Agreement's term, or the end of a
 free key holder's eligibility, is not a breach.
 
@@ -148,7 +128,7 @@ used within it; for example, a Classic key covers DOCX conversion inside Classic
 standalone DOCX service.
 
 A license key states the last date on which it covers new versions. Versions of a
-Commercial Component or AGPL Package released by the Licensor on or before that date,
+Commercial Component released by the Licensor on or before that date,
 and later patch releases of the same major and minor version line, remain licensed
 under the key without time limit, for as long as the holder complies with this license
 and any Agreement. Other later versions require a renewed key or Agreement. The
@@ -185,8 +165,7 @@ the applications, domains and number of Developers using its keys or Agreement.
 
 The Licensor grants you a royalty-free patent license, of the same scope as the
 copyright rights you hold under this license, for the Licensor's patent claims
-necessarily infringed by the Commercial Component or, under section 7, the AGPL
-Packages. This patent license ends if you start litigation alleging that QuireKit
+necessarily infringed by the Commercial Component. This patent license ends if you start litigation alleging that QuireKit
 infringes a patent.
 
 ## 15. Language
@@ -198,14 +177,12 @@ In case of any inconsistency between them, the Chinese version prevails.
 
 ## 中文版
 
-0.7 版。版权所有 (c) 2026 王一帅（Wang Yishuai）。保留所有权利。
+0.8 版。版权所有 (c) 2026 王一帅（Wang Yishuai）。保留所有权利。
 
 ### 1. 定义
 
 - “许可方”指 QuireKit 的著作权人王一帅（Wang Yishuai），或该著作权人将权利转让给的法律主体。
 - “商业组件”指许可方按本许可证发布的任何软件包，包括其源代码、构建产物和文档。
-- “AGPL 包”指在相关版本发布时，QuireKit 官方仓库 `licenses/policy.json` 中列出的、许可方仅以
-  GNU Affero 通用公共许可证第 3 版发布的全部软件包。
 - “授权协议”指许可方签署或接受的、写明该商业组件的书面订单、订阅或许可协议，包括在线订单。
   所有付费授权码均随授权协议签发。
 - “关联方”指控制你、受你控制或与你受同一方控制的任何实体。
@@ -234,8 +211,7 @@ In case of any inconsistency between them, the Chinese version prevails.
 ### 5. 免费授权
 
 完整对应源代码（包括任何托管服务所部署的版本）以开放源代码促进会（OSI）认可的许可证公开的项目，
-可以在该项目内使用 `open-source` 值代替授权码。该值去除该项目中商业组件的提示并允许其用于生产，
-但不属于第 7 条所称的免费授权码。
+可以在该项目内使用 `open-source` 值代替授权码。该值去除该项目中商业组件的提示并允许其用于生产。
 
 许可方还可以自行决定、逐案通过官方渠道签发免费授权码，例如签发给个人用于个人非商业用途、签发给
 学校和科研机构用于教学和非商业研究，或签发给非营利组织用于其非营利活动。任何人均无权要求签发此类
@@ -258,21 +234,10 @@ In case of any inconsistency between them, the Chinese version prevails.
   主要目的是让第三方嵌入、扩展或通过编程调用其功能的任何产品中。在其上构建并销售你自己的应用和服务，
   包括文档编辑器和在线文档产品，是允许的。
 
-第 6 条不限制你依据 AGPL 对 AGPL 包所做的任何事情。
+### 7. 与开源包的关系
 
-### 7. 与开放层级的关系
-
-以 MIT 许可证授权的 QuireKit 软件包仍适用 MIT 许可证。
-
-许可方作为 AGPL 包的著作权人，另行按本许可证向下列人员提供 AGPL 包，作为 AGPL 之外的选择：
-
-- 每一位授权协议持有人，限于该授权协议覆盖的应用和服务；以及
-- 每一位依第 5 条签发的免费授权码持有人，无论其是否同时使用商业组件，限于该授权码允许的用途。
-
-上述持有人可以在其应用和服务（包括闭源应用和服务）中使用、修改和包含 AGPL 包，不承担 AGPL 规定的
-义务，但须遵守第 6 条，此时第 6 条对 AGPL 包的适用与对商业组件的适用相同。其他所有人依据 AGPL 使用
-AGPL 包；但许可方允许将其与商业组件组合，而无须将商业组件本身以 AGPL 发布，应用的其他所有部分仍适用
-AGPL。本项提供不限制 AGPL 授予的任何权利。
+以 MIT 许可证授权的 QuireKit 软件包仍适用 MIT 许可证。本许可证不对其增加任何限制，你可以将其与
+商业组件组合使用。
 
 ### 8. 第三方材料
 
@@ -291,8 +256,7 @@ AGPL。本项提供不限制 AGPL 授予的任何权利。
 ### 10. 终止
 
 授权协议持有人的终止事宜依授权协议处理。对其他所有人，如违约行为在收到许可方通知后三十天内未得到
-补救，其依第 3 条、第 5 条和第 7 条享有的权利终止。终止后，你必须停止使用并删除商业组件；你可以继续
-依据 AGPL 使用 AGPL 包。第 6 条、第 8 条、第 9 条、第 12 条、第 14 条和第 15 条在终止后继续有效。
+补救，其依第 3 条和第 5 条享有的权利终止。终止后，你必须停止使用并删除商业组件。第 6 条、第 8 条、第 9 条、第 12 条、第 14 条和第 15 条在终止后继续有效。
 授权协议期限届满或免费授权码持有人资格结束，不属于违约。
 
 ### 11. 授权码与版本
@@ -300,7 +264,7 @@ AGPL。本项提供不限制 AGPL 授予的任何权利。
 授权码限于其所列的产品线、域名和方案。某一产品线的授权码同时覆盖该产品线内部使用的组件，但仅限于
 在该产品线内使用；例如，Classic 授权码覆盖 Classic 内的 DOCX 转换，但不覆盖独立的 DOCX 服务。
 
-授权码写明其覆盖新版本的最后日期。许可方在该日期当日或之前发布的商业组件或 AGPL 包版本，以及同一
+授权码写明其覆盖新版本的最后日期。许可方在该日期当日或之前发布的商业组件版本，以及同一
 主版本和次版本线此后发布的补丁版本，只要持有人遵守本许可证及任何授权协议，即可依该授权码无期限使用。
 其他后续版本需要续期的授权码或授权协议。许可方可以吊销已终止、已退款或在被许可方之外泄露的授权码；
 后续版本可以拒绝该授权码。
@@ -325,7 +289,7 @@ AGPL。本项提供不限制 AGPL 授予的任何权利。
 
 ### 14. 专利
 
-许可方就商业组件，或依第 7 条就 AGPL 包，必然侵犯的许可方专利权利要求，授予你一项免费的专利许可，
+许可方就商业组件必然侵犯的许可方专利权利要求，授予你一项免费的专利许可，
 其范围与你依本许可证享有的著作权权利相同。如你提起诉讼，主张 QuireKit 侵犯专利，该专利许可终止。
 
 ### 15. 语言

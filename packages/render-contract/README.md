@@ -25,8 +25,8 @@ Render coordinates retain CSS-pixel semantics; document ranges are numeric metad
 Hosts and backends own font loading, DOM mounting, and unit conversion.
 
 Install `@quirekit/renderer` separately for `qkView`, Canvas/SVG backends, or geometry
-algorithms. That implementation uses AGPL-3.0-only, with a separate commercial license
-available. This package does not depend on Renderer or bring in its implementation.
+algorithms; it is also MIT. This package does not depend on Renderer or bring in its
+implementation.
 Renderer still re-exports these types for existing consumers.
 
 This is a alpha developer preview, not a claim of public release or stable APIs.

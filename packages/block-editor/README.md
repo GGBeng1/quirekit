@@ -43,4 +43,4 @@ console.log(instance.editor.getJSON())
 
 ## License
 
-[AGPL-3.0-only](./LICENSE.md). Third-party notices: [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).
+[MIT](./LICENSE.md). Third-party notices: [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).

@@ -21,4 +21,4 @@ Add `WordStyles` to the editor extensions to apply styles such as "Heading 1" an
 
 ## License
 
-[AGPL-3.0-only](./LICENSE.md); third-party notices are in [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).
+[MIT](./LICENSE.md); third-party notices are in [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).

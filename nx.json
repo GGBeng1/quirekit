@@ -3,6 +3,7 @@
   "defaultBase": "main",
   "targetDefaults": {
     "build": {
+      "cache": true,
       "dependsOn": [
         "^build"
       ],

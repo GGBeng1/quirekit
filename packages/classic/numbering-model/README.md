@@ -21,4 +21,4 @@ Add `WordNumbering` to the editor extensions together with `@quirekit/classic-pa
 
 ## License
 
-[AGPL-3.0-only](./LICENSE.md); third-party notices are in [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).
+[MIT](./LICENSE.md); third-party notices are in [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).

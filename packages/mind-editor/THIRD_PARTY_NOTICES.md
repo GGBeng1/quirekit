@@ -13,14 +13,12 @@ A license below applies to its identified material, not to all QuireKit code.
 
 Copyright (c) 2026 Wang Yishuai (王一帅) and QuireKit contributors
 
-QuireKit 原创部分按包分为三层：MIT 生态层、GNU AGPL 第 3 版（仅此版本，`AGPL-3.0-only`）
-引擎层，以及 QuireKit 商业组件。每个包的许可以其包内 `LICENSE.md` 为准。以下第三方材料
-继续遵循其原有许可，不受上述任何一层影响。
+QuireKit 原创部分按包分为两层：MIT 开源包，以及 QuireKit 商业组件。每个包的许可以其
+包内 `LICENSE.md` 为准。以下第三方材料继续遵循其原有许可，不受上述任何一层影响。
 
-QuireKit original work is licensed per package in three tiers: MIT, GNU AGPL
-version 3 only (`AGPL-3.0-only`) and the QuireKit Commercial License. Each
-package's `LICENSE.md` is authoritative. Third-party materials below retain their
-own terms regardless of tier.
+QuireKit original work is licensed per package in two tiers: MIT and the QuireKit
+Commercial License. Each package's `LICENSE.md` is authoritative. Third-party
+materials below retain their own terms regardless of tier.
 
 ## ProseMirror
 

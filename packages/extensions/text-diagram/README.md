@@ -26,4 +26,4 @@ Add `TextDiagram` to Core’s `extensions` and use `text-diagram-editor` for the
 
 ## License
 
-[AGPL-3.0-only](./LICENSE.md). Third-party notices: [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).
+[MIT](./LICENSE.md). Third-party notices: [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).

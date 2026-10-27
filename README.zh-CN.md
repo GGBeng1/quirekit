@@ -23,13 +23,10 @@ README 标注为内部包的，是上面这些包的依赖，不承诺 API 稳�
 
 ## 许可
 
-本仓库的包分为两种许可，以各包内的 `LICENSE.md` 为准：
-
-- **MIT**：编辑内核、扩展、MSFE、MD Editor、图形与公式编辑器、多维表格、AI 合同、UI 等，可自由用于任何项目。
-- **AGPL-3.0-only**：Canvas 排版引擎（`renderer`、`layout`、`view-engine`、`view` 等）与
-  Classic、Block 编辑器外壳。在闭源产品中分发（含下发到浏览器）或修改后对外提供网络服务时，可改用 QuireKit
-  商业授权，按商业条款闭源使用，无需履行 AGPL 义务，条款见
-  [`licenses/QuireKit-Commercial.md`](licenses/QuireKit-Commercial.md) 第 7 条。
+本仓库的所有包均为 MIT，可自由用于任何项目，包括编辑内核、Canvas/SVG 排版引擎与视图、
+Classic 与 Block 编辑器外壳、MSFE、MD Editor、图形与公式编辑器、多维表格和 UI。以各包内的
+`LICENSE.md` 为准。Word 兼容能力（Word 语义、DOCX 往返、PDF/OFD 导出、审阅与公文模板）
+作为 QuireKit 商业组件单独提供。
 
 vendored 的 ProseMirror、CodeMirror 与 Lezer 包保留上游许可文件，第三方声明随每个包的
 `THIRD_PARTY_NOTICES.md` 分发。

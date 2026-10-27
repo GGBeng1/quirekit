@@ -22,8 +22,8 @@ const scene: QuireDisplayList = {
 领域包括 geometry、document、display-list、font、overlay 和 surface。渲染坐标沿用
 CSS px；文档范围只是数值元数据。字体加载、DOM 挂载和单位换算由对应宿主或后端负责。
 
-使用 `qkView`、Canvas/SVG 后端或几何算法需要另行安装 `@quirekit/renderer`，该实现采用
-AGPL-3.0-only，也可取得单独的商业授权。契约包不依赖 Renderer；使用本包不会自动引入其实现。
+使用 `qkView`、Canvas/SVG 后端或几何算法需要另行安装 `@quirekit/renderer`，它同样采用
+MIT。契约包不依赖 Renderer；使用本包不会自动引入其实现。
 Renderer 为兼容旧代码仍转导出这些类型。
 
 当前是 alpha 开发者预览，尚未宣称公开发布或稳定 API。仓库内运行 `pnpm render:preview`

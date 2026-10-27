@@ -37,10 +37,7 @@
 
 ## 许可
 
-本包使用标准 [AGPL-3.0-only](./LICENSE.md)，同时提供单独的商业授权选项。
-可以遵守 AGPL 使用，包括商业使用。闭源产品或对外服务也可签订付费协议，改按 QuireKit 商业许可使用（QuireKit 商业许可证第 7 条）。
-商业授权不作为附加限制写入 AGPL 原文。第三方代码继续遵循随包的
-[上游声明](./THIRD_PARTY_NOTICES.md)，此前已经取得的 MIT 权利不被此次调整撤回。
+[MIT](./LICENSE.md)；第三方代码继续遵循随包的[上游声明](./THIRD_PARTY_NOTICES.md)。
 
 仅需几何、绘制、字体或绘制表面类型时，可以直接使用 MIT 的 `@quirekit/render-contract`。
 官方 PDF/OFD 适配和精品模板另行授权，不包含在本包中。

@@ -76,8 +76,7 @@ East Asian grid compression are outside this basic policy.
 
 Neutral types are defined once in the MIT `@quirekit/render-contract` package and
 re-exported here for compatibility. Algorithms, component compilation, and painting
-use this package’s AGPL-3.0-only or separate commercial license; the type license
-does not extend to those implementations.
+live in this package.
 
 Core data types are the shared language between the widget compiler, Canvas
 backend, SVG backend, and editor view packages.

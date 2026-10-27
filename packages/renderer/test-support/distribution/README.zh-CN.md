@@ -31,6 +31,6 @@ pnpm test
 契约包先构建，Renderer 随后编译；全部依赖均由这份快照或 pnpm 锁文件给出，
 不需要 QuireKit monorepo、源码别名或商业包。
 
-`render-contract` 使用 MIT；`renderer` 使用 AGPL-3.0-only，可另购商业授权。
+`render-contract` 与 `renderer` 均使用 MIT。
 第三方许可随包保留，根目录许可不覆盖包内独立 MIT 授权。本预览未包含商业 PDF/OFD
 适配、付费模板或商业许可协议。首次公开前仍须确认历史交付、权属和正式商业条款。

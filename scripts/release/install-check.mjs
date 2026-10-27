@@ -2,10 +2,11 @@
 // Installs every publishable package from its real `pnpm pack` tarball into a throwaway
 // consumer project, then loads each export the way an application would. Requires built
 // packages (`pnpm build`) and network or store access for third-party dependencies.
-// Nothing is published. Pass `--keep` to leave the consumer project for inspection.
+// Nothing is published. Pass `--keep` to leave the consumer project for inspection, and
+// `--extra-tarballs <dir>` to install prepacked tarballs (commercial artifacts) alongside.
 
 import { execFile } from "node:child_process";
-import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { copyFileSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { basename, join, resolve } from "node:path";
 import { promisify } from "node:util";
@@ -13,10 +14,13 @@ import { readWorkspace } from "../licensing/workspace.mjs";
 import { checkPackedFiles, collectEntries } from "./install/entries.mjs";
 import { runtimeSkips, thirdPartyExtensions } from "./install/allowances.mjs";
 import { checkDeclarations } from "./install/types.mjs";
+import { checkNpmResolution } from "./install/npm.mjs";
 
 const run = promisify(execFile);
 const root = resolve(import.meta.dirname, "../..");
 const keep = process.argv.includes("--keep");
+const extraIndex = process.argv.indexOf("--extra-tarballs");
+const extra = extraIndex < 0 ? undefined : resolve(process.argv[extraIndex + 1]);
 const rootManifest = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
 
 /**
@@ -67,6 +71,13 @@ try {
     });
     return { name: entry.manifest.name, file: join(tarballs, basename(JSON.parse(stdout).filename)) };
   });
+  if (extra) {
+    for (const file of readdirSync(extra).filter((name) => name.endsWith(".tgz"))) {
+      const { stdout } = await run("tar", ["-xOzf", join(extra, file), "package/package.json"]);
+      packed.push({ name: JSON.parse(stdout).name, file: join(extra, file) });
+    }
+    process.stdout.write(`Added ${packed.length - publishable.length} prepacked tarballs from ${extra}\n`);
+  }
 
   // Phase 2: a plain consumer that pins every @quirekit edge to the local tarballs. `hoist=false`
   // keeps pnpm's hidden hoisting from satisfying dependencies a package forgot to declare.
@@ -86,6 +97,8 @@ try {
   }).catch((error) => {
     throw new Error(`pnpm install failed:\n${error.stdout}\n${error.stderr}`);
   });
+  process.stdout.write("Resolving the same tarballs with npm install --package-lock-only\n");
+  errors.push(...await checkNpmResolution(join(workspace, "npm-consumer"), local, cleanEnv()));
 
   // Phase 3: manifest residue and export targets, read from the installed packed manifests.
   const packages = packed.map(({ name }) => {

@@ -26,4 +26,4 @@ npm install @quirekit/extension-mind-map@alpha
 
 ## 许可
 
-[AGPL-3.0-only](./LICENSE.md)；第三方声明见 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md)。
+[MIT](./LICENSE.md)；第三方声明见 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md)。

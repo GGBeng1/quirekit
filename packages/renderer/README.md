@@ -44,12 +44,7 @@ Those editor concerns belong to `@quirekit/view` and `@quirekit/core`.
 
 ## License
 
-This package uses the standard [AGPL-3.0-only](./LICENSE.md), with a separate
-commercial licensing option. AGPL-compliant use includes commercial use. Closed-source
-products and hosted services can instead use it under the QuireKit commercial license
-with a paid agreement (section 7 of the QuireKit commercial license). No commercial restriction is added to the AGPL text.
-Third-party code retains its [upstream notices](./THIRD_PARTY_NOTICES.md), and
-this change does not revoke previously granted MIT rights.
+[MIT](./LICENSE.md). Third-party code retains its [upstream notices](./THIRD_PARTY_NOTICES.md).
 
 For geometry, drawing, font, or surface types alone, use the MIT
 `@quirekit/render-contract`. Official PDF/OFD adapters and premium templates

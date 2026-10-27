@@ -1,4 +1,4 @@
-// Contract shared by DOCX feature declarations and the AGPL implementation in @quirekit/lit-docx.
+// Contract shared by DOCX feature declarations and the implementation in @quirekit/lit-docx.
 export * from "./authoring/api.js";
 export * from "./authoring/blocks.js";
 export * from "./authoring/codec/binding.js";

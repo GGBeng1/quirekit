@@ -1,8 +1,7 @@
 {
   "name": "@quirekit/accessibility",
-  "version": "0.0.1-alpha.0",
-  "private": true,
-  "license": "AGPL-3.0-only",
+  "version": "0.0.1-alpha.1",
+  "license": "MIT",
   "repository": {"type":"git","url":"git+https://github.com/quirekit/quirekit.git","directory":"packages/accessibility"},
   "homepage": "https://github.com/quirekit/quirekit/tree/main/packages/accessibility#readme",
   "bugs": "https://github.com/quirekit/quirekit/issues",

@@ -10,7 +10,7 @@ import type { FormulaFamily } from './types';
 function categoryIcon(paths: string): QuireKitIconData {
   return defineQuireKitIcon({
     svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`,
-    source: 'custom', license: 'AGPL-3.0-only',
+    source: 'custom', license: 'MIT',
   });
 }
 
