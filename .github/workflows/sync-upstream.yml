@@ -1,0 +1,31 @@
+name: Sync Upstream
+
+on:
+  schedule:
+    # 每天 UTC 0 点（北京时间早 8 点）自动同步一次
+    - cron: '0 0 * * *'
+  # 支持在 GitHub 页面手动触发
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target repository
+        uses: actions/checkout@v4
+        with:
+          # 必须使用具备写入权限的默认 GITHUB_TOKEN
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync upstream changes
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
+        with:
+          upstream_sync_repo: <上游用户名>/<上游仓库名>  # 例如: torvalds/linux
+          upstream_sync_branch: main                  # 上游分支名（如 main 或 master）
+          target_sync_branch: main                    # 本地对应的分支名
+          target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+          # 设为 false 表示：如果出现冲突则直接报错中断，防止污染本地分支
+          test_mode: false
